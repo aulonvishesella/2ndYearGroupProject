@@ -6,10 +6,12 @@
 package teamproject;
 
 import java.awt.CardLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
@@ -30,20 +32,22 @@ public class Controller {
     Bapers bapers;
     Jdbc jdbc;
     AccountController accController;
-    
+    Logout logout;
     //jtable selected row
     int selectedRow;
     
-    public Controller(Login login,Bapers bapers,Jdbc jdbc){
+    public Controller(Login login,Bapers bapers,Jdbc jdbc,Logout logout){
     this.login = login;
     this.bapers = bapers;
     this.jdbc = jdbc;
+    this.logout=logout;
     
     
     
     //action Listener 
     addLoginListener();
     addBapersListener();
+    addLogoutListener();
     
     //shows current logged in user
     
@@ -54,6 +58,7 @@ public class Controller {
     public void addBapersListener(){
         //adds navigation for menu bar
         bapers.navigationBar(new BapersMenu());
+        
         //adds navigation everything else
         bapers.CustomerPanelNavigation(new CustomerPanelNavigation());
         
@@ -85,16 +90,30 @@ public class Controller {
       
     }
     
+    public void addLogoutListener(){
+        logout.addLogoutAuth(new LogoutAuth());
+    }
+    
     public void addLoginListener(){
         login.addLoginAuth(new LoginAuth());
     }
+ 
     
     public void displayCustomerTable(){
     
     jdbc.displayCustomer(bapers.getCustomerTable());
     }
     
- 
+ class LogoutAuth implements ActionListener{
+       @Override
+        public void actionPerformed(ActionEvent e) {
+          
+            logout.dispose();
+            login.show(true);
+            
+        }
+ }
+    
     //login actionlistener 
     class LoginAuth implements ActionListener{
 
@@ -129,6 +148,9 @@ public class Controller {
     }
     
     }
+    
+    
+    
     //menubar navigation ActionLisenter
     class BapersMenu implements ActionListener{
 
@@ -136,8 +158,12 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             
                 if(e.getActionCommand().contains("Logout")){
+                    
                     bapers.dispose();
+                   
+                    logout.setVisible(true);
                     System.out.println("logout");
+                    
                 }else{
                   
                     //selects the panels depending on which button is clicked
@@ -288,5 +314,5 @@ public class Controller {
     
     
     }
-    
+   
 }

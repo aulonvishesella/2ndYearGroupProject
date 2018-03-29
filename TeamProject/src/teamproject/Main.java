@@ -23,6 +23,7 @@ public class Main {
       
         //connect to database
         Jdbc jdbc = new Jdbc();
+        Logout logout = new Logout();
         
         
         //login page
@@ -46,7 +47,7 @@ public class Main {
         ReportController reportController = new ReportController();
         
         //main controller
-        Controller controller = new Controller(login,bapers,jdbc);
+        Controller controller = new Controller(login,bapers,jdbc,logout);
     
     }
  

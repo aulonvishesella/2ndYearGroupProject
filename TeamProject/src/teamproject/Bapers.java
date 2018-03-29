@@ -135,6 +135,11 @@ public class Bapers extends javax.swing.JFrame {
         customerLabel.setText("Customers");
 
         Customersbtn.setText("Customers");
+        Customersbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomersbtnActionPerformed(evt);
+            }
+        });
 
         customerInfoBtn.setText("Customer Info");
         customerInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -568,9 +573,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, customerMainLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(customerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(customerMainLayout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(customerMainLayout.createSequentialGroup()
                                 .addComponent(customerMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(customerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -843,6 +846,10 @@ public class Bapers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_allRadioButtonActionPerformed
 
+    private void CustomersbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomersbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomersbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -929,6 +936,8 @@ public class Bapers extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     void navigationBar(Controller.BapersMenu bapersNavi) {
+        
+        
         homepageBtn.addActionListener(bapersNavi);
         customerBtn.addActionListener(bapersNavi);
         PaymentBtn.addActionListener(bapersNavi);
@@ -937,8 +946,9 @@ public class Bapers extends javax.swing.JFrame {
         reportsBtn.addActionListener(bapersNavi);
         logoutBtn.addActionListener(bapersNavi);
     }
-    
-    
+   
+  
+   
     
     
     
@@ -946,6 +956,8 @@ public class Bapers extends javax.swing.JFrame {
         card.show(mainPanel, x);
 
     }
+    
+   
     
     public void setPanelCustomer(String x){
         card.show(mainPanel,"customers");

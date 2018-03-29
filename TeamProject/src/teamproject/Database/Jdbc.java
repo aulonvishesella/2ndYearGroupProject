@@ -1,0 +1,202 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package teamproject.Database;
+
+import java.sql.*;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import teamproject.Accounts.Customer;
+
+
+
+/**
+ *
+ * @author Ramee
+ */
+public class Jdbc {
+    
+   
+     Connection conn = getConnection();
+    
+    public Jdbc() throws Exception{
+    
+    getConnection();
+    
+    }
+    
+    
+    public static Connection getConnection() throws Exception{
+    
+     try{
+             String driver = "com.mysql.jdbc.Driver";
+             String url = "jdbc:mysql://localhost:3306/sampledatabase";
+             String username = "root";
+             String password = "1234";
+             
+             Class.forName(driver);
+             
+             Connection conn = DriverManager.getConnection(url, username, password);
+             
+             
+             
+             System.out.println("connected");
+             
+             
+             return conn;
+    } catch(Exception e){System.out.println(e);}
+   
+    return null;
+    
+    }
+    
+    
+    public boolean validate_login(String username,String password) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+          String sql=("SELECT * FROM staff WHERE username = ? AND password = ?");
+          
+          pst = conn.prepareStatement(sql);
+          
+          pst.setString(1, username);
+          pst.setString(2, password);
+          
+          rs = pst.executeQuery();
+         
+          if(rs.next())
+              return true;
+          else 
+              return false;
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        
+    }
+    //retrive customer data
+    public ArrayList<Customer> customerList(){
+        
+    ArrayList<Customer> customerList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "SELECT * FROM customers";
+            
+            Statement st = conn.createStatement();
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            Customer customer;
+            
+            while(rs.next()){
+                customer = new Customer(rs.getInt("customerID"),rs.getString("CustomerName"),rs.getString("customerStatus"));
+                customerList.add(customer);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return customerList;
+    } 
+    
+    //populates customer table with filter
+    public void displayCustomer(JTable customerTable,String status){
+        
+        String customerStatus= status;
+        
+        ArrayList <Customer> list = customerList();
+        
+        DefaultTableModel model =(DefaultTableModel) customerTable.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getCustomerStatus().contains(status)){
+                 
+             row[0]=list.get(i).getCustomerID();
+             row[1]=list.get(i).getCustomerName();
+             row[2]=list.get(i).getCustomerStatus();
+             model.addRow(row);
+             
+             
+             } 
+             
+         }
+       
+    }
+    
+     public void displayCustomer(JTable customerTable){
+      
+        System.out.println("Display Customer");
+        ArrayList <Customer> list = customerList();
+        
+        DefaultTableModel model =(DefaultTableModel) customerTable.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getCustomerID();
+             row[1]=list.get(i).getCustomerName();
+             row[2]=list.get(i).getCustomerStatus();
+             model.addRow(row);
+             
+         }
+       
+    }
+    
+    public boolean setStatus(int id,String status) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE customers SET customerStatus = ? WHERE customerID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, status);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + status);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+          
+       
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false;
+    }
+     
+     
+    
+}

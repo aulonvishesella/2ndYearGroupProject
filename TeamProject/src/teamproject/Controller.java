@@ -213,7 +213,7 @@ public class Controller {
                  if(e.getActionCommand().contains("Downgrade")){
                 
                 try {
-                    jdbc.setStatus(selectedRow, "normal");
+                    jdbc.setStatus(selectedRow, "Normal");
                     
                     
                 } catch (Exception ex) {
@@ -246,7 +246,7 @@ public class Controller {
                  //removes existing data and displays new data
                  model.setRowCount(0);
                  
-                  jdbc.displayCustomer(customerTable,"normal");
+                  jdbc.displayCustomer(customerTable,"Normal");
                
                 
              

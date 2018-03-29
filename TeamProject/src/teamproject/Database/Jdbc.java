@@ -36,9 +36,9 @@ public class Jdbc {
     
      try{
              String driver = "com.mysql.jdbc.Driver";
-             String url = "jdbc:mysql://localhost:3306/sampledatabase";
+             String url = "jdbc:mysql://localhost:3306/bapers";
              String username = "root";
-             String password = "1234";
+             String password = "aulon123";
              
              Class.forName(driver);
              
@@ -65,7 +65,7 @@ public class Jdbc {
         
       try{
          // Connection conn = getConnection();
-          String sql=("SELECT * FROM staff WHERE username = ? AND password = ?");
+          String sql=("SELECT * FROM staff WHERE UserID = ? AND Password = ?");
           
           pst = conn.prepareStatement(sql);
           
@@ -94,7 +94,7 @@ public class Jdbc {
         try {
            // Connection conn = getConnection();
             //retrieves data from customers
-            String getData = "SELECT * FROM customers";
+            String getData = "SELECT * FROM customer";
             
             Statement st = conn.createStatement();
             
@@ -103,7 +103,7 @@ public class Jdbc {
             Customer customer;
             
             while(rs.next()){
-                customer = new Customer(rs.getInt("customerID"),rs.getString("CustomerName"),rs.getString("customerStatus"));
+                customer = new Customer(rs.getInt("CustomerID"),rs.getString("FirstName"),rs.getString("CustStatus"));
                 customerList.add(customer);
                 
             }
@@ -171,7 +171,7 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("UPDATE customers SET customerStatus = ? WHERE customerID = ?");
+          String update =("UPDATE customer SET CustStatus = ? WHERE CustomerID = ?");
           
           pst = conn.prepareStatement(update);
           

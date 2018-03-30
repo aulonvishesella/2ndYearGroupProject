@@ -8,9 +8,11 @@ package teamproject;
 import java.awt.CardLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,7 +26,7 @@ public class Bapers extends javax.swing.JFrame {
     private CardLayout card;
     private CardLayout customerCard;
     private CardLayout taskCard;
-    
+    private CardLayout jobCard;
     
     public Bapers() {
         initComponents();
@@ -38,6 +40,9 @@ public class Bapers extends javax.swing.JFrame {
          
          CardLayout card2 = (CardLayout)taskCard1.getLayout();
          this.taskCard= card2;
+         
+         CardLayout card3 = (CardLayout)jobCard1.getLayout();
+         this.jobCard=card3;
          
          
     }
@@ -147,7 +152,7 @@ public class Bapers extends javax.swing.JFrame {
         addCustomerBtn = new javax.swing.JButton();
         jobsPanel = new javax.swing.JPanel();
         jobsLabel = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        viewJobsBtn = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         reportsPanel = new javax.swing.JPanel();
         reportsLabel = new javax.swing.JLabel();
@@ -165,7 +170,12 @@ public class Bapers extends javax.swing.JFrame {
         AdminPanel = new javax.swing.JPanel();
         adminLabel = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
-        viewJob = new javax.swing.JPanel();
+        jobs = new javax.swing.JPanel();
+        jobCard1 = new javax.swing.JPanel();
+        jobMain = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jobTable = new javax.swing.JTable();
         reports = new javax.swing.JPanel();
         payment = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -178,6 +188,22 @@ public class Bapers extends javax.swing.JFrame {
         taskList = new javax.swing.JLabel();
         editTaskBtn = new javax.swing.JButton();
         deleteTaskBtn = new javax.swing.JButton();
+        addTasksBtn = new javax.swing.JButton();
+        addNewTask = new javax.swing.JPanel();
+        addTaskLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        taskIDLabel = new javax.swing.JTextField();
+        taskDescriptionLabel = new javax.swing.JTextField();
+        locationLabel = new javax.swing.JTextField();
+        shelfSlotLabel = new javax.swing.JTextField();
+        priceLabel = new javax.swing.JTextField();
+        durationLabel = new javax.swing.JTextField();
+        saveTaskBtn = new javax.swing.JButton();
         admin = new javax.swing.JPanel();
         customers = new javax.swing.JPanel();
         customerCard1 = new javax.swing.JPanel();
@@ -1061,7 +1087,7 @@ public class Bapers extends javax.swing.JFrame {
         jobsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jobsLabel.setText("Jobs");
 
-        jButton5.setText("View Jobs");
+        viewJobsBtn.setText("View Jobs");
 
         jButton6.setText("Create Job");
 
@@ -1078,7 +1104,7 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(jobsLabel))
                         .addGroup(jobsPanelLayout.createSequentialGroup()
                             .addGap(30, 30, 30)
-                            .addComponent(jButton5))))
+                            .addComponent(viewJobsBtn))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jobsPanelLayout.setVerticalGroup(
@@ -1087,7 +1113,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jobsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
+                .addComponent(viewJobsBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6)
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -1183,6 +1209,11 @@ public class Bapers extends javax.swing.JFrame {
         });
 
         addTaskBtn.setText("Add Task");
+        addTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTaskBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout taskPanelLayout = new javax.swing.GroupLayout(taskPanel);
         taskPanel.setLayout(taskPanelLayout);
@@ -1198,7 +1229,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(viewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(addTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         taskPanelLayout.setVerticalGroup(
             taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1257,9 +1288,9 @@ public class Bapers extends javax.swing.JFrame {
                     .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jobsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(73, 73, 73)
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(reportsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1276,9 +1307,9 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(homepageLayout.createSequentialGroup()
                         .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1288,20 +1319,53 @@ public class Bapers extends javax.swing.JFrame {
 
         mainPanel.add(homepage, "homepage");
 
-        viewJob.setBackground(new java.awt.Color(0, 204, 0));
+        jobs.setBackground(new java.awt.Color(204, 204, 204));
+        jobs.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout viewJobLayout = new javax.swing.GroupLayout(viewJob);
-        viewJob.setLayout(viewJobLayout);
-        viewJobLayout.setHorizontalGroup(
-            viewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 782, Short.MAX_VALUE)
+        jobCard1.setLayout(new java.awt.CardLayout());
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("JOBS");
+
+        jobTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "JobNumber", "JobCode", "Job Description", "Job Date", "CustomerID"
+            }
+        ));
+        jScrollPane3.setViewportView(jobTable);
+
+        javax.swing.GroupLayout jobMainLayout = new javax.swing.GroupLayout(jobMain);
+        jobMain.setLayout(jobMainLayout);
+        jobMainLayout.setHorizontalGroup(
+            jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobMainLayout.createSequentialGroup()
+                .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jobMainLayout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(jLabel7))
+                    .addGroup(jobMainLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
-        viewJobLayout.setVerticalGroup(
-            viewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+        jobMainLayout.setVerticalGroup(
+            jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobMainLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jLabel7)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 117, Short.MAX_VALUE))
         );
 
-        mainPanel.add(viewJob, "viewJob");
+        jobCard1.add(jobMain, "card2");
+
+        jobs.add(jobCard1, "card2");
+
+        mainPanel.add(jobs, "viewJob");
 
         reports.setBackground(new java.awt.Color(255, 51, 51));
 
@@ -1367,8 +1431,10 @@ public class Bapers extends javax.swing.JFrame {
         ));
         taskMainPage.setViewportView(taskTable);
 
+        taskList.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         taskList.setText("Task List");
 
+        editTaskBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         editTaskBtn.setText("Edit Task");
         editTaskBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1376,44 +1442,146 @@ public class Bapers extends javax.swing.JFrame {
             }
         });
 
+        deleteTaskBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deleteTaskBtn.setText("Delete Task");
+
+        addTasksBtn.setText("Add Task");
 
         javax.swing.GroupLayout taskMainLayout = new javax.swing.GroupLayout(taskMain);
         taskMain.setLayout(taskMainLayout);
         taskMainLayout.setHorizontalGroup(
             taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(taskMainLayout.createSequentialGroup()
-                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(taskMainLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(taskMainLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deleteTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(editTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
+            .addGroup(taskMainLayout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addTasksBtn)
+                .addGap(129, 129, 129))
         );
         taskMainLayout.setVerticalGroup(
             taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(taskMainLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(taskMainLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(editTaskBtn)
-                        .addGap(31, 31, 31)
-                        .addComponent(deleteTaskBtn))
-                    .addGroup(taskMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskMainLayout.createSequentialGroup()
+                        .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskMainLayout.createSequentialGroup()
+                        .addComponent(addTasksBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(deleteTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91))))
         );
 
         taskCard1.add(taskMain, "card2");
+
+        addTaskLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        addTaskLabel.setText("Add Task");
+
+        jLabel1.setText("Task ID:");
+
+        jLabel2.setText("Task descripition:");
+
+        jLabel3.setText("Location:");
+
+        jLabel4.setText("Shelf slot:");
+
+        jLabel5.setText("Price:");
+
+        jLabel6.setText("Duration:");
+
+        saveTaskBtn.setText("Save task");
+
+        javax.swing.GroupLayout addNewTaskLayout = new javax.swing.GroupLayout(addNewTask);
+        addNewTask.setLayout(addNewTaskLayout);
+        addNewTaskLayout.setHorizontalGroup(
+            addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addNewTaskLayout.createSequentialGroup()
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addNewTaskLayout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(addTaskLabel))
+                    .addGroup(addNewTaskLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1)
+                        .addGap(38, 38, 38)
+                        .addComponent(taskIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addNewTaskLayout.createSequentialGroup()
+                        .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addNewTaskLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addNewTaskLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(28, 28, 28)
+                        .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(shelfSlotLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(locationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(92, 92, 92)
+                        .addComponent(saveTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addNewTaskLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(durationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addNewTaskLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(taskDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(342, Short.MAX_VALUE))
+        );
+        addNewTaskLayout.setVerticalGroup(
+            addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addNewTaskLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(addTaskLabel)
+                .addGap(18, 18, 18)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(taskIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(taskDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(locationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(saveTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(shelfSlotLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(durationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        taskCard1.add(addNewTask, "card3");
 
         tasks.add(taskCard1, "card2");
 
@@ -1850,6 +2018,10 @@ public class Bapers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_taskBtnActionPerformed
 
+    private void addTaskBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTaskBtnActionPerformed
+
+    }//GEN-LAST:event_addTaskBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1874,8 +2046,11 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton addCustomerBtn1;
     private javax.swing.JPanel addNewCustomerAccount;
     private javax.swing.JPanel addNewCustomerAccount1;
+    private javax.swing.JPanel addNewTask;
     private javax.swing.JButton addTaskBtn;
     private javax.swing.JButton addTaskBtn1;
+    private javax.swing.JLabel addTaskLabel;
+    private javax.swing.JButton addTasksBtn;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressLabel1;
     private javax.swing.JPanel admin;
@@ -1918,6 +2093,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton deleteTaskBtn1;
     private javax.swing.JButton downgradeBtn;
     private javax.swing.JButton downgradeBtn1;
+    private javax.swing.JTextField durationLabel;
     private javax.swing.JButton editTaskBtn;
     private javax.swing.JButton editTaskBtn1;
     private javax.swing.ButtonGroup filterCustomerList;
@@ -1946,23 +2122,35 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel jobCard1;
+    private javax.swing.JPanel jobMain;
+    private javax.swing.JTable jobTable;
+    private javax.swing.JPanel jobs;
     private javax.swing.JLabel jobsLabel;
     private javax.swing.JLabel jobsLabel1;
     private javax.swing.JPanel jobsPanel;
     private javax.swing.JPanel jobsPanel1;
+    private javax.swing.JTextField locationLabel;
     private javax.swing.JLabel loggedinLabel;
     private javax.swing.JLabel loggedinLabel1;
     private javax.swing.JLabel logoLabel;
@@ -1983,6 +2171,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel phoneNumberLabel1;
     private javax.swing.JTextField phoneNumberTextfield;
     private javax.swing.JTextField phoneNumberTextfield1;
+    private javax.swing.JTextField priceLabel;
     private javax.swing.JPanel reports;
     private javax.swing.JPanel reports1;
     private javax.swing.JButton reportsBtn;
@@ -1991,6 +2180,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel reportsLabel1;
     private javax.swing.JPanel reportsPanel;
     private javax.swing.JPanel reportsPanel1;
+    private javax.swing.JButton saveTaskBtn;
+    private javax.swing.JTextField shelfSlotLabel;
     private javax.swing.JTextField surNameTextField;
     private javax.swing.JTextField surNameTextField1;
     private javax.swing.JLabel surnameLabel;
@@ -1999,6 +2190,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton taskBtn1;
     private javax.swing.JPanel taskCard1;
     private javax.swing.JPanel taskCard2;
+    private javax.swing.JTextField taskDescriptionLabel;
+    private javax.swing.JTextField taskIDLabel;
     private javax.swing.JLabel taskLabel;
     private javax.swing.JLabel taskLabel1;
     private javax.swing.JLabel taskList;
@@ -2021,8 +2214,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JRadioButton valuedRadioButton1;
     private javax.swing.JPanel viewCustomer;
     private javax.swing.JPanel viewCustomer1;
-    private javax.swing.JPanel viewJob;
     private javax.swing.JPanel viewJob1;
+    private javax.swing.JButton viewJobsBtn;
     private javax.swing.JButton viewJobsbtn;
     private javax.swing.JButton viewJobsbtn1;
     private javax.swing.JButton viewTaskBtn;
@@ -2061,7 +2254,12 @@ public class Bapers extends javax.swing.JFrame {
     public void setPanelTask(String x){
         card.show(mainPanel,"tasks");
         taskCard.show(taskCard1, x);
-        taskMain.show();
+        
+    }
+    
+    public void setPanelJob(String x){
+        card.show(mainPanel, "jobs");
+        jobCard.show(jobCard1, x);
     }
 
     
@@ -2072,7 +2270,10 @@ public class Bapers extends javax.swing.JFrame {
          System.out.println("test ");
          
          card.show(mainPanel,"tasks");
-         taskCard.show(taskCard1,"");
+         taskCard.show(taskCard1,"addNewTask");
+         
+         card.show(mainPanel,"jobs");
+         jobCard.show(jobCard1,"");
     
     }
      
@@ -2097,6 +2298,10 @@ public class Bapers extends javax.swing.JFrame {
     public JTable getTaskTable(){
         return taskTable;
     }
+    
+    public JTable getJobTable(){
+        return jobTable;
+    }
 
     void CustomerPanelNavigation(Controller.CustomerPanelNavigation CustomerNavigation) {
     Customersbtn.addActionListener(CustomerNavigation);
@@ -2106,7 +2311,12 @@ public class Bapers extends javax.swing.JFrame {
     
     void TaskPanelNavigation(Controller.TaskPanelNavigation TaskNavigation){
         viewTaskBtn.addActionListener(TaskNavigation);
+        addTaskBtn.addActionListener(TaskNavigation);
        
+    }
+    
+    void JobPanelNavigation(Controller.JobPanelNavigation JobNavigation){
+        viewJobsBtn.addActionListener(JobNavigation);
     }
     
     
@@ -2133,7 +2343,18 @@ public class Bapers extends javax.swing.JFrame {
     void TaskMain(Controller.TaskMain taskMain){
         editTaskBtn.addActionListener(taskMain);
         deleteTaskBtn.addActionListener(taskMain);
+        addTasksBtn.addActionListener(taskMain);
     }
+    
+    
+    void JobMain(Controller.JobMain jobMain){
+        
+    }
+    
+   public JButton getEditButton(){
+       return editTaskBtn; 
+       
+   }
     
     public JRadioButton getValuedRadioButton(){
     
@@ -2161,10 +2382,45 @@ public class Bapers extends javax.swing.JFrame {
     
     return name;
     }
+    
+    public String getTaskID(){
+        String id = taskIDLabel.getText();
+        return id;
+    }
+    
+    public String getTaskDescription(){
+        String descr = taskDescriptionLabel.getText();
+        return descr;
+    }
+    
+    public String getTaskLocation(){
+        String loc = locationLabel.getText();
+        return loc;
+    }
+    
+    public String getShelfSlot(){
+        String ss = shelfSlotLabel.getText();
+        return ss;
+    }
+    
+    public String getPrice(){
+        String p = priceLabel.getText();
+        return p;
+    }
+    
+    public String getDuration(){
+        String d = durationLabel.getText();
+        return d;
+    }
+    
+    
 
     void createCustomer(Controller.CreateNewCustomer createNewCustomer) {
        createAccountBtn.addActionListener(createNewCustomer);
     }
     
+    void createTask(Controller.CreateNewTask createNewTask){
+       saveTaskBtn.addActionListener(createNewTask);
+    }
   
 }

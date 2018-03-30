@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.AccountController;
 import teamproject.Database.Jdbc;
 import teamproject.Tasks.Task;
+import teamproject.Jobs.Job;
 /**
  *
  * @author Ramee
@@ -53,6 +54,8 @@ public class Controller {
     
     jdbc.displayCustomer(bapers.getCustomerTable());
     jdbc.displayTasks(bapers.getTaskTable());
+    jdbc.displayJobs(bapers.getJobTable());
+    
     }
     
     public void addBapersListener(){
@@ -62,10 +65,12 @@ public class Controller {
         //adds navigation everything else
         bapers.CustomerPanelNavigation(new CustomerPanelNavigation());
         bapers.TaskPanelNavigation(new TaskPanelNavigation());
+        bapers.JobPanelNavigation(new JobPanelNavigation());
         
         //adds navigation for the customerMain page
         bapers.CustomerMain(new CustomerMain());
         bapers.TaskMain(new TaskMain());
+        bapers.JobMain(new JobMain());
        
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
@@ -78,10 +83,21 @@ public class Controller {
                 int column = target.getSelectedColumn();
                
             }
-        
-        
+
         });
         
+         bapers.getJobTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getJobTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+               
+            }
+
+        });
         
         
         
@@ -102,7 +118,8 @@ public class Controller {
        
         });
                 
-        bapers.createCustomer(new CreateNewCustomer());         
+        bapers.createCustomer(new CreateNewCustomer()); 
+        bapers.createTask(new CreateNewTask());        
       
     }
     
@@ -122,6 +139,10 @@ public class Controller {
     public void displayCustomerTable(){
     
     jdbc.displayCustomer(bapers.getCustomerTable());
+    }
+    
+    public void displayJobTable(){
+        jdbc.displayJobs(bapers.getJobTable());
     }
     
  class LogoutAuth implements ActionListener{
@@ -197,6 +218,10 @@ public class Controller {
                  if(e.getActionCommand().contains("tasks")){
                      bapers.setPanelTask("taskMain");
                  }
+                 
+                 if(e.getActionCommand().contains("jobs")){
+                     bapers.setPanelJob("jobMain");
+                 }
                     System.out.println(e.getActionCommand());
                   // System.out.println(e.getActionCommand());
                 }  
@@ -242,17 +267,52 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent p) {
-      bapers.setpanel(p.getActionCommand());
-                 
+         bapers.setpanel(p.getActionCommand());
+             
+                  
               System.out.println(p.getActionCommand());
            if(p.getActionCommand().contains("tasks")){
             bapers.setPanelTask("taskMain");
            }
-             
+         
+           
+           if(p.getActionCommand().contains("addtask")){
+               bapers.setPanelTask("addNewTask");
+           }
+           
+          
+           
         }
     
      }
+     class JobPanelNavigation implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent f) {
+         bapers.setpanel(f.getActionCommand());
+             
+                  
+              System.out.println(f.getActionCommand());
+           if(f.getActionCommand().contains("jobs")){
+            bapers.setPanelJob("jobMain");
+           }
+         
+           
+          
+           
+        }
     
+     }
+     
+     
+     
+     class JobMain implements ActionListener{
+         JTable jobTable = bapers.getJobTable();
+                DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
+                 @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+     }
     
      
     class TaskMain implements ActionListener{
@@ -265,8 +325,15 @@ public class Controller {
             if(e.getActionCommand().contains("Edit Task")){
                 System.exit(0);
             }
-            if(e.getActionCommand().contains("Add Task")){
+            if(e.getActionCommand().contains("Delete Task")){
                 System.exit(0);
+            }
+            
+            if(e.getActionCommand().contains("Add Task")){
+            
+                 bapers.setPanelTask("addNewTask");
+            
+            
             }
         }
     }
@@ -369,5 +436,28 @@ public class Controller {
     
     
     }
+    
+    
+    
+    
+    class CreateNewTask implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(bapers.getTaskID());
+            System.out.println(bapers.getTaskDescription());
+            System.out.println(bapers.getTaskLocation());
+            System.out.println(bapers.getShelfSlot());
+            System.out.println(bapers.getPrice());
+            System.out.println(bapers.getDuration());
+                   
+        }
+    
+    
+    
+    }
+    
+    
+   
    
 }

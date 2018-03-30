@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.Customer;
 import teamproject.Tasks.Task;
+import teamproject.Jobs.Job;
 
 
 
@@ -116,6 +117,33 @@ public class Jdbc {
         return customerList;
     } 
     
+    
+    public ArrayList<Job> jobList(){
+        ArrayList<Job> jobList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from tasks
+            String getData = "SELECT * FROM job";
+            
+            Statement st = conn.createStatement();
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            Job job;
+            
+            while(rs.next()){
+                job = new Job(rs.getInt("JobNo"),rs.getInt("JobCode"),rs.getString("JobDescription"),rs.getDate("JobDate"),rs.getInt("Customer_CustomerID"));
+                jobList.add(job);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return jobList;
+    }
     public ArrayList<Task> taskList(){
          ArrayList<Task> taskList = new ArrayList<>();
     
@@ -143,6 +171,10 @@ public class Jdbc {
         return taskList;
     }
     
+    
+    
+    
+    
     //populates customer table with filter
     public void displayCustomer(JTable customerTable,String status){
         
@@ -169,6 +201,29 @@ public class Jdbc {
          }
        
     }
+    
+    public void displayJobs(JTable jobTable){
+              System.out.println("Display Job");
+        ArrayList <Job> list = jobList();
+        
+        DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
+        
+        Object[] row = new Object[5];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getJobNo();
+             row[1]=list.get(i).getJobCode();
+             row[2]=list.get(i).getJobDescription();
+             row[3]= list.get(i).getJobDate();
+             row[4]= list.get(i).getCustomerID();
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    
     
     public void displayTasks(JTable taskTable){
         System.out.println("Display Task");
@@ -245,7 +300,7 @@ public class Jdbc {
           return false;
       }
       
-        return false;
+        return false; 
     }
      
      

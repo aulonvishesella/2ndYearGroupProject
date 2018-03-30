@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.Customer;
+import teamproject.Tasks.Task;
 
 
 
@@ -115,6 +116,33 @@ public class Jdbc {
         return customerList;
     } 
     
+    public ArrayList<Task> taskList(){
+         ArrayList<Task> taskList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from tasks
+            String getData = "SELECT * FROM task";
+            
+            Statement st = conn.createStatement();
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            Task task;
+            
+            while(rs.next()){
+                task = new Task(rs.getInt("TaskID"),rs.getString("TaskDescription"),rs.getString("Location"),rs.getString("ShelfSlot"),rs.getFloat("Price"),rs.getInt("Duration"));
+                taskList.add(task);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return taskList;
+    }
+    
     //populates customer table with filter
     public void displayCustomer(JTable customerTable,String status){
         
@@ -141,6 +169,29 @@ public class Jdbc {
          }
        
     }
+    
+    public void displayTasks(JTable taskTable){
+        System.out.println("Display Task");
+        ArrayList <Task> list = taskList();
+        
+        DefaultTableModel model =(DefaultTableModel) taskTable.getModel();
+        
+        Object[] row = new Object[6];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getTaskID();
+             row[1]=list.get(i).getTaskDescription();
+             row[2]=list.get(i).getLocation();
+             row[3]= list.get(i).getShelfSlot();
+             row[4]= list.get(i).getPrice();
+             row[5] = list.get(i).getDuration();
+             model.addRow(row);
+             
+         }
+       
+    }    
+   
     
      public void displayCustomer(JTable customerTable){
       

@@ -22,7 +22,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.AccountController;
 import teamproject.Database.Jdbc;
-
+import teamproject.Tasks.Task;
 /**
  *
  * @author Ramee
@@ -51,8 +51,8 @@ public class Controller {
     
     //shows current logged in user
     
-    
     jdbc.displayCustomer(bapers.getCustomerTable());
+    jdbc.displayTasks(bapers.getTaskTable());
     }
     
     public void addBapersListener(){
@@ -61,9 +61,32 @@ public class Controller {
         
         //adds navigation everything else
         bapers.CustomerPanelNavigation(new CustomerPanelNavigation());
+        bapers.TaskPanelNavigation(new TaskPanelNavigation());
         
         //adds navigation for the customerMain page
         bapers.CustomerMain(new CustomerMain());
+        bapers.TaskMain(new TaskMain());
+       
+        
+        bapers.getTaskTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getTaskTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+               
+            }
+        
+        
+        });
+        
+        
+        
+        
+        
+        
         //adds lisenter for the jTable in customerMain panel
         bapers.getCustomerTable().addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -72,16 +95,9 @@ public class Controller {
                 JTable target = bapers.getCustomerTable();
                 int row = target.getSelectedRow();
                 int column = target.getSelectedColumn();
-                
-                
                 int id = (int) target.getValueAt(row, 0);
-                
                 System.out.println(id);
-                
                 selectedRow = id;
-                
-    
-      
             }
        
         });
@@ -98,6 +114,10 @@ public class Controller {
         login.addLoginAuth(new LoginAuth());
     }
  
+    public void displayTaskTable(){
+        jdbc.displayTasks(bapers.getTaskTable());
+    }
+    
     
     public void displayCustomerTable(){
     
@@ -173,6 +193,10 @@ public class Controller {
                  bapers.setPanelCustomer("customerMain");
                  
                  }
+                 
+                 if(e.getActionCommand().contains("tasks")){
+                     bapers.setPanelTask("taskMain");
+                 }
                     System.out.println(e.getActionCommand());
                   // System.out.println(e.getActionCommand());
                 }  
@@ -189,8 +213,6 @@ public class Controller {
               System.out.println(e.getActionCommand());
            if(e.getActionCommand().contains("Customers")){
                bapers.setPanelCustomer("customerMain");
-           
-           
            }
            
            if(e.getActionCommand().contains("Add Customer")){
@@ -214,6 +236,39 @@ public class Controller {
             
         }
     
+    }
+    
+     class TaskPanelNavigation implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent p) {
+      bapers.setpanel(p.getActionCommand());
+                 
+              System.out.println(p.getActionCommand());
+           if(p.getActionCommand().contains("tasks")){
+            bapers.setPanelTask("taskMain");
+           }
+             
+        }
+    
+     }
+    
+    
+     
+    class TaskMain implements ActionListener{
+         JTable taskTable = bapers.getTaskTable();
+        
+        DefaultTableModel model =(DefaultTableModel) taskTable.getModel();
+      
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().contains("Edit Task")){
+                System.exit(0);
+            }
+            if(e.getActionCommand().contains("Add Task")){
+                System.exit(0);
+            }
+        }
     }
     
     class CustomerMain implements ActionListener{

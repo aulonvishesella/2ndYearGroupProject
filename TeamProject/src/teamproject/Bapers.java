@@ -23,6 +23,8 @@ public class Bapers extends javax.swing.JFrame {
      */
     private CardLayout card;
     private CardLayout customerCard;
+    private CardLayout taskCard;
+    
     
     public Bapers() {
         initComponents();
@@ -33,6 +35,11 @@ public class Bapers extends javax.swing.JFrame {
          
          CardLayout card1 = (CardLayout)customerCard1.getLayout();
          this.customerCard = card1;
+         
+         CardLayout card2 = (CardLayout)taskCard1.getLayout();
+         this.taskCard= card2;
+         
+         
     }
 
     /**
@@ -45,6 +52,92 @@ public class Bapers extends javax.swing.JFrame {
     private void initComponents() {
 
         filterCustomerList = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jFrame1 = new javax.swing.JFrame();
+        mainPanel1 = new javax.swing.JPanel();
+        homepage1 = new javax.swing.JPanel();
+        customerPanel1 = new javax.swing.JPanel();
+        customerLabel1 = new javax.swing.JLabel();
+        Customersbtn1 = new javax.swing.JButton();
+        customerInfoBtn1 = new javax.swing.JButton();
+        addCustomerBtn1 = new javax.swing.JButton();
+        jobsPanel1 = new javax.swing.JPanel();
+        jobsLabel1 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        reportsPanel1 = new javax.swing.JPanel();
+        reportsLabel1 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        paymentPanel1 = new javax.swing.JPanel();
+        paymentLabel1 = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        taskPanel1 = new javax.swing.JPanel();
+        taskLabel1 = new javax.swing.JLabel();
+        viewTaskBtn1 = new javax.swing.JButton();
+        addTaskBtn1 = new javax.swing.JButton();
+        AdminPanel1 = new javax.swing.JPanel();
+        adminLabel1 = new javax.swing.JLabel();
+        jButton20 = new javax.swing.JButton();
+        viewJob1 = new javax.swing.JPanel();
+        reports1 = new javax.swing.JPanel();
+        payment1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        tasks1 = new javax.swing.JPanel();
+        taskCard2 = new javax.swing.JPanel();
+        taskMain1 = new javax.swing.JPanel();
+        taskMainPage1 = new javax.swing.JScrollPane();
+        taskTable1 = new javax.swing.JTable();
+        taskList1 = new javax.swing.JLabel();
+        editTaskBtn1 = new javax.swing.JButton();
+        deleteTaskBtn1 = new javax.swing.JButton();
+        admin1 = new javax.swing.JPanel();
+        customers1 = new javax.swing.JPanel();
+        customerCard2 = new javax.swing.JPanel();
+        customerMain1 = new javax.swing.JPanel();
+        customerMainPage1 = new javax.swing.JScrollPane();
+        customerTable1 = new javax.swing.JTable();
+        CustomerPageTitle1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        valuedRadioButton1 = new javax.swing.JRadioButton();
+        normalRadioButton1 = new javax.swing.JRadioButton();
+        inDefaultRadioButton1 = new javax.swing.JRadioButton();
+        allRadioButton1 = new javax.swing.JRadioButton();
+        filterRadioBoxLabel1 = new javax.swing.JLabel();
+        upgradeDowngradeBtn1 = new javax.swing.JButton();
+        createJobBtn1 = new javax.swing.JButton();
+        createNewAccountBtn1 = new javax.swing.JButton();
+        generateInDefaultBtn1 = new javax.swing.JButton();
+        downgradeBtn1 = new javax.swing.JButton();
+        addNewCustomerAccount1 = new javax.swing.JPanel();
+        forenameLabel1 = new javax.swing.JLabel();
+        surnameLabel1 = new javax.swing.JLabel();
+        dateLabel1 = new javax.swing.JLabel();
+        addressLabel1 = new javax.swing.JLabel();
+        phoneNumberLabel1 = new javax.swing.JLabel();
+        accountIDLabel1 = new javax.swing.JLabel();
+        cancelBtn1 = new javax.swing.JButton();
+        createAccountBtn1 = new javax.swing.JButton();
+        foreNameTextField1 = new javax.swing.JTextField();
+        surNameTextField1 = new javax.swing.JTextField();
+        dateOfBirthTextField1 = new javax.swing.JTextField();
+        AddressTextField1 = new javax.swing.JTextField();
+        phoneNumberTextfield1 = new javax.swing.JTextField();
+        accountIDTextField1 = new javax.swing.JTextField();
+        viewCustomer1 = new javax.swing.JPanel();
+        homepageBtn1 = new javax.swing.JButton();
+        customerBtn1 = new javax.swing.JButton();
+        viewJobsbtn1 = new javax.swing.JButton();
+        reportsBtn1 = new javax.swing.JButton();
+        PaymentBtn1 = new javax.swing.JButton();
+        taskBtn1 = new javax.swing.JButton();
+        logoLabel1 = new javax.swing.JLabel();
+        logoutBtn1 = new javax.swing.JButton();
+        loggedinLabel1 = new javax.swing.JLabel();
+        userLabel1 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         homepage = new javax.swing.JPanel();
         customerPanel = new javax.swing.JPanel();
@@ -65,9 +158,10 @@ public class Bapers extends javax.swing.JFrame {
         paymentLabel = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        TasksPanel = new javax.swing.JPanel();
+        taskPanel = new javax.swing.JPanel();
         taskLabel = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        viewTaskBtn = new javax.swing.JButton();
+        addTaskBtn = new javax.swing.JButton();
         AdminPanel = new javax.swing.JPanel();
         adminLabel = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -76,7 +170,14 @@ public class Bapers extends javax.swing.JFrame {
         payment = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        Tasks = new javax.swing.JPanel();
+        tasks = new javax.swing.JPanel();
+        taskCard1 = new javax.swing.JPanel();
+        taskMain = new javax.swing.JPanel();
+        taskMainPage = new javax.swing.JScrollPane();
+        taskTable = new javax.swing.JTable();
+        taskList = new javax.swing.JLabel();
+        editTaskBtn = new javax.swing.JButton();
+        deleteTaskBtn = new javax.swing.JButton();
         admin = new javax.swing.JPanel();
         customers = new javax.swing.JPanel();
         customerCard1 = new javax.swing.JPanel();
@@ -121,6 +222,780 @@ public class Bapers extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         loggedinLabel = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mainPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        mainPanel1.setLayout(new java.awt.CardLayout());
+
+        homepage1.setBackground(new java.awt.Color(153, 153, 153));
+
+        customerPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        customerLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        customerLabel1.setText("Customers");
+
+        Customersbtn1.setText("Customers");
+        Customersbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Customersbtn1ActionPerformed(evt);
+            }
+        });
+
+        customerInfoBtn1.setText("Customer Info");
+        customerInfoBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerInfoBtn1ActionPerformed(evt);
+            }
+        });
+
+        addCustomerBtn1.setText("Add Customer");
+
+        javax.swing.GroupLayout customerPanel1Layout = new javax.swing.GroupLayout(customerPanel1);
+        customerPanel1.setLayout(customerPanel1Layout);
+        customerPanel1Layout.setHorizontalGroup(
+            customerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerPanel1Layout.createSequentialGroup()
+                .addGroup(customerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(customerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Customersbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(customerInfoBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addCustomerBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(customerPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(customerLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        customerPanel1Layout.setVerticalGroup(
+            customerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(customerLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Customersbtn1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(customerInfoBtn1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addCustomerBtn1)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jobsPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jobsLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jobsLabel1.setText("Jobs");
+
+        jButton12.setText("View Jobs");
+
+        jButton14.setText("Create Job");
+
+        javax.swing.GroupLayout jobsPanel1Layout = new javax.swing.GroupLayout(jobsPanel1);
+        jobsPanel1.setLayout(jobsPanel1Layout);
+        jobsPanel1Layout.setHorizontalGroup(
+            jobsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobsPanel1Layout.createSequentialGroup()
+                .addGroup(jobsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton14)
+                    .addGroup(jobsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jobsPanel1Layout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(jobsLabel1))
+                        .addGroup(jobsPanel1Layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(jButton12))))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jobsPanel1Layout.setVerticalGroup(
+            jobsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobsPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jobsLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton14)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        reportsPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        reportsLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        reportsLabel1.setText("Reports");
+
+        jButton15.setText("Individual Report");
+
+        jButton16.setText("Individual Performance");
+
+        jButton17.setText("Summary Performance");
+
+        javax.swing.GroupLayout reportsPanel1Layout = new javax.swing.GroupLayout(reportsPanel1);
+        reportsPanel1.setLayout(reportsPanel1Layout);
+        reportsPanel1Layout.setHorizontalGroup(
+            reportsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportsPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reportsLabel1)
+                .addGap(70, 70, 70))
+            .addGroup(reportsPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(reportsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
+        );
+        reportsPanel1Layout.setVerticalGroup(
+            reportsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportsPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reportsLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton15)
+                .addGap(12, 12, 12)
+                .addComponent(jButton16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton17)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        paymentPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        paymentLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        paymentLabel1.setText("Payment");
+
+        jButton18.setText("View Payments");
+
+        jButton19.setText("Pay Now");
+
+        javax.swing.GroupLayout paymentPanel1Layout = new javax.swing.GroupLayout(paymentPanel1);
+        paymentPanel1.setLayout(paymentPanel1Layout);
+        paymentPanel1Layout.setHorizontalGroup(
+            paymentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(paymentLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentPanel1Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(paymentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
+        );
+        paymentPanel1Layout.setVerticalGroup(
+            paymentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(paymentLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton19)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        taskPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        taskLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        taskLabel1.setText("Tasks");
+
+        viewTaskBtn1.setText("View Tasks");
+        viewTaskBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTaskBtn1ActionPerformed(evt);
+            }
+        });
+
+        addTaskBtn1.setText("Add Task");
+
+        javax.swing.GroupLayout taskPanel1Layout = new javax.swing.GroupLayout(taskPanel1);
+        taskPanel1.setLayout(taskPanel1Layout);
+        taskPanel1Layout.setHorizontalGroup(
+            taskPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanel1Layout.createSequentialGroup()
+                .addGroup(taskPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(taskLabel1))
+                    .addGroup(taskPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(taskPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(viewTaskBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addTaskBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        taskPanel1Layout.setVerticalGroup(
+            taskPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(taskLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewTaskBtn1)
+                .addGap(18, 18, 18)
+                .addComponent(addTaskBtn1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        AdminPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        adminLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        adminLabel1.setText("Admin");
+
+        jButton20.setText("View Admin Tab");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdminPanel1Layout = new javax.swing.GroupLayout(AdminPanel1);
+        AdminPanel1.setLayout(AdminPanel1Layout);
+        AdminPanel1Layout.setHorizontalGroup(
+            AdminPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(adminLabel1)
+                .addGap(73, 73, 73))
+            .addGroup(AdminPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        AdminPanel1Layout.setVerticalGroup(
+            AdminPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(adminLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton20)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout homepage1Layout = new javax.swing.GroupLayout(homepage1);
+        homepage1.setLayout(homepage1Layout);
+        homepage1Layout.setHorizontalGroup(
+            homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homepage1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(customerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(paymentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jobsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73)
+                .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reportsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AdminPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
+        );
+        homepage1Layout.setVerticalGroup(
+            homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homepage1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(homepage1Layout.createSequentialGroup()
+                        .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jobsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(reportsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(homepage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(taskPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AdminPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(homepage1Layout.createSequentialGroup()
+                        .addComponent(customerPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(paymentPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        mainPanel1.add(homepage1, "homepage");
+
+        viewJob1.setBackground(new java.awt.Color(0, 204, 0));
+
+        javax.swing.GroupLayout viewJob1Layout = new javax.swing.GroupLayout(viewJob1);
+        viewJob1.setLayout(viewJob1Layout);
+        viewJob1Layout.setHorizontalGroup(
+            viewJob1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 782, Short.MAX_VALUE)
+        );
+        viewJob1Layout.setVerticalGroup(
+            viewJob1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
+
+        mainPanel1.add(viewJob1, "viewJob");
+
+        reports1.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout reports1Layout = new javax.swing.GroupLayout(reports1);
+        reports1.setLayout(reports1Layout);
+        reports1Layout.setHorizontalGroup(
+            reports1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 782, Short.MAX_VALUE)
+        );
+        reports1Layout.setVerticalGroup(
+            reports1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
+
+        mainPanel1.add(reports1, "reports");
+
+        payment1.setBackground(new java.awt.Color(255, 0, 255));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout payment1Layout = new javax.swing.GroupLayout(payment1);
+        payment1.setLayout(payment1Layout);
+        payment1Layout.setHorizontalGroup(
+            payment1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, payment1Layout.createSequentialGroup()
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
+        );
+        payment1Layout.setVerticalGroup(
+            payment1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(payment1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        mainPanel1.add(payment1, "payment");
+
+        tasks1.setBackground(new java.awt.Color(204, 204, 204));
+        tasks1.setLayout(new java.awt.CardLayout());
+
+        taskCard2.setLayout(new java.awt.CardLayout());
+
+        taskTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Task ID", "Description", "Location", "Shelf Slot", "Price", "Duration"
+            }
+        ));
+        taskMainPage1.setViewportView(taskTable1);
+
+        taskList1.setText("Task List");
+
+        editTaskBtn1.setText("Edit Task");
+        editTaskBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTaskBtn1ActionPerformed(evt);
+            }
+        });
+
+        deleteTaskBtn1.setText("Delete Task");
+
+        javax.swing.GroupLayout taskMain1Layout = new javax.swing.GroupLayout(taskMain1);
+        taskMain1.setLayout(taskMain1Layout);
+        taskMain1Layout.setHorizontalGroup(
+            taskMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskMain1Layout.createSequentialGroup()
+                .addGroup(taskMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskMain1Layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(taskList1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(taskMain1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(taskMainPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108)
+                        .addGroup(taskMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteTaskBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editTaskBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        taskMain1Layout.setVerticalGroup(
+            taskMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskMain1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(taskList1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(taskMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskMain1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(editTaskBtn1)
+                        .addGap(31, 31, 31)
+                        .addComponent(deleteTaskBtn1))
+                    .addGroup(taskMain1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(taskMainPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+
+        taskCard2.add(taskMain1, "card2");
+
+        tasks1.add(taskCard2, "card2");
+
+        mainPanel1.add(tasks1, "Tasks");
+
+        admin1.setBackground(new java.awt.Color(51, 255, 51));
+
+        javax.swing.GroupLayout admin1Layout = new javax.swing.GroupLayout(admin1);
+        admin1.setLayout(admin1Layout);
+        admin1Layout.setHorizontalGroup(
+            admin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 782, Short.MAX_VALUE)
+        );
+        admin1Layout.setVerticalGroup(
+            admin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
+
+        mainPanel1.add(admin1, "card4");
+
+        customers1.setBackground(new java.awt.Color(204, 204, 204));
+        customers1.setLayout(new java.awt.CardLayout());
+
+        customerCard2.setLayout(new java.awt.CardLayout());
+
+        customerTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        customerTable1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        customerTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "customerID", "customerName", "customerStatus"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        customerTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        customerMainPage1.setViewportView(customerTable1);
+
+        CustomerPageTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        CustomerPageTitle1.setText("CustomerList");
+
+        jTextField2.setText("search ID");
+
+        filterCustomerList.add(valuedRadioButton1);
+        valuedRadioButton1.setText("Valued");
+
+        filterCustomerList.add(normalRadioButton1);
+        normalRadioButton1.setText("Normal");
+
+        filterCustomerList.add(inDefaultRadioButton1);
+        inDefaultRadioButton1.setText("In-Default");
+
+        filterCustomerList.add(allRadioButton1);
+        allRadioButton1.setText("All");
+        allRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        filterRadioBoxLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        filterRadioBoxLabel1.setText("Filter");
+
+        upgradeDowngradeBtn1.setText("Upgrade");
+
+        createJobBtn1.setText("Create Job");
+
+        createNewAccountBtn1.setText("Create New Account");
+        createNewAccountBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createNewAccountBtn1ActionPerformed(evt);
+            }
+        });
+
+        generateInDefaultBtn1.setText("Generate In-Default");
+
+        downgradeBtn1.setText("Downgrade");
+
+        javax.swing.GroupLayout customerMain1Layout = new javax.swing.GroupLayout(customerMain1);
+        customerMain1.setLayout(customerMain1Layout);
+        customerMain1Layout.setHorizontalGroup(
+            customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerMain1Layout.createSequentialGroup()
+                .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, customerMain1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(CustomerPageTitle1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, customerMain1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(customerMain1Layout.createSequentialGroup()
+                                .addComponent(customerMainPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(customerMain1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(filterRadioBoxLabel1)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(customerMain1Layout.createSequentialGroup()
+                                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(valuedRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(normalRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(inDefaultRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(allRadioButton1))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(generateInDefaultBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(createNewAccountBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                            .addComponent(createJobBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(upgradeDowngradeBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(downgradeBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                .addGap(32, 32, 32))
+        );
+        customerMain1Layout.setVerticalGroup(
+            customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerMain1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CustomerPageTitle1)
+                .addGap(12, 12, 12)
+                .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerMainPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(customerMain1Layout.createSequentialGroup()
+                        .addComponent(filterRadioBoxLabel1)
+                        .addGap(16, 16, 16)
+                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(upgradeDowngradeBtn1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(valuedRadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(downgradeBtn1)
+                            .addComponent(normalRadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inDefaultRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(createJobBtn1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(allRadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createNewAccountBtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(generateInDefaultBtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
+        );
+
+        customerCard2.add(customerMain1, "customerMain");
+
+        forenameLabel1.setText("Forename");
+
+        surnameLabel1.setText("Surname");
+
+        dateLabel1.setText("Date of Birth");
+
+        addressLabel1.setText("Address");
+
+        phoneNumberLabel1.setText("Phone Number");
+
+        accountIDLabel1.setText("AccountID");
+
+        cancelBtn1.setText("Cancel");
+
+        createAccountBtn1.setText("create Account");
+
+        javax.swing.GroupLayout addNewCustomerAccount1Layout = new javax.swing.GroupLayout(addNewCustomerAccount1);
+        addNewCustomerAccount1.setLayout(addNewCustomerAccount1Layout);
+        addNewCustomerAccount1Layout.setHorizontalGroup(
+            addNewCustomerAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addNewCustomerAccount1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addNewCustomerAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addNewCustomerAccount1Layout.createSequentialGroup()
+                        .addComponent(createAccountBtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 559, Short.MAX_VALUE)
+                        .addComponent(cancelBtn1)
+                        .addGap(43, 43, 43))
+                    .addGroup(addNewCustomerAccount1Layout.createSequentialGroup()
+                        .addGroup(addNewCustomerAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(accountIDTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                            .addComponent(phoneNumberTextfield1)
+                            .addComponent(AddressTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateOfBirthTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(surNameTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(forenameLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(surnameLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addressLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phoneNumberLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(accountIDLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foreNameTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        addNewCustomerAccount1Layout.setVerticalGroup(
+            addNewCustomerAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addNewCustomerAccount1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(forenameLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foreNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(surnameLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(surNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateOfBirthTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(addressLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddressTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(phoneNumberLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(phoneNumberTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(accountIDLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(accountIDTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(addNewCustomerAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelBtn1)
+                    .addComponent(createAccountBtn1))
+                .addGap(21, 21, 21))
+        );
+
+        customerCard2.add(addNewCustomerAccount1, "addnewcustomerCard");
+
+        javax.swing.GroupLayout viewCustomer1Layout = new javax.swing.GroupLayout(viewCustomer1);
+        viewCustomer1.setLayout(viewCustomer1Layout);
+        viewCustomer1Layout.setHorizontalGroup(
+            viewCustomer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 782, Short.MAX_VALUE)
+        );
+        viewCustomer1Layout.setVerticalGroup(
+            viewCustomer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
+
+        customerCard2.add(viewCustomer1, "customerinfo");
+
+        customers1.add(customerCard2, "card5");
+
+        mainPanel1.add(customers1, "customers");
+
+        homepageBtn1.setText("homepage");
+        homepageBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homepageBtn1ActionPerformed(evt);
+            }
+        });
+
+        customerBtn1.setText("customers");
+        customerBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerBtn1ActionPerformed(evt);
+            }
+        });
+
+        viewJobsbtn1.setText("viewJob");
+
+        reportsBtn1.setText("reports");
+
+        PaymentBtn1.setText("payment");
+
+        taskBtn1.setText("Tasks");
+
+        logoLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        logoLabel1.setText("LOGO");
+
+        logoutBtn1.setText("Logout");
+
+        loggedinLabel1.setText("Logged In As:");
+
+        userLabel1.setText("N/a");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(mainPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jFrame1Layout.createSequentialGroup()
+                                .addComponent(loggedinLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(userLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(logoLabel1))
+                            .addGroup(jFrame1Layout.createSequentialGroup()
+                                .addComponent(homepageBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(customerBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(viewJobsbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrame1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(reportsBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(PaymentBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(taskBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jFrame1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(logoutBtn1)))))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(loggedinLabel1)
+                        .addComponent(userLabel1))
+                    .addComponent(logoutBtn1)
+                    .addComponent(logoLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(homepageBtn1)
+                    .addComponent(customerBtn1)
+                    .addComponent(viewJobsbtn1)
+                    .addComponent(reportsBtn1)
+                    .addComponent(PaymentBtn1)
+                    .addComponent(taskBtn1))
+                .addGap(51, 51, 51)
+                .addComponent(mainPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -295,35 +1170,46 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        TasksPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        taskPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         taskLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         taskLabel.setText("Tasks");
 
-        jButton12.setText("View Tasks");
+        viewTaskBtn.setText("Tasks");
+        viewTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTaskBtnActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout TasksPanelLayout = new javax.swing.GroupLayout(TasksPanel);
-        TasksPanel.setLayout(TasksPanelLayout);
-        TasksPanelLayout.setHorizontalGroup(
-            TasksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TasksPanelLayout.createSequentialGroup()
-                .addGroup(TasksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TasksPanelLayout.createSequentialGroup()
+        addTaskBtn.setText("Add Task");
+
+        javax.swing.GroupLayout taskPanelLayout = new javax.swing.GroupLayout(taskPanel);
+        taskPanel.setLayout(taskPanelLayout);
+        taskPanelLayout.setHorizontalGroup(
+            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanelLayout.createSequentialGroup()
+                .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskPanelLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(taskLabel))
-                    .addGroup(TasksPanelLayout.createSequentialGroup()
+                    .addGroup(taskPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jButton12)))
+                        .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(viewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
-        TasksPanelLayout.setVerticalGroup(
-            TasksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TasksPanelLayout.createSequentialGroup()
+        taskPanelLayout.setVerticalGroup(
+            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(taskLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton12)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addComponent(viewTaskBtn)
+                .addGap(18, 18, 18)
+                .addComponent(addTaskBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         AdminPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -373,7 +1259,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TasksPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73)
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(reportsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -391,7 +1277,7 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TasksPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(homepageLayout.createSequentialGroup()
                         .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,20 +1352,72 @@ public class Bapers extends javax.swing.JFrame {
 
         mainPanel.add(payment, "payment");
 
-        Tasks.setBackground(new java.awt.Color(0, 51, 255));
+        tasks.setBackground(new java.awt.Color(204, 204, 204));
+        tasks.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout TasksLayout = new javax.swing.GroupLayout(Tasks);
-        Tasks.setLayout(TasksLayout);
-        TasksLayout.setHorizontalGroup(
-            TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 782, Short.MAX_VALUE)
+        taskCard1.setLayout(new java.awt.CardLayout());
+
+        taskTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Task ID", "Description", "Location", "Shelf Slot", "Price", "Duration"
+            }
+        ));
+        taskMainPage.setViewportView(taskTable);
+
+        taskList.setText("Task List");
+
+        editTaskBtn.setText("Edit Task");
+        editTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTaskBtnActionPerformed(evt);
+            }
+        });
+
+        deleteTaskBtn.setText("Delete Task");
+
+        javax.swing.GroupLayout taskMainLayout = new javax.swing.GroupLayout(taskMain);
+        taskMain.setLayout(taskMainLayout);
+        taskMainLayout.setHorizontalGroup(
+            taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskMainLayout.createSequentialGroup()
+                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskMainLayout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(taskMainLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108)
+                        .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
-        TasksLayout.setVerticalGroup(
-            TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+        taskMainLayout.setVerticalGroup(
+            taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskMainLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(taskList, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(taskMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskMainLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(editTaskBtn)
+                        .addGap(31, 31, 31)
+                        .addComponent(deleteTaskBtn))
+                    .addGroup(taskMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(taskMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
-        mainPanel.add(Tasks, "Tasks");
+        taskCard1.add(taskMain, "card2");
+
+        tasks.add(taskCard1, "card2");
+
+        mainPanel.add(tasks, "Tasks");
 
         admin.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -519,7 +1457,7 @@ public class Bapers extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        customerTable.setCellSelectionEnabled(true);
+        customerTable.setColumnSelectionAllowed(false);
         customerTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         customerTable.getTableHeader().setReorderingAllowed(false);
         customerMainPage.setViewportView(customerTable);
@@ -555,6 +1493,11 @@ public class Bapers extends javax.swing.JFrame {
         createJobBtn.setText("Create Job");
 
         createNewAccountBtn.setText("Create New Account");
+        createNewAccountBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createNewAccountBtnActionPerformed(evt);
+            }
+        });
 
         generateInDefaultBtn.setText("Generate In-Default");
 
@@ -753,6 +1696,11 @@ public class Bapers extends javax.swing.JFrame {
         PaymentBtn.setText("payment");
 
         taskBtn.setText("Tasks");
+        taskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taskBtnActionPerformed(evt);
+            }
+        });
 
         logoLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         logoLabel.setText("LOGO");
@@ -810,7 +1758,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(userLabel))
                     .addComponent(logoutBtn)
                     .addComponent(logoLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homepageBtn)
                     .addComponent(customerBtn)
@@ -850,6 +1798,58 @@ public class Bapers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomersbtnActionPerformed
 
+    private void createNewAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewAccountBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createNewAccountBtnActionPerformed
+
+    private void viewTaskBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTaskBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewTaskBtnActionPerformed
+
+    private void editTaskBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTaskBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editTaskBtnActionPerformed
+
+    private void Customersbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customersbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Customersbtn1ActionPerformed
+
+    private void customerInfoBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerInfoBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerInfoBtn1ActionPerformed
+
+    private void viewTaskBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTaskBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewTaskBtn1ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void editTaskBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTaskBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editTaskBtn1ActionPerformed
+
+    private void allRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_allRadioButton1ActionPerformed
+
+    private void createNewAccountBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewAccountBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createNewAccountBtn1ActionPerformed
+
+    private void homepageBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepageBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homepageBtn1ActionPerformed
+
+    private void customerBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerBtn1ActionPerformed
+
+    private void taskBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_taskBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -857,82 +1857,176 @@ public class Bapers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTextField;
+    private javax.swing.JTextField AddressTextField1;
     private javax.swing.JPanel AdminPanel;
+    private javax.swing.JPanel AdminPanel1;
     private javax.swing.JLabel CustomerPageTitle;
+    private javax.swing.JLabel CustomerPageTitle1;
     private javax.swing.JButton Customersbtn;
+    private javax.swing.JButton Customersbtn1;
     private javax.swing.JButton PaymentBtn;
-    private javax.swing.JPanel Tasks;
-    private javax.swing.JPanel TasksPanel;
+    private javax.swing.JButton PaymentBtn1;
     private javax.swing.JLabel accountIDLabel;
+    private javax.swing.JLabel accountIDLabel1;
     private javax.swing.JTextField accountIDTextField;
+    private javax.swing.JTextField accountIDTextField1;
     private javax.swing.JButton addCustomerBtn;
+    private javax.swing.JButton addCustomerBtn1;
     private javax.swing.JPanel addNewCustomerAccount;
+    private javax.swing.JPanel addNewCustomerAccount1;
+    private javax.swing.JButton addTaskBtn;
+    private javax.swing.JButton addTaskBtn1;
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel addressLabel1;
     private javax.swing.JPanel admin;
+    private javax.swing.JPanel admin1;
     private javax.swing.JLabel adminLabel;
+    private javax.swing.JLabel adminLabel1;
     private javax.swing.JRadioButton allRadioButton;
+    private javax.swing.JRadioButton allRadioButton1;
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JButton cancelBtn1;
     private javax.swing.JButton createAccountBtn;
+    private javax.swing.JButton createAccountBtn1;
     private javax.swing.JButton createJobBtn;
+    private javax.swing.JButton createJobBtn1;
     private javax.swing.JButton createNewAccountBtn;
+    private javax.swing.JButton createNewAccountBtn1;
     private javax.swing.JButton customerBtn;
+    private javax.swing.JButton customerBtn1;
     private javax.swing.JPanel customerCard1;
+    private javax.swing.JPanel customerCard2;
     private javax.swing.JButton customerInfoBtn;
+    private javax.swing.JButton customerInfoBtn1;
     private javax.swing.JLabel customerLabel;
+    private javax.swing.JLabel customerLabel1;
     private javax.swing.JPanel customerMain;
+    private javax.swing.JPanel customerMain1;
     private javax.swing.JScrollPane customerMainPage;
+    private javax.swing.JScrollPane customerMainPage1;
     private javax.swing.JPanel customerPanel;
+    private javax.swing.JPanel customerPanel1;
     private javax.swing.JTable customerTable;
+    private javax.swing.JTable customerTable1;
     private javax.swing.JPanel customers;
+    private javax.swing.JPanel customers1;
     private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel dateLabel1;
     private javax.swing.JTextField dateOfBirthTextField;
+    private javax.swing.JTextField dateOfBirthTextField1;
+    private javax.swing.JButton deleteTaskBtn;
+    private javax.swing.JButton deleteTaskBtn1;
     private javax.swing.JButton downgradeBtn;
+    private javax.swing.JButton downgradeBtn1;
+    private javax.swing.JButton editTaskBtn;
+    private javax.swing.JButton editTaskBtn1;
     private javax.swing.ButtonGroup filterCustomerList;
     private javax.swing.JLabel filterRadioBoxLabel;
+    private javax.swing.JLabel filterRadioBoxLabel1;
     private javax.swing.JTextField foreNameTextField;
+    private javax.swing.JTextField foreNameTextField1;
     private javax.swing.JLabel forenameLabel;
+    private javax.swing.JLabel forenameLabel1;
     private javax.swing.JButton generateInDefaultBtn;
+    private javax.swing.JButton generateInDefaultBtn1;
     private javax.swing.JPanel homepage;
+    private javax.swing.JPanel homepage1;
     private javax.swing.JButton homepageBtn;
+    private javax.swing.JButton homepageBtn1;
     private javax.swing.JRadioButton inDefaultRadioButton;
+    private javax.swing.JRadioButton inDefaultRadioButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jobsLabel;
+    private javax.swing.JLabel jobsLabel1;
     private javax.swing.JPanel jobsPanel;
+    private javax.swing.JPanel jobsPanel1;
     private javax.swing.JLabel loggedinLabel;
+    private javax.swing.JLabel loggedinLabel1;
     private javax.swing.JLabel logoLabel;
+    private javax.swing.JLabel logoLabel1;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JButton logoutBtn1;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel mainPanel1;
     private javax.swing.JRadioButton normalRadioButton;
+    private javax.swing.JRadioButton normalRadioButton1;
     private javax.swing.JPanel payment;
+    private javax.swing.JPanel payment1;
     private javax.swing.JLabel paymentLabel;
+    private javax.swing.JLabel paymentLabel1;
     private javax.swing.JPanel paymentPanel;
+    private javax.swing.JPanel paymentPanel1;
     private javax.swing.JLabel phoneNumberLabel;
+    private javax.swing.JLabel phoneNumberLabel1;
     private javax.swing.JTextField phoneNumberTextfield;
+    private javax.swing.JTextField phoneNumberTextfield1;
     private javax.swing.JPanel reports;
+    private javax.swing.JPanel reports1;
     private javax.swing.JButton reportsBtn;
+    private javax.swing.JButton reportsBtn1;
     private javax.swing.JLabel reportsLabel;
+    private javax.swing.JLabel reportsLabel1;
     private javax.swing.JPanel reportsPanel;
+    private javax.swing.JPanel reportsPanel1;
     private javax.swing.JTextField surNameTextField;
+    private javax.swing.JTextField surNameTextField1;
     private javax.swing.JLabel surnameLabel;
+    private javax.swing.JLabel surnameLabel1;
     private javax.swing.JButton taskBtn;
+    private javax.swing.JButton taskBtn1;
+    private javax.swing.JPanel taskCard1;
+    private javax.swing.JPanel taskCard2;
     private javax.swing.JLabel taskLabel;
+    private javax.swing.JLabel taskLabel1;
+    private javax.swing.JLabel taskList;
+    private javax.swing.JLabel taskList1;
+    private javax.swing.JPanel taskMain;
+    private javax.swing.JPanel taskMain1;
+    private javax.swing.JScrollPane taskMainPage;
+    private javax.swing.JScrollPane taskMainPage1;
+    private javax.swing.JPanel taskPanel;
+    private javax.swing.JPanel taskPanel1;
+    private javax.swing.JTable taskTable;
+    private javax.swing.JTable taskTable1;
+    private javax.swing.JPanel tasks;
+    private javax.swing.JPanel tasks1;
     private javax.swing.JButton upgradeDowngradeBtn;
+    private javax.swing.JButton upgradeDowngradeBtn1;
     private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel userLabel1;
     private javax.swing.JRadioButton valuedRadioButton;
+    private javax.swing.JRadioButton valuedRadioButton1;
     private javax.swing.JPanel viewCustomer;
+    private javax.swing.JPanel viewCustomer1;
     private javax.swing.JPanel viewJob;
+    private javax.swing.JPanel viewJob1;
     private javax.swing.JButton viewJobsbtn;
+    private javax.swing.JButton viewJobsbtn1;
+    private javax.swing.JButton viewTaskBtn;
+    private javax.swing.JButton viewTaskBtn1;
     // End of variables declaration//GEN-END:variables
 
     void navigationBar(Controller.BapersMenu bapersNavi) {
@@ -962,18 +2056,27 @@ public class Bapers extends javax.swing.JFrame {
     public void setPanelCustomer(String x){
         card.show(mainPanel,"customers");
         customerCard.show(customerCard1, x);
-        
-        
-        
-    
     }
+    
+    public void setPanelTask(String x){
+        card.show(mainPanel,"tasks");
+        taskCard.show(taskCard1, x);
+        taskMain.show();
+    }
+
+    
     
      public void setPanelTest(){
          card.show(mainPanel,"customers");
          customerCard.show(customerCard1,"addnewcustomerCard" );
          System.out.println("test ");
+         
+         card.show(mainPanel,"tasks");
+         taskCard.show(taskCard1,"");
     
     }
+     
+     
     
     public void setUser(String x){
     
@@ -990,6 +2093,10 @@ public class Bapers extends javax.swing.JFrame {
         
     return customerTable;
     }
+    
+    public JTable getTaskTable(){
+        return taskTable;
+    }
 
     void CustomerPanelNavigation(Controller.CustomerPanelNavigation CustomerNavigation) {
     Customersbtn.addActionListener(CustomerNavigation);
@@ -997,12 +2104,17 @@ public class Bapers extends javax.swing.JFrame {
     customerInfoBtn.addActionListener(CustomerNavigation);
     }
     
+    void TaskPanelNavigation(Controller.TaskPanelNavigation TaskNavigation){
+        viewTaskBtn.addActionListener(TaskNavigation);
+       
+    }
+    
+    
+    
     public ButtonGroup filterSelection(){
-    
-          
-    
             return filterCustomerList;
     }
+    
 
     void CustomerMain(Controller.CustomerMain customerMain) {
         
@@ -1010,13 +2122,17 @@ public class Bapers extends javax.swing.JFrame {
         normalRadioButton.addActionListener(customerMain);
         inDefaultRadioButton.addActionListener(customerMain);
         allRadioButton.addActionListener(customerMain);
-        
         upgradeDowngradeBtn.addActionListener(customerMain);
         downgradeBtn.addActionListener(customerMain);
         createJobBtn.addActionListener(customerMain);
         createNewAccountBtn.addActionListener(customerMain);
         generateInDefaultBtn.addActionListener(customerMain);
         
+    }
+    
+    void TaskMain(Controller.TaskMain taskMain){
+        editTaskBtn.addActionListener(taskMain);
+        deleteTaskBtn.addActionListener(taskMain);
     }
     
     public JRadioButton getValuedRadioButton(){

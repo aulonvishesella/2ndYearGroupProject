@@ -55,6 +55,7 @@ public class Controller {
     jdbc.displayCustomer(bapers.getCustomerTable());
     jdbc.displayTasks(bapers.getTaskTable());
     jdbc.displayJobs(bapers.getJobTable());
+    jdbc.displayPayment(bapers.getPaymentTable());
     
     }
     
@@ -66,11 +67,14 @@ public class Controller {
         bapers.CustomerPanelNavigation(new CustomerPanelNavigation());
         bapers.TaskPanelNavigation(new TaskPanelNavigation());
         bapers.JobPanelNavigation(new JobPanelNavigation());
+        bapers.PaymentPanelNavigation(new PaymentPanelNavigation());
+
         
         //adds navigation for the customerMain page
         bapers.CustomerMain(new CustomerMain());
         bapers.TaskMain(new TaskMain());
         bapers.JobMain(new JobMain());
+        bapers.PaymentMain(new PaymentMain());
        
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
@@ -86,7 +90,25 @@ public class Controller {
 
         });
         
-         bapers.getJobTable().addMouseListener(new MouseAdapter(){
+                bapers.getPaymentTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getPaymentTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+               
+            }
+
+        });
+        
+        
+        
+        
+        
+        
+          bapers.getJobTable().addMouseListener(new MouseAdapter(){
         
          public void mouseClicked(MouseEvent e) {
                 
@@ -98,6 +120,8 @@ public class Controller {
             }
 
         });
+        
+      
         
         
         
@@ -141,6 +165,14 @@ public class Controller {
     jdbc.displayCustomer(bapers.getCustomerTable());
     }
     
+    
+    public void displayPaymentTable(){
+    
+    jdbc.displayPayment(bapers.getPaymentTable());
+    }
+    
+    
+    
     public void displayJobTable(){
         jdbc.displayJobs(bapers.getJobTable());
     }
@@ -167,10 +199,11 @@ public class Controller {
                     if( jdbc.validate_login(login.getUsername(), login.getPassword())==true){
                     
                     login.dispose();
-                
-                    bapers.setVisible(true);
-                    bapers.setUser(login.getUsername());
                     
+                    bapers.setVisible(true);
+                   
+                    bapers.setUser(login.getUsername());
+                   
                     
                 
                      }else{
@@ -217,6 +250,10 @@ public class Controller {
                  
                  if(e.getActionCommand().contains("tasks")){
                      bapers.setPanelTask("taskMain");
+                 }
+                  
+                 if(e.getActionCommand().contains("payments")){
+                     bapers.setPanelPayment("paymentkMain");
                  }
                  
                  if(e.getActionCommand().contains("jobs")){
@@ -285,15 +322,43 @@ public class Controller {
         }
     
      }
-     class JobPanelNavigation implements ActionListener{
+     
+     
+     
+     
+     
+     class PaymentPanelNavigation implements ActionListener{
 
         @Override
-        public void actionPerformed(ActionEvent f) {
-         bapers.setpanel(f.getActionCommand());
+        public void actionPerformed(ActionEvent p) {
+         bapers.setpanel(p.getActionCommand());
              
                   
-              System.out.println(f.getActionCommand());
-           if(f.getActionCommand().contains("jobs")){
+              System.out.println(p.getActionCommand());
+           if(p.getActionCommand().contains("payments")){
+            bapers.setPanelPayment("paymentMain");
+           }
+         
+           
+          
+           
+        }
+    
+     }
+     
+     
+     
+     
+     
+     
+          class JobPanelNavigation implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent p) {
+         bapers.setpanel(p.getActionCommand());
+             
+                  
+              System.out.println(p.getActionCommand());
+           if(p.getActionCommand().contains("jobs")){
             bapers.setPanelJob("jobMain");
            }
          
@@ -306,13 +371,31 @@ public class Controller {
      
      
      
+     
+     
      class JobMain implements ActionListener{
          JTable jobTable = bapers.getJobTable();
                 DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
                  @Override
         public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().contains("Edit")){
+                System.exit(0);
+            }
+            
         }
      }
+     
+      class PaymentMain implements ActionListener{
+         JTable paymentTable = bapers.getPaymentTable();
+                DefaultTableModel model =(DefaultTableModel) paymentTable.getModel();
+                 @Override
+        public void actionPerformed(ActionEvent e) {
+           
+            
+        }
+     }
+     
+     
     
      
     class TaskMain implements ActionListener{

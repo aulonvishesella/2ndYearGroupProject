@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.Customer;
 import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
+import teamproject.Payment.PaymentRecord;
 
 
 
@@ -172,7 +173,59 @@ public class Jdbc {
     }
     
     
+       public ArrayList<PaymentRecord> paymentList(){
+         ArrayList<PaymentRecord> paymentList = new ArrayList<>();
     
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from tasks
+            String getData = "SELECT * FROM payment";
+            
+            Statement st = conn.createStatement();
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            PaymentRecord paymentRecord;
+            
+            while(rs.next()){
+                paymentRecord = new PaymentRecord(rs.getInt("PaymentID"),rs.getString("PaymentType"),rs.getFloat("PaymentAmount"),rs.getInt("Job_JobNo"));
+                paymentList.add(paymentRecord);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return paymentList;
+    }
+    
+       
+       
+        public void displayPayment(JTable paymentTable){
+              System.out.println("Display PaymentRecords");
+        ArrayList <PaymentRecord> list = paymentList();
+        
+        DefaultTableModel model =(DefaultTableModel) paymentTable.getModel();
+        
+        Object[] row = new Object[5];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getPaymentID();
+             row[1]=list.get(i).getPaymentType();
+             row[2]=list.get(i).getPaymentAmount();
+             row[3]= list.get(i).getJobNo();
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+       
+       
+  
     
     
     //populates customer table with filter

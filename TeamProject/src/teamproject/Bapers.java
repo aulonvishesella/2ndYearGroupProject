@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
@@ -27,6 +28,7 @@ public class Bapers extends javax.swing.JFrame {
     private CardLayout customerCard;
     private CardLayout taskCard;
     private CardLayout jobCard;
+    private CardLayout paymentCard;
     
     public Bapers() {
         initComponents();
@@ -43,6 +45,9 @@ public class Bapers extends javax.swing.JFrame {
          
          CardLayout card3 = (CardLayout)jobCard1.getLayout();
          this.jobCard=card3;
+         
+         CardLayout card4 = (CardLayout)paymentCard1.getLayout();
+         this.paymentCard=card4;
          
          
     }
@@ -152,8 +157,8 @@ public class Bapers extends javax.swing.JFrame {
         addCustomerBtn = new javax.swing.JButton();
         jobsPanel = new javax.swing.JPanel();
         jobsLabel = new javax.swing.JLabel();
-        viewJobsBtn = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        viewJobs = new javax.swing.JButton();
+        createJob = new javax.swing.JButton();
         reportsPanel = new javax.swing.JPanel();
         reportsLabel = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -161,7 +166,7 @@ public class Bapers extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         paymentPanel = new javax.swing.JPanel();
         paymentLabel = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        viewPaymentBtn = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         taskPanel = new javax.swing.JPanel();
         taskLabel = new javax.swing.JLabel();
@@ -174,12 +179,17 @@ public class Bapers extends javax.swing.JFrame {
         jobCard1 = new javax.swing.JPanel();
         jobMain = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jobMainPage = new javax.swing.JScrollPane();
         jobTable = new javax.swing.JTable();
+        editJobBtn = new javax.swing.JButton();
         reports = new javax.swing.JPanel();
-        payment = new javax.swing.JPanel();
+        payments = new javax.swing.JPanel();
+        paymentCard1 = new javax.swing.JPanel();
+        paymentMain = new javax.swing.JPanel();
+        paymentViewLabel = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        paymentTable = new javax.swing.JTable();
         tasks = new javax.swing.JPanel();
         taskCard1 = new javax.swing.JPanel();
         taskMain = new javax.swing.JPanel();
@@ -1087,9 +1097,9 @@ public class Bapers extends javax.swing.JFrame {
         jobsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jobsLabel.setText("Jobs");
 
-        viewJobsBtn.setText("View Jobs");
+        viewJobs.setText("View Jobs");
 
-        jButton6.setText("Create Job");
+        createJob.setText("Create Job");
 
         javax.swing.GroupLayout jobsPanelLayout = new javax.swing.GroupLayout(jobsPanel);
         jobsPanel.setLayout(jobsPanelLayout);
@@ -1097,14 +1107,14 @@ public class Bapers extends javax.swing.JFrame {
             jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jobsPanelLayout.createSequentialGroup()
                 .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6)
+                    .addComponent(createJob)
                     .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jobsPanelLayout.createSequentialGroup()
                             .addGap(52, 52, 52)
                             .addComponent(jobsLabel))
                         .addGroup(jobsPanelLayout.createSequentialGroup()
                             .addGap(30, 30, 30)
-                            .addComponent(viewJobsBtn))))
+                            .addComponent(viewJobs))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jobsPanelLayout.setVerticalGroup(
@@ -1113,9 +1123,9 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jobsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewJobsBtn)
+                .addComponent(viewJobs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
+                .addComponent(createJob)
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -1165,7 +1175,12 @@ public class Bapers extends javax.swing.JFrame {
         paymentLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         paymentLabel.setText("Payment");
 
-        jButton10.setText("View Payments");
+        viewPaymentBtn.setText("View Payments");
+        viewPaymentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPaymentBtnActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("Pay Now");
 
@@ -1180,7 +1195,7 @@ public class Bapers extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentPanelLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewPaymentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
         );
@@ -1190,7 +1205,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(paymentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
+                .addComponent(viewPaymentBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton11)
                 .addContainerGap(64, Short.MAX_VALUE))
@@ -1335,30 +1350,35 @@ public class Bapers extends javax.swing.JFrame {
                 "JobNumber", "JobCode", "Job Description", "Job Date", "CustomerID"
             }
         ));
-        jScrollPane3.setViewportView(jobTable);
+        jobMainPage.setViewportView(jobTable);
+
+        editJobBtn.setText("Edit");
 
         javax.swing.GroupLayout jobMainLayout = new javax.swing.GroupLayout(jobMain);
         jobMain.setLayout(jobMainLayout);
         jobMainLayout.setHorizontalGroup(
             jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jobMainLayout.createSequentialGroup()
-                .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(jLabel7))
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54)
+                .addComponent(jobMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(146, Short.MAX_VALUE))
+            .addGroup(jobMainLayout.createSequentialGroup()
+                .addGap(325, 325, 325)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editJobBtn)
+                .addGap(94, 94, 94))
         );
         jobMainLayout.setVerticalGroup(
             jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jobMainLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addComponent(jLabel7)
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 117, Short.MAX_VALUE))
+                .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(editJobBtn))
+                .addGap(39, 39, 39)
+                .addComponent(jobMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 102, Short.MAX_VALUE))
         );
 
         jobCard1.add(jobMain, "card2");
@@ -1382,39 +1402,57 @@ public class Bapers extends javax.swing.JFrame {
 
         mainPanel.add(reports, "reports");
 
-        payment.setBackground(new java.awt.Color(255, 0, 255));
+        payments.setBackground(new java.awt.Color(255, 0, 255));
+        payments.setLayout(new java.awt.CardLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        paymentCard1.setLayout(new java.awt.CardLayout());
+
+        jLabel8.setText("Payment Record");
+
+        paymentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "PaymentID", "Payment Type", "Payment Amount", "Job No"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(paymentTable);
 
-        javax.swing.GroupLayout paymentLayout = new javax.swing.GroupLayout(payment);
-        payment.setLayout(paymentLayout);
-        paymentLayout.setHorizontalGroup(
-            paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentLayout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+        javax.swing.GroupLayout paymentMainLayout = new javax.swing.GroupLayout(paymentMain);
+        paymentMain.setLayout(paymentMainLayout);
+        paymentMainLayout.setHorizontalGroup(
+            paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentMainLayout.createSequentialGroup()
+                .addGroup(paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paymentMainLayout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(paymentViewLabel))
+                    .addGroup(paymentMainLayout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jLabel8))
+                    .addGroup(paymentMainLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
-        paymentLayout.setVerticalGroup(
-            paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+        paymentMainLayout.setVerticalGroup(
+            paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentMainLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel8)
+                .addGap(35, 35, 35)
+                .addComponent(paymentViewLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        mainPanel.add(payment, "payment");
+        paymentCard1.add(paymentMain, "card2");
+
+        payments.add(paymentCard1, "card3");
+
+        mainPanel.add(payments, "payment");
 
         tasks.setBackground(new java.awt.Color(204, 204, 204));
         tasks.setLayout(new java.awt.CardLayout());
@@ -2022,6 +2060,10 @@ public class Bapers extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addTaskBtnActionPerformed
 
+    private void viewPaymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPaymentBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewPaymentBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2063,6 +2105,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton cancelBtn1;
     private javax.swing.JButton createAccountBtn;
     private javax.swing.JButton createAccountBtn1;
+    private javax.swing.JButton createJob;
     private javax.swing.JButton createJobBtn;
     private javax.swing.JButton createJobBtn1;
     private javax.swing.JButton createNewAccountBtn;
@@ -2094,6 +2137,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton downgradeBtn;
     private javax.swing.JButton downgradeBtn1;
     private javax.swing.JTextField durationLabel;
+    private javax.swing.JButton editJobBtn;
     private javax.swing.JButton editTaskBtn;
     private javax.swing.JButton editTaskBtn1;
     private javax.swing.ButtonGroup filterCustomerList;
@@ -2111,7 +2155,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton homepageBtn1;
     private javax.swing.JRadioButton inDefaultRadioButton;
     private javax.swing.JRadioButton inDefaultRadioButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -2122,7 +2165,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -2134,16 +2176,16 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel jobCard1;
     private javax.swing.JPanel jobMain;
+    private javax.swing.JScrollPane jobMainPage;
     private javax.swing.JTable jobTable;
     private javax.swing.JPanel jobs;
     private javax.swing.JLabel jobsLabel;
@@ -2161,12 +2203,16 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel1;
     private javax.swing.JRadioButton normalRadioButton;
     private javax.swing.JRadioButton normalRadioButton1;
-    private javax.swing.JPanel payment;
     private javax.swing.JPanel payment1;
+    private javax.swing.JPanel paymentCard1;
     private javax.swing.JLabel paymentLabel;
     private javax.swing.JLabel paymentLabel1;
+    private javax.swing.JPanel paymentMain;
     private javax.swing.JPanel paymentPanel;
     private javax.swing.JPanel paymentPanel1;
+    private javax.swing.JTable paymentTable;
+    private javax.swing.JLabel paymentViewLabel;
+    private javax.swing.JPanel payments;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JLabel phoneNumberLabel1;
     private javax.swing.JTextField phoneNumberTextfield;
@@ -2215,15 +2261,15 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel viewCustomer;
     private javax.swing.JPanel viewCustomer1;
     private javax.swing.JPanel viewJob1;
-    private javax.swing.JButton viewJobsBtn;
+    private javax.swing.JButton viewJobs;
     private javax.swing.JButton viewJobsbtn;
     private javax.swing.JButton viewJobsbtn1;
+    private javax.swing.JButton viewPaymentBtn;
     private javax.swing.JButton viewTaskBtn;
     private javax.swing.JButton viewTaskBtn1;
     // End of variables declaration//GEN-END:variables
 
     void navigationBar(Controller.BapersMenu bapersNavi) {
-        
         
         homepageBtn.addActionListener(bapersNavi);
         customerBtn.addActionListener(bapersNavi);
@@ -2257,11 +2303,16 @@ public class Bapers extends javax.swing.JFrame {
         
     }
     
-    public void setPanelJob(String x){
-        card.show(mainPanel, "jobs");
+      public void setPanelJob(String x){
+        card.show(mainPanel,"jobs");
         jobCard.show(jobCard1, x);
+        
     }
-
+      
+      public void setPanelPayment(String x){
+          card.show(mainPanel,"payments");
+          paymentCard.show(paymentCard1, x);
+      }
     
     
      public void setPanelTest(){
@@ -2274,9 +2325,12 @@ public class Bapers extends javax.swing.JFrame {
          
          card.show(mainPanel,"jobs");
          jobCard.show(jobCard1,"");
+         
+         card.show(mainPanel,"payments");
+         paymentCard.show(paymentCard1,"");
     
     }
-     
+ 
      
     
     public void setUser(String x){
@@ -2302,6 +2356,10 @@ public class Bapers extends javax.swing.JFrame {
     public JTable getJobTable(){
         return jobTable;
     }
+    
+    public JTable getPaymentTable(){
+        return paymentTable;
+    }
 
     void CustomerPanelNavigation(Controller.CustomerPanelNavigation CustomerNavigation) {
     Customersbtn.addActionListener(CustomerNavigation);
@@ -2315,11 +2373,16 @@ public class Bapers extends javax.swing.JFrame {
        
     }
     
-    void JobPanelNavigation(Controller.JobPanelNavigation JobNavigation){
-        viewJobsBtn.addActionListener(JobNavigation);
+     void JobPanelNavigation(Controller.JobPanelNavigation JobNavigation){
+        viewJobs.addActionListener(JobNavigation);
+        createJob.addActionListener(JobNavigation);
+       
     }
     
-    
+     void PaymentPanelNavigation(Controller.PaymentPanelNavigation PaymentNavigation){
+        viewPaymentBtn.addActionListener(PaymentNavigation);
+       
+    }
     
     public ButtonGroup filterSelection(){
             return filterCustomerList;
@@ -2348,6 +2411,10 @@ public class Bapers extends javax.swing.JFrame {
     
     
     void JobMain(Controller.JobMain jobMain){
+        editJobBtn.addActionListener(jobMain);
+    }
+    
+    void PaymentMain(Controller.PaymentMain paymentMain){
         
     }
     

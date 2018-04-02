@@ -8,6 +8,8 @@ package teamproject;
 import teamproject.Accounts.AccountController;
 import teamproject.Accounts.Customer;
 import teamproject.Tasks.Task;
+import teamproject.Jobs.Job;
+import teamproject.Payment.PaymentRecord;
 import teamproject.Database.Jdbc;
 import teamproject.Payment.PaymentController;
 import teamproject.Reports.ReportController;

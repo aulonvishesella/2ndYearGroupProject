@@ -46,12 +46,17 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="passwordLabel" min="-2" pref="128" max="-2" attributes="0"/>
-                              <Component id="jPasswordField1" min="-2" pref="128" max="-2" attributes="0"/>
-                              <Component id="usernameTextField" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                              <Component id="usernameLabel" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                              <Component id="LoginButton" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="passwordLabel" pref="157" max="32767" attributes="0"/>
+                              <Component id="jPasswordField1" pref="157" max="32767" attributes="0"/>
+                              <Component id="usernameTextField" alignment="0" pref="157" max="32767" attributes="0"/>
+                              <Component id="usernameLabel" alignment="0" pref="157" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="LoginButton" pref="128" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="staffRole" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -72,9 +77,13 @@
                   <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="staffRole" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="LoginButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,6 +121,13 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Logo"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Role:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="staffRole">
         </Component>
       </SubComponents>
     </Container>

@@ -37,6 +37,8 @@ public class Bapers extends javax.swing.JFrame {
          CardLayout card = (CardLayout)mainPanel.getLayout();
          this.card = card;
          
+         
+         
          CardLayout card1 = (CardLayout)customerCard1.getLayout();
          this.customerCard = card1;
          
@@ -149,32 +151,6 @@ public class Bapers extends javax.swing.JFrame {
         loggedinLabel1 = new javax.swing.JLabel();
         userLabel1 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
-        homepage = new javax.swing.JPanel();
-        customerPanel = new javax.swing.JPanel();
-        customerLabel = new javax.swing.JLabel();
-        Customersbtn = new javax.swing.JButton();
-        customerInfoBtn = new javax.swing.JButton();
-        addCustomerBtn = new javax.swing.JButton();
-        jobsPanel = new javax.swing.JPanel();
-        jobsLabel = new javax.swing.JLabel();
-        viewJobs = new javax.swing.JButton();
-        createJob = new javax.swing.JButton();
-        reportsPanel = new javax.swing.JPanel();
-        reportsLabel = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        paymentPanel = new javax.swing.JPanel();
-        paymentLabel = new javax.swing.JLabel();
-        viewPaymentBtn = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        taskPanel = new javax.swing.JPanel();
-        taskLabel = new javax.swing.JLabel();
-        viewTaskBtn = new javax.swing.JButton();
-        addTaskBtn = new javax.swing.JButton();
-        AdminPanel = new javax.swing.JPanel();
-        adminLabel = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
         jobs = new javax.swing.JPanel();
         jobCard1 = new javax.swing.JPanel();
         jobMain = new javax.swing.JPanel();
@@ -248,6 +224,32 @@ public class Bapers extends javax.swing.JFrame {
         phoneNumberTextfield = new javax.swing.JTextField();
         accountIDTextField = new javax.swing.JTextField();
         viewCustomer = new javax.swing.JPanel();
+        homepage = new javax.swing.JPanel();
+        customerPanel = new javax.swing.JPanel();
+        customerLabel = new javax.swing.JLabel();
+        Customersbtn = new javax.swing.JButton();
+        customerInfoBtn = new javax.swing.JButton();
+        addCustomerBtn = new javax.swing.JButton();
+        jobsPanel = new javax.swing.JPanel();
+        jobsLabel = new javax.swing.JLabel();
+        viewJobs = new javax.swing.JButton();
+        createJob = new javax.swing.JButton();
+        reportsPanel = new javax.swing.JPanel();
+        reportsLabel = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        paymentPanel = new javax.swing.JPanel();
+        paymentLabel = new javax.swing.JLabel();
+        viewPaymentBtn = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        taskPanel = new javax.swing.JPanel();
+        taskLabel = new javax.swing.JLabel();
+        viewTaskBtn = new javax.swing.JButton();
+        addTaskBtn = new javax.swing.JButton();
+        adminPanel = new javax.swing.JPanel();
+        adminLabel = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
         homepageBtn = new javax.swing.JButton();
         customerBtn = new javax.swing.JButton();
         viewJobsbtn = new javax.swing.JButton();
@@ -1038,302 +1040,6 @@ public class Bapers extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(204, 204, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        homepage.setBackground(new java.awt.Color(153, 153, 153));
-
-        customerPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        customerLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        customerLabel.setText("Customers");
-
-        Customersbtn.setText("Customers");
-        Customersbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CustomersbtnActionPerformed(evt);
-            }
-        });
-
-        customerInfoBtn.setText("Customer Info");
-        customerInfoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerInfoBtnActionPerformed(evt);
-            }
-        });
-
-        addCustomerBtn.setText("Add Customer");
-
-        javax.swing.GroupLayout customerPanelLayout = new javax.swing.GroupLayout(customerPanel);
-        customerPanel.setLayout(customerPanelLayout);
-        customerPanelLayout.setHorizontalGroup(
-            customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(customerPanelLayout.createSequentialGroup()
-                .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(customerPanelLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Customersbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(customerInfoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addCustomerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(customerPanelLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(customerLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        customerPanelLayout.setVerticalGroup(
-            customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(customerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(customerLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Customersbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(customerInfoBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addCustomerBtn)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        jobsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jobsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jobsLabel.setText("Jobs");
-
-        viewJobs.setText("View Jobs");
-
-        createJob.setText("Create Job");
-
-        javax.swing.GroupLayout jobsPanelLayout = new javax.swing.GroupLayout(jobsPanel);
-        jobsPanel.setLayout(jobsPanelLayout);
-        jobsPanelLayout.setHorizontalGroup(
-            jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobsPanelLayout.createSequentialGroup()
-                .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(createJob)
-                    .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jobsPanelLayout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(jobsLabel))
-                        .addGroup(jobsPanelLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(viewJobs))))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jobsPanelLayout.setVerticalGroup(
-            jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jobsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewJobs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(createJob)
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-
-        reportsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        reportsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reportsLabel.setText("Reports");
-
-        jButton7.setText("Individual Report");
-
-        jButton8.setText("Individual Performance");
-
-        jButton9.setText("Summary Performance");
-
-        javax.swing.GroupLayout reportsPanelLayout = new javax.swing.GroupLayout(reportsPanel);
-        reportsPanel.setLayout(reportsPanelLayout);
-        reportsPanelLayout.setHorizontalGroup(
-            reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(reportsLabel)
-                .addGap(70, 70, 70))
-            .addGroup(reportsPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 19, Short.MAX_VALUE))
-        );
-        reportsPanelLayout.setVerticalGroup(
-            reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(reportsLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
-                .addGap(12, 12, 12)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-
-        paymentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        paymentLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        paymentLabel.setText("Payment");
-
-        viewPaymentBtn.setText("View Payments");
-        viewPaymentBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewPaymentBtnActionPerformed(evt);
-            }
-        });
-
-        jButton11.setText("Pay Now");
-
-        javax.swing.GroupLayout paymentPanelLayout = new javax.swing.GroupLayout(paymentPanel);
-        paymentPanel.setLayout(paymentPanelLayout);
-        paymentPanelLayout.setHorizontalGroup(
-            paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentPanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(paymentLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentPanelLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewPaymentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
-        );
-        paymentPanelLayout.setVerticalGroup(
-            paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(paymentLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewPaymentBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton11)
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
-        taskPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        taskLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        taskLabel.setText("Tasks");
-
-        viewTaskBtn.setText("Tasks");
-        viewTaskBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewTaskBtnActionPerformed(evt);
-            }
-        });
-
-        addTaskBtn.setText("Add Task");
-        addTaskBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTaskBtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout taskPanelLayout = new javax.swing.GroupLayout(taskPanel);
-        taskPanel.setLayout(taskPanelLayout);
-        taskPanelLayout.setHorizontalGroup(
-            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskPanelLayout.createSequentialGroup()
-                .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(taskPanelLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(taskLabel))
-                    .addGroup(taskPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(viewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        taskPanelLayout.setVerticalGroup(
-            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(taskLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewTaskBtn)
-                .addGap(18, 18, 18)
-                .addComponent(addTaskBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        AdminPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        adminLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        adminLabel.setText("Admin");
-
-        jButton13.setText("View Admin Tab");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout AdminPanelLayout = new javax.swing.GroupLayout(AdminPanel);
-        AdminPanel.setLayout(AdminPanelLayout);
-        AdminPanelLayout.setHorizontalGroup(
-            AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(adminLabel)
-                .addGap(73, 73, 73))
-            .addGroup(AdminPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        AdminPanelLayout.setVerticalGroup(
-            AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(adminLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton13)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout homepageLayout = new javax.swing.GroupLayout(homepage);
-        homepage.setLayout(homepageLayout);
-        homepageLayout.setHorizontalGroup(
-            homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homepageLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jobsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(73, 73, 73)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(reportsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(65, 65, 65))
-        );
-        homepageLayout.setVerticalGroup(
-            homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homepageLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homepageLayout.createSequentialGroup()
-                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(homepageLayout.createSequentialGroup()
-                        .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        mainPanel.add(homepage, "homepage");
-
         jobs.setBackground(new java.awt.Color(204, 204, 204));
         jobs.setLayout(new java.awt.CardLayout());
 
@@ -1445,7 +1151,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(paymentViewLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         paymentCard1.add(paymentMain, "card2");
@@ -1663,7 +1369,6 @@ public class Bapers extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        customerTable.setColumnSelectionAllowed(false);
         customerTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         customerTable.getTableHeader().setReorderingAllowed(false);
         customerMainPage.setViewportView(customerTable);
@@ -1881,6 +1586,302 @@ public class Bapers extends javax.swing.JFrame {
 
         mainPanel.add(customers, "customers");
 
+        homepage.setBackground(new java.awt.Color(153, 153, 153));
+
+        customerPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        customerLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        customerLabel.setText("Customers");
+
+        Customersbtn.setText("Customers");
+        Customersbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomersbtnActionPerformed(evt);
+            }
+        });
+
+        customerInfoBtn.setText("Customer Info");
+        customerInfoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerInfoBtnActionPerformed(evt);
+            }
+        });
+
+        addCustomerBtn.setText("Add Customer");
+
+        javax.swing.GroupLayout customerPanelLayout = new javax.swing.GroupLayout(customerPanel);
+        customerPanel.setLayout(customerPanelLayout);
+        customerPanelLayout.setHorizontalGroup(
+            customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerPanelLayout.createSequentialGroup()
+                .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Customersbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(customerInfoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addCustomerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(customerPanelLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(customerLabel)))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        customerPanelLayout.setVerticalGroup(
+            customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(customerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Customersbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(customerInfoBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addCustomerBtn)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jobsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jobsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jobsLabel.setText("Jobs");
+
+        viewJobs.setText("View Jobs");
+
+        createJob.setText("Create Job");
+
+        javax.swing.GroupLayout jobsPanelLayout = new javax.swing.GroupLayout(jobsPanel);
+        jobsPanel.setLayout(jobsPanelLayout);
+        jobsPanelLayout.setHorizontalGroup(
+            jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobsPanelLayout.createSequentialGroup()
+                .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(createJob)
+                    .addGroup(jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jobsPanelLayout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(jobsLabel))
+                        .addGroup(jobsPanelLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(viewJobs))))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jobsPanelLayout.setVerticalGroup(
+            jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jobsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewJobs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createJob)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        reportsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        reportsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        reportsLabel.setText("Reports");
+
+        jButton7.setText("Individual Report");
+
+        jButton8.setText("Individual Performance");
+
+        jButton9.setText("Summary Performance");
+
+        javax.swing.GroupLayout reportsPanelLayout = new javax.swing.GroupLayout(reportsPanel);
+        reportsPanel.setLayout(reportsPanelLayout);
+        reportsPanelLayout.setHorizontalGroup(
+            reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reportsLabel)
+                .addGap(70, 70, 70))
+            .addGroup(reportsPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
+        );
+        reportsPanelLayout.setVerticalGroup(
+            reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reportsLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addGap(12, 12, 12)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton9)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        paymentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        paymentLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        paymentLabel.setText("Payment");
+
+        viewPaymentBtn.setText("View Payments");
+        viewPaymentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPaymentBtnActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Pay Now");
+
+        javax.swing.GroupLayout paymentPanelLayout = new javax.swing.GroupLayout(paymentPanel);
+        paymentPanel.setLayout(paymentPanelLayout);
+        paymentPanelLayout.setHorizontalGroup(
+            paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(paymentLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentPanelLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewPaymentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
+        );
+        paymentPanelLayout.setVerticalGroup(
+            paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(paymentLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewPaymentBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton11)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        taskPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        taskLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        taskLabel.setText("Tasks");
+
+        viewTaskBtn.setText("Tasks");
+        viewTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTaskBtnActionPerformed(evt);
+            }
+        });
+
+        addTaskBtn.setText("Add Task");
+        addTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTaskBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout taskPanelLayout = new javax.swing.GroupLayout(taskPanel);
+        taskPanel.setLayout(taskPanelLayout);
+        taskPanelLayout.setHorizontalGroup(
+            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanelLayout.createSequentialGroup()
+                .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(taskPanelLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(taskLabel))
+                    .addGroup(taskPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(viewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        taskPanelLayout.setVerticalGroup(
+            taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(taskLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewTaskBtn)
+                .addGap(18, 18, 18)
+                .addComponent(addTaskBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        adminPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        adminLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        adminLabel.setText("Admin");
+
+        jButton13.setText("View Admin Tab");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
+        adminPanel.setLayout(adminPanelLayout);
+        adminPanelLayout.setHorizontalGroup(
+            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(adminLabel)
+                .addGap(73, 73, 73))
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        adminPanelLayout.setVerticalGroup(
+            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(adminLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton13)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout homepageLayout = new javax.swing.GroupLayout(homepage);
+        homepage.setLayout(homepageLayout);
+        homepageLayout.setHorizontalGroup(
+            homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homepageLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jobsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reportsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
+        );
+        homepageLayout.setVerticalGroup(
+            homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homepageLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(homepageLayout.createSequentialGroup()
+                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(adminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(homepageLayout.createSequentialGroup()
+                        .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        mainPanel.add(homepage, "homepage");
+
         homepageBtn.setText("homepage");
         homepageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1899,9 +1900,9 @@ public class Bapers extends javax.swing.JFrame {
 
         reportsBtn.setText("reports");
 
-        PaymentBtn.setText("payment");
+        PaymentBtn.setText("payments");
 
-        taskBtn.setText("Tasks");
+        taskBtn.setText("tasks");
         taskBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 taskBtnActionPerformed(evt);
@@ -2072,7 +2073,6 @@ public class Bapers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTextField;
     private javax.swing.JTextField AddressTextField1;
-    private javax.swing.JPanel AdminPanel;
     private javax.swing.JPanel AdminPanel1;
     private javax.swing.JLabel CustomerPageTitle;
     private javax.swing.JLabel CustomerPageTitle1;
@@ -2099,6 +2099,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel admin1;
     private javax.swing.JLabel adminLabel;
     private javax.swing.JLabel adminLabel1;
+    private javax.swing.JPanel adminPanel;
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JRadioButton allRadioButton1;
     private javax.swing.JButton cancelBtn;
@@ -2270,7 +2271,6 @@ public class Bapers extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     void navigationBar(Controller.BapersMenu bapersNavi) {
-        
         homepageBtn.addActionListener(bapersNavi);
         customerBtn.addActionListener(bapersNavi);
         PaymentBtn.addActionListener(bapersNavi);
@@ -2285,9 +2285,75 @@ public class Bapers extends javax.swing.JFrame {
     
     
     
+
+    
     public void setpanel(String x){
         card.show(mainPanel, x);
 
+        
+    }
+    
+    public void setPanelRecep(String x){
+        card.show(mainPanel, x);
+        customerPanel.setVisible(true);
+        jobsPanel.setVisible(true);
+        reportsPanel.setVisible(false);
+        paymentPanel.setVisible(false);
+        taskPanel.setVisible(false);
+        adminPanel.setVisible(false);
+        reportsBtn.setVisible(false);
+        PaymentBtn.setVisible(false);
+        taskBtn.setVisible(false);
+        homepageBtn.setVisible(true);
+        customerBtn.setVisible(true);
+        viewJobsbtn.setVisible(true);
+    }
+    
+    public void setPanelTech(String x){
+      card.show(mainPanel, x);
+        customerPanel.setVisible(false);
+        jobsPanel.setVisible(true);
+        reportsPanel.setVisible(false);
+        paymentPanel.setVisible(false);
+        taskPanel.setVisible(false);
+        adminPanel.setVisible(false);
+        reportsBtn.setVisible(false);
+        PaymentBtn.setVisible(false);
+        taskBtn.setVisible(false);
+        homepageBtn.setVisible(true);
+        customerBtn.setVisible(false);
+        viewJobsbtn.setVisible(true);
+    }
+      public void setPanelShift(String x){
+      card.show(mainPanel, x);
+        customerPanel.setVisible(true);
+        jobsPanel.setVisible(true);
+        reportsPanel.setVisible(true);
+        paymentPanel.setVisible(false);
+        taskPanel.setVisible(true);
+        adminPanel.setVisible(false);
+        reportsBtn.setVisible(true);
+        PaymentBtn.setVisible(false);
+        taskBtn.setVisible(true);
+        homepageBtn.setVisible(true);
+        customerBtn.setVisible(true);
+        viewJobsbtn.setVisible(true);
+    }
+    
+    public void setPanelOffice(String x){
+      card.show(mainPanel, x);
+        customerPanel.setVisible(true);
+        jobsPanel.setVisible(true);
+        reportsPanel.setVisible(true);
+        paymentPanel.setVisible(true);
+        taskPanel.setVisible(true);
+        adminPanel.setVisible(true);
+        reportsBtn.setVisible(true);
+        PaymentBtn.setVisible(true);
+        taskBtn.setVisible(true);
+        homepageBtn.setVisible(true);
+        customerBtn.setVisible(true);
+        viewJobsbtn.setVisible(true);
     }
     
    

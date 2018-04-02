@@ -154,6 +154,8 @@ public class Controller {
     public void addLoginListener(){
         login.addLoginAuth(new LoginAuth());
     }
+  
+ 
  
     public void displayTaskTable(){
         jdbc.displayTasks(bapers.getTaskTable());
@@ -196,24 +198,46 @@ public class Controller {
            
                 try {
            
-                    if( jdbc.validate_login(login.getUsername(), login.getPassword())==true){
+                    if( jdbc.validate_login(login.getUsername(), login.getPassword(),login.getRole())==true){
                     
+                       if("Receptionist".equals(login.getRole()) || "receptionist".equals(login.getRole())){
                     login.dispose();
                     
                     bapers.setVisible(true);
-                   
-                    bapers.setUser(login.getUsername());
-                   
+                   bapers.setPanelRecep(e.getActionCommand());
+                    bapers.setUser(login.getRole());
+                       }
+                       
+                       if("Technician".equals(login.getRole()) || "technician".equals(login.getRole())){
+                              login.dispose();
                     
-                
-                     }else{
+                    bapers.setVisible(true);
+                   bapers.setPanelTech(e.getActionCommand());
+                    bapers.setUser(login.getRole());
+                       }
+                       if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
+                              login.dispose();
+                    
+                    bapers.setVisible(true);
+                   bapers.setPanelShift(e.getActionCommand());
+                    bapers.setUser(login.getRole());
+                       }
+                       if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
+                              login.dispose();
+                    
+                    bapers.setVisible(true);
+                   bapers.setPanelOffice(e.getActionCommand());
+                    bapers.setUser(login.getRole());
+                       } 
+                       
+                       
+                       
+                       
+                    }else{
                      login.wrongPassword();
                      System.out.println("Wrong password");
                     }
-                
-         
-                
-                
+               
             } catch (Exception ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -223,8 +247,13 @@ public class Controller {
     
     }
     
+ 
     
     
+    
+    
+    
+
     //menubar navigation ActionLisenter
     class BapersMenu implements ActionListener{
 
@@ -241,7 +270,36 @@ public class Controller {
                 }else{
                   
                     //selects the panels depending on which button is clicked
-                 bapers.setpanel(e.getActionCommand());
+           
+                    
+                    if("Receptionist".equals(login.getRole()) || "receptionist".equals(login.getRole())){
+                        bapers.setPanelRecep(e.getActionCommand());
+                    }
+                    
+                   else if("Technician".equals(login.getRole())){
+                        bapers.setPanelTech(e.getActionCommand());
+                    }
+                    
+                   else if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
+                              
+                    
+                   
+                   bapers.setPanelShift(e.getActionCommand());
+                   
+                       }
+                   
+                       if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
+                              login.dispose();
+                    
+                    bapers.setVisible(true);
+                   bapers.setPanelOffice(e.getActionCommand());
+                    bapers.setUser(login.getRole());
+                       } 
+                       
+                    
+                    
+                
+                
                  
                  if(e.getActionCommand().contains("customer")){
                  bapers.setPanelCustomer("customerMain");
@@ -253,7 +311,7 @@ public class Controller {
                  }
                   
                  if(e.getActionCommand().contains("payments")){
-                     bapers.setPanelPayment("paymentkMain");
+                     bapers.setPanelPayment("paymentMain");
                  }
                  
                  if(e.getActionCommand().contains("jobs")){

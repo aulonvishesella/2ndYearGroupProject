@@ -60,7 +60,7 @@ public class Jdbc {
     }
     
     
-    public boolean validate_login(String username,String password) throws Exception{
+    public boolean validate_login(String username,String password, String staffRole) throws Exception{
         
     Statement st = null;
     ResultSet rs = null;
@@ -68,12 +68,13 @@ public class Jdbc {
         
       try{
          // Connection conn = getConnection();
-          String sql=("SELECT * FROM staff WHERE UserID = ? AND Password = ?");
+          String sql=("SELECT * FROM staff WHERE UserID = ? AND Password = ? AND StaffRole= ? ");
           
           pst = conn.prepareStatement(sql);
           
           pst.setString(1, username);
           pst.setString(2, password);
+          pst.setString(3,staffRole);
           
           rs = pst.executeQuery();
          
@@ -81,6 +82,8 @@ public class Jdbc {
               return true;
           else 
               return false;
+          
+         
           
       }catch(Exception E){
           E.printStackTrace();

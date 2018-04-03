@@ -16,6 +16,7 @@ import teamproject.Accounts.Customer;
 import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
 import teamproject.Payment.PaymentRecord;
+import teamproject.Admin.StaffAccount;
 
 
 
@@ -203,6 +204,34 @@ public class Jdbc {
         return paymentList;
     }
     
+    public ArrayList<StaffAccount> staffList(){
+         ArrayList<StaffAccount> staffList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from tasks
+            String getData = "SELECT * FROM staff";
+            
+            Statement st = conn.createStatement();
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            StaffAccount staffAccount;
+            
+            while(rs.next()){
+                staffAccount = new StaffAccount(rs.getInt("StaffID"),rs.getString("StaffRole"),rs.getString("StaffFirstName"));
+                staffList.add(staffAccount);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return staffList;
+    }
+       
+       
        
        
         public void displayPayment(JTable paymentTable){
@@ -211,7 +240,7 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) paymentTable.getModel();
         
-        Object[] row = new Object[5];
+        Object[] row = new Object[4];
         
          for(int i = 0;i<list.size();i++){
         
@@ -226,6 +255,26 @@ public class Jdbc {
          }
     }
     
+     public void displayStaff(JTable staffTable){
+              System.out.println("Display StaffAccounts");
+        ArrayList <StaffAccount> list = staffList();
+        
+        DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getStaffID();
+             row[1]=list.get(i).getStaffRole();
+             row[2]=list.get(i).getStaffFirstName();
+             
+             
+           
+             model.addRow(row);
+             
+         }
+    }
        
        
   

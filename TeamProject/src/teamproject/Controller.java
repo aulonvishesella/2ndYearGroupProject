@@ -24,6 +24,7 @@ import teamproject.Accounts.AccountController;
 import teamproject.Database.Jdbc;
 import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
+
 /**
  *
  * @author Ramee
@@ -56,6 +57,7 @@ public class Controller {
     jdbc.displayTasks(bapers.getTaskTable());
     jdbc.displayJobs(bapers.getJobTable());
     jdbc.displayPayment(bapers.getPaymentTable());
+    jdbc.displayStaff(bapers.getStaffTable());
     
     }
     
@@ -68,6 +70,7 @@ public class Controller {
         bapers.TaskPanelNavigation(new TaskPanelNavigation());
         bapers.JobPanelNavigation(new JobPanelNavigation());
         bapers.PaymentPanelNavigation(new PaymentPanelNavigation());
+        bapers.AdminPanelNavigation(new AdminPanelNavigation());
 
         
         //adds navigation for the customerMain page
@@ -75,6 +78,7 @@ public class Controller {
         bapers.TaskMain(new TaskMain());
         bapers.JobMain(new JobMain());
         bapers.PaymentMain(new PaymentMain());
+        bapers.AdminMain(new AdminMain());
        
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
@@ -88,7 +92,33 @@ public class Controller {
                
             }
 
+       
         });
+        
+         bapers.getStaffTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getStaffTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+               
+            }
+
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        
+        
         
                 bapers.getPaymentTable().addMouseListener(new MouseAdapter(){
         
@@ -179,6 +209,10 @@ public class Controller {
         jdbc.displayJobs(bapers.getJobTable());
     }
     
+    public void displayStaffTable(){
+        jdbc.displayStaff(bapers.getStaffTable());
+    }
+    
  class LogoutAuth implements ActionListener{
        @Override
         public void actionPerformed(ActionEvent e) {
@@ -235,7 +269,8 @@ public class Controller {
                        
                     }else{
                      login.wrongPassword();
-                     System.out.println("Wrong password");
+                     
+                     System.out.println("Incorrect credentials");
                     }
                
             } catch (Exception ex) {
@@ -276,33 +311,33 @@ public class Controller {
                         bapers.setPanelRecep(e.getActionCommand());
                     }
                     
-                   else if("Technician".equals(login.getRole())){
+                   if("Technician".equals(login.getRole())){
                         bapers.setPanelTech(e.getActionCommand());
                     }
                     
-                   else if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
+                   if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
                               
                     
                    
                    bapers.setPanelShift(e.getActionCommand());
                    
-                       }
+                   }
                    
-                       if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
-                              login.dispose();
+                     if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
+                      login.dispose();
                     
                     bapers.setVisible(true);
                    bapers.setPanelOffice(e.getActionCommand());
                     bapers.setUser(login.getRole());
                        } 
-                       
-                    
-                    
-                
-                
                  
+                     if(e.getActionCommand().contains("admin")){
+                     bapers.setPanelAdmin("adminMain");
+                 }
+                     
                  if(e.getActionCommand().contains("customer")){
-                 bapers.setPanelCustomer("customerMain");
+                
+                     bapers.setPanelCustomer("customerMain");
                  
                  }
                  
@@ -317,6 +352,10 @@ public class Controller {
                  if(e.getActionCommand().contains("jobs")){
                      bapers.setPanelJob("jobMain");
                  }
+                  
+
+                
+                 
                     System.out.println(e.getActionCommand());
                   // System.out.println(e.getActionCommand());
                 }  
@@ -324,8 +363,8 @@ public class Controller {
                 
                     
     }
-    //navigation for customerPanel(homepage)
-    class CustomerPanelNavigation implements ActionListener{
+    
+     class CustomerPanelNavigation implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -354,6 +393,21 @@ public class Controller {
            
            
             
+        }
+    
+    }
+    
+    
+    class AdminPanelNavigation implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
+     bapers.setpanel(a.getActionCommand());
+              System.out.println(a.getActionCommand());
+           if(a.getActionCommand().contains("Admins")){
+               bapers.setPanelAdmin("adminMain");
+           }
+          
         }
     
     }
@@ -427,6 +481,17 @@ public class Controller {
     
      }
      
+     class AdminMain implements ActionListener{
+         JTable staffTable = bapers.getStaffTable();
+                DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
+                 @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().contains("Edit ")){
+                System.exit(0);
+            }
+            
+        }
+     }
      
      
      

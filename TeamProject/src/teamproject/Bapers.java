@@ -1358,10 +1358,7 @@ public class Bapers extends javax.swing.JFrame {
 
         staffTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Staff ID", "Staff Role", "Name"
@@ -1375,6 +1372,11 @@ public class Bapers extends javax.swing.JFrame {
         officeManagerRadio.setText("Office Manager");
 
         shiftManagerRadio.setText("Shift Manager");
+        shiftManagerRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shiftManagerRadioActionPerformed(evt);
+            }
+        });
 
         receptionistRadio.setText("Receptionist");
 
@@ -1392,56 +1394,53 @@ public class Bapers extends javax.swing.JFrame {
             adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminMainLayout.createSequentialGroup()
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(adminMainLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(userAccountLabel)
-                        .addGap(120, 120, 120)))
+                        .addGap(51, 51, 51)
+                        .addComponent(userAccountLabel)))
+                .addGap(6, 6, 6)
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountRoleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(technicianRadio)
+                    .addComponent(jRadioButton1)
                     .addGroup(adminMainLayout.createSequentialGroup()
                         .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(officeManagerRadio)
-                            .addComponent(shiftManagerRadio)
                             .addComponent(receptionistRadio)
-                            .addComponent(technicianRadio)
-                            .addComponent(jRadioButton1))
-                        .addGap(37, 37, 37)
-                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(createUserBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editAccountBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(shiftManagerRadio))
+                        .addGap(18, 18, 18)
+                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(createUserBtn)
+                            .addComponent(editAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         adminMainLayout.setVerticalGroup(
             adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(userAccountLabel)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(319, 319, 319))
             .addGroup(adminMainLayout.createSequentialGroup()
+                .addComponent(accountRoleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(officeManagerRadio)
+                    .addComponent(createUserBtn))
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminMainLayout.createSequentialGroup()
-                        .addComponent(accountRoleLabel)
-                        .addGap(8, 8, 8)
-                        .addComponent(officeManagerRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(shiftManagerRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(receptionistRadio)
-                            .addComponent(editAccountBtn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(technicianRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1))
+                        .addGap(11, 11, 11)
+                        .addComponent(receptionistRadio))
                     .addGroup(adminMainLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(createUserBtn)))
+                        .addGap(24, 24, 24)
+                        .addComponent(editAccountBtn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(technicianRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2175,6 +2174,10 @@ public class Bapers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewPaymentBtnActionPerformed
 
+    private void shiftManagerRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shiftManagerRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shiftManagerRadioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2500,19 +2503,20 @@ public class Bapers extends javax.swing.JFrame {
     }
     
       public void setPanelJob(String x){
-        card.show(mainPanel,"jobs");
+        card.show(mainPanel,"viewJob");
         jobCard.show(jobCard1, x);
         
     }
       
       public void setPanelPayment(String x){
-          card.show(mainPanel,"payments");
+          card.show(mainPanel,"payment");
           paymentCard.show(paymentCard1, x);
       }
       
       public void setPanelAdmin(String x){
-           card.show(mainPanel,"Admin");
+           card.show(mainPanel,"card4");
           adminCard.show(adminCard1, x);
+        
       }
     
     

@@ -331,8 +331,8 @@ public class Controller {
                     bapers.setUser(login.getRole());
                        } 
                  
-                     if(e.getActionCommand().contains("admin")){
-                     bapers.setPanelAdmin("adminMain");
+                     if(e.getActionCommand().contains("Admin")){
+                     bapers.setPanelAdmin("card4");
                  }
                      
                  if(e.getActionCommand().contains("customer")){
@@ -404,9 +404,10 @@ public class Controller {
         public void actionPerformed(ActionEvent a) {
      bapers.setpanel(a.getActionCommand());
               System.out.println(a.getActionCommand());
-           if(a.getActionCommand().contains("Admins")){
-               bapers.setPanelAdmin("adminMain");
-           }
+           if(a.getActionCommand().contains("Admin")){
+                     bapers.setPanelAdmin("card4");
+                 }
+                     
           
         }
     
@@ -447,8 +448,8 @@ public class Controller {
              
                   
               System.out.println(p.getActionCommand());
-           if(p.getActionCommand().contains("payments")){
-            bapers.setPanelPayment("paymentMain");
+           if(p.getActionCommand().contains("View Payments")){
+            bapers.setPanelPayment("payment");
            }
          
            
@@ -470,8 +471,8 @@ public class Controller {
              
                   
               System.out.println(p.getActionCommand());
-           if(p.getActionCommand().contains("jobs")){
-            bapers.setPanelJob("jobMain");
+           if(p.getActionCommand().contains("View Jobs")){
+            bapers.setPanelJob("viewJob");
            }
          
            

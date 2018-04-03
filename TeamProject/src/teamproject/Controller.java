@@ -103,6 +103,9 @@ public class Controller {
                 JTable target = bapers.getStaffTable();
                 int row = target.getSelectedRow();
                 int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                System.out.println(id);
+                selectedRow = id;
                
             }
 
@@ -461,9 +464,6 @@ public class Controller {
      
      
      
-     
-     
-     
           class JobPanelNavigation implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent p) {
@@ -487,13 +487,127 @@ public class Controller {
                 DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
                  @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getActionCommand().contains("Edit ")){
-                System.exit(0);
+             if(e.getActionCommand().contains("Edit Role")){
+                
+                try {
+                    jdbc.setRole(selectedRow, bapers.getStaffRole().getText());
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+               
+             }
+             
+               if(e.getActionCommand().contains("Edit Staff ID")){
+                
+                try {
+                    jdbc.setStaffID(selectedRow, Integer.parseInt(bapers.getStaffID().getText()));
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
+             
+                if(e.getActionCommand().contains("Edit Forename")){
+                
+                try {
+                    jdbc.setStaffFirstName(selectedRow, bapers.getStaffFirstName().getText());
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+             
+                if(e.getActionCommand().contains("Edit Surename")){
+                
+                try {
+                    jdbc.setStaffLastName(selectedRow, bapers.getStaffLastName().getText());
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+             
+               
+                  if(e.getActionCommand().contains("Delete Account")){
+                
+                try {
+                    jdbc.setDeletion(selectedRow);
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+             
+             
+             
+             if(bapers.getReceptionistRadio().isSelected()){
+                 //removes existing data and displays new data
+                 model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayStaff(staffTable,"Receptionist");
+       
+           
+            }
+             if(bapers.getShiftManagerRadio().isSelected()){
+                 //removes existing data and displays new data
+                 model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayStaff(staffTable,"Shift Manager");
+       
+           
+            }
+              if(bapers.getOfficeManagerRadio().isSelected()){
+                 //removes existing data and displays new data
+                 model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayStaff(staffTable,"Office Manager");
+       
+           
+            }
+              
+               if(bapers.getTechnicianRadio().isSelected()){
+                 //removes existing data and displays new data
+                 model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayStaff(staffTable,"Technician");
+       
+           
+            }
+               
+             
+               if(bapers.getAllRadio().isSelected()){
+                 //removes existing data and displays new data
+                 model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayStaff(staffTable);
+       
+           
+            }  
             
         }
      }
-     
+
      
      
      

@@ -6,6 +6,7 @@
 package teamproject;
 
 import java.awt.CardLayout;
+import java.awt.TextField;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -204,9 +206,17 @@ public class Bapers extends javax.swing.JFrame {
         shiftManagerRadio = new javax.swing.JRadioButton();
         receptionistRadio = new javax.swing.JRadioButton();
         technicianRadio = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        allBtn = new javax.swing.JRadioButton();
         createUserBtn = new javax.swing.JButton();
-        editAccountBtn = new javax.swing.JButton();
+        editAccountIDBtn = new javax.swing.JButton();
+        editStaffRole = new javax.swing.JButton();
+        forenameBtn = new javax.swing.JButton();
+        staffRoleText = new javax.swing.JTextField();
+        staffIDText = new javax.swing.JTextField();
+        forenameText = new javax.swing.JTextField();
+        surenameBtn = new javax.swing.JButton();
+        surenameText = new javax.swing.JTextField();
+        deleteAccount = new javax.swing.JButton();
         customers = new javax.swing.JPanel();
         customerCard1 = new javax.swing.JPanel();
         customerMain = new javax.swing.JPanel();
@@ -1361,7 +1371,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Staff ID", "Staff Role", "Name"
+                "Staff ID", "Staff Role", "Forename", "Surename"
             }
         ));
         jScrollPane3.setViewportView(staffTable);
@@ -1382,11 +1392,19 @@ public class Bapers extends javax.swing.JFrame {
 
         technicianRadio.setText("Technician");
 
-        jRadioButton1.setText("All");
+        allBtn.setText("All");
 
         createUserBtn.setText("Create Account");
 
-        editAccountBtn.setText("Edit Account");
+        editAccountIDBtn.setText("Edit Staff ID");
+
+        editStaffRole.setText("Edit Role");
+
+        forenameBtn.setText("Edit Forename");
+
+        surenameBtn.setText("Edit Surename");
+
+        deleteAccount.setText("Delete Account");
 
         javax.swing.GroupLayout adminMainLayout = new javax.swing.GroupLayout(adminMain);
         adminMain.setLayout(adminMainLayout);
@@ -1394,53 +1412,85 @@ public class Bapers extends javax.swing.JFrame {
             adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminMainLayout.createSequentialGroup()
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(adminMainLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(userAccountLabel)))
-                .addGap(6, 6, 6)
-                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(accountRoleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(technicianRadio)
-                    .addComponent(jRadioButton1)
-                    .addGroup(adminMainLayout.createSequentialGroup()
+                        .addComponent(userAccountLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
                         .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(officeManagerRadio)
-                            .addComponent(receptionistRadio)
-                            .addComponent(shiftManagerRadio))
+                            .addComponent(staffIDText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editAccountIDBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(staffRoleText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
+                                .addComponent(editStaffRole, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)))
                         .addGap(18, 18, 18)
+                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(forenameText)
+                            .addComponent(forenameBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(surenameBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                            .addComponent(surenameText)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adminMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(createUserBtn)
-                            .addComponent(editAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
+                                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(shiftManagerRadio)
+                                    .addComponent(officeManagerRadio)
+                                    .addComponent(receptionistRadio)
+                                    .addComponent(technicianRadio)
+                                    .addComponent(allBtn))
+                                .addGap(44, 44, 44)
+                                .addComponent(createUserBtn)
+                                .addGap(30, 30, 30))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
+                                .addComponent(accountRoleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(157, 157, 157))))
+                    .addGroup(adminMainLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(deleteAccount)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         adminMainLayout.setVerticalGroup(
             adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(userAccountLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(319, 319, 319))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editAccountIDBtn)
+                    .addComponent(editStaffRole)
+                    .addComponent(forenameBtn)
+                    .addComponent(surenameBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(staffRoleText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffIDText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(forenameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(surenameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(257, 257, 257))
             .addGroup(adminMainLayout.createSequentialGroup()
                 .addComponent(accountRoleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(officeManagerRadio)
                     .addComponent(createUserBtn))
-                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(adminMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(shiftManagerRadio)
-                        .addGap(11, 11, 11)
-                        .addComponent(receptionistRadio))
-                    .addGroup(adminMainLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(editAccountBtn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(technicianRadio)
+                .addComponent(shiftManagerRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(receptionistRadio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(technicianRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(allBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2218,6 +2268,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel adminMain;
     private javax.swing.JButton adminMenuBtn;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JRadioButton allBtn;
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JRadioButton allRadioButton1;
     private javax.swing.JButton cancelBtn;
@@ -2252,13 +2303,15 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel dateLabel1;
     private javax.swing.JTextField dateOfBirthTextField;
     private javax.swing.JTextField dateOfBirthTextField1;
+    private javax.swing.JButton deleteAccount;
     private javax.swing.JButton deleteTaskBtn;
     private javax.swing.JButton deleteTaskBtn1;
     private javax.swing.JButton downgradeBtn;
     private javax.swing.JButton downgradeBtn1;
     private javax.swing.JTextField durationLabel;
-    private javax.swing.JButton editAccountBtn;
+    private javax.swing.JButton editAccountIDBtn;
     private javax.swing.JButton editJobBtn;
+    private javax.swing.JButton editStaffRole;
     private javax.swing.JButton editTaskBtn;
     private javax.swing.JButton editTaskBtn1;
     private javax.swing.ButtonGroup filterCustomerList;
@@ -2266,8 +2319,10 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel filterRadioBoxLabel1;
     private javax.swing.JTextField foreNameTextField;
     private javax.swing.JTextField foreNameTextField1;
+    private javax.swing.JButton forenameBtn;
     private javax.swing.JLabel forenameLabel;
     private javax.swing.JLabel forenameLabel1;
+    private javax.swing.JTextField forenameText;
     private javax.swing.JButton generateInDefaultBtn;
     private javax.swing.JButton generateInDefaultBtn1;
     private javax.swing.JPanel homepage;
@@ -2298,7 +2353,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2353,9 +2407,13 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton saveTaskBtn;
     private javax.swing.JTextField shelfSlotLabel;
     private javax.swing.JRadioButton shiftManagerRadio;
+    private javax.swing.JTextField staffIDText;
+    private javax.swing.JTextField staffRoleText;
     private javax.swing.JTable staffTable;
     private javax.swing.JTextField surNameTextField;
     private javax.swing.JTextField surNameTextField1;
+    private javax.swing.JButton surenameBtn;
+    private javax.swing.JTextField surenameText;
     private javax.swing.JLabel surnameLabel;
     private javax.swing.JLabel surnameLabel1;
     private javax.swing.JButton taskBtn;
@@ -2601,6 +2659,7 @@ public class Bapers extends javax.swing.JFrame {
     
       void AdminPanelNavigation(Controller.AdminPanelNavigation AdminNavigation){
         adminBtn.addActionListener(AdminNavigation);
+       
     }
      
      
@@ -2615,7 +2674,18 @@ public class Bapers extends javax.swing.JFrame {
         receptionistRadio.addActionListener(adminMain);
         technicianRadio.addActionListener(adminMain);
         createUserBtn.addActionListener(adminMain);
-        editAccountBtn.addActionListener(adminMain);
+        editAccountIDBtn.addActionListener(adminMain);
+        allBtn.addActionListener(adminMain);
+        editStaffRole.addActionListener(adminMain);
+        staffRoleText.addActionListener(adminMain);
+        staffIDText.addActionListener(adminMain);
+        editAccountIDBtn.addActionListener(adminMain);
+        forenameBtn.addActionListener(adminMain);
+        forenameText.addActionListener(adminMain);
+        surenameBtn.addActionListener(adminMain);
+        surenameText.addActionListener(adminMain);
+        deleteAccount.addActionListener(adminMain);
+        
        }
     
 
@@ -2648,12 +2718,29 @@ public class Bapers extends javax.swing.JFrame {
         
     }
     
+    public JTextField getStaffRole(){
+        return staffRoleText;
+    }
+     public JTextField getStaffID(){
+        return staffIDText;
+    }
+     
+    public JTextField getStaffFirstName(){
+        return forenameText;
+    }
+    public JTextField getStaffLastName(){
+        return surenameText;
+    }
     public JRadioButton getOfficeManagerRadio(){
         return officeManagerRadio;
     }
     
     public JRadioButton getShiftManagerRadio(){
         return shiftManagerRadio;
+    }
+    
+    public JRadioButton getAllRadio(){
+        return allBtn;
     }
     
     public JRadioButton getTechnicianRadio(){

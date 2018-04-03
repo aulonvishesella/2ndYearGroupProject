@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.Customer;
 import teamproject.Tasks.Task;
@@ -219,7 +220,7 @@ public class Jdbc {
             StaffAccount staffAccount;
             
             while(rs.next()){
-                staffAccount = new StaffAccount(rs.getInt("StaffID"),rs.getString("StaffRole"),rs.getString("StaffFirstName"));
+                staffAccount = new StaffAccount(rs.getInt("StaffID"),rs.getString("StaffRole"),rs.getString("StaffFirstName"),rs.getString("StaffLastName"));
                 staffList.add(staffAccount);
                 
             }
@@ -261,13 +262,15 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
         
-        Object[] row = new Object[3];
+        Object[] row = new Object[4];
         
          for(int i = 0;i<list.size();i++){
         
              row[0]=list.get(i).getStaffID();
              row[1]=list.get(i).getStaffRole();
              row[2]=list.get(i).getStaffFirstName();
+             row[3]=list.get(i).getStaffLastName();
+             
              
              
            
@@ -276,7 +279,30 @@ public class Jdbc {
          }
     }
        
-       
+        public void displayStaff(JTable staffTable,String StaffRole){
+            String staffRole= StaffRole;
+        
+        ArrayList <StaffAccount> list = staffList();
+        
+        DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
+        
+        Object[] row = new Object[4];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getStaffRole().contains(StaffRole)){
+                 
+             row[0]=list.get(i).getStaffID();
+             row[1]=list.get(i).getStaffRole();
+             row[2]=list.get(i).getStaffFirstName();
+             row[3]=list.get(i).getStaffLastName();
+             model.addRow(row);
+             
+             
+             } 
+             
+         }
+    }
   
     
     
@@ -395,11 +421,37 @@ public class Jdbc {
           pst.executeUpdate();
           
           pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      public boolean setRole(int id,String staffRole) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET StaffRole = ? WHERE StaffID = ?");
           
-       
+          pst = conn.prepareStatement(update);
           
          
+          pst.setString(1, staffRole);
+          pst.setInt(2, id);
           
+          System.out.println("update to " +id + staffRole);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
       }catch(Exception E){
           E.printStackTrace();
           return false;
@@ -408,6 +460,131 @@ public class Jdbc {
         return false; 
     }
      
+      public boolean setStaffID(int id,int staffID) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET StaffID = ? WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setInt(1, staffID);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + staffID);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
      
+       public boolean setStaffFirstName(int id,String staffFirstName) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET StaffFirstName = ? WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, staffFirstName);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + staffFirstName);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+       public boolean setStaffLastName(int id,String staffLastName) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET StaffLastName = ? WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, staffLastName);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + staffLastName);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      
+        public boolean setDeletion(int id) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("delete from staff WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setInt(1, id);
+          
+          System.out.println("update to " +id);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      
+      
+      
+      
     
 }

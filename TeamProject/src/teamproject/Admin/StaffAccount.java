@@ -13,13 +13,16 @@ public class StaffAccount {
     private int staffID;
     private String staffRole;
     private String staffFirstName;
+    private String staffLastName;
+  
     
     
-    
-    public StaffAccount(int staffID, String staffRole, String staffFirstName){
+    public StaffAccount(int staffID, String staffRole, String staffFirstName,String staffLastName){
         this.staffID= staffID;
         this.staffRole=staffRole;
         this.staffFirstName= staffFirstName;
+        this.staffLastName=staffLastName;
+        
     }
 
 
@@ -35,7 +38,10 @@ public class StaffAccount {
    public String getStaffFirstName(){
        return staffFirstName;
    }
-
+   public String getStaffLastName(){
+       return staffLastName;
+   }
+  
 }
 
 

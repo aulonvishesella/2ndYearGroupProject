@@ -220,7 +220,7 @@ public class Jdbc {
             StaffAccount staffAccount;
             
             while(rs.next()){
-                staffAccount = new StaffAccount(rs.getInt("StaffID"),rs.getString("StaffRole"),rs.getString("StaffFirstName"),rs.getString("StaffLastName"));
+                staffAccount = new StaffAccount(rs.getInt("StaffID"),rs.getString("StaffRole"),rs.getString("StaffFirstName"),rs.getString("StaffLastName"),rs.getString("UserID"),rs.getString("Password"));
                 staffList.add(staffAccount);
                 
             }
@@ -262,7 +262,7 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
         
-        Object[] row = new Object[4];
+        Object[] row = new Object[6];
         
          for(int i = 0;i<list.size();i++){
         
@@ -270,6 +270,8 @@ public class Jdbc {
              row[1]=list.get(i).getStaffRole();
              row[2]=list.get(i).getStaffFirstName();
              row[3]=list.get(i).getStaffLastName();
+             row[4]=list.get(i).getUserID();
+             row[5]=list.get(i).getPassword();
              
              
              
@@ -286,18 +288,19 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
         
-        Object[] row = new Object[4];
+        Object[] row = new Object[6];
         
          for(int i = 0;i<list.size();i++){
         
              if(list.get(i).getStaffRole().contains(StaffRole)){
                  
-             row[0]=list.get(i).getStaffID();
+            row[0]=list.get(i).getStaffID();
              row[1]=list.get(i).getStaffRole();
              row[2]=list.get(i).getStaffFirstName();
              row[3]=list.get(i).getStaffLastName();
-             model.addRow(row);
-             
+             row[4]=list.get(i).getUserID();
+             row[5]=list.get(i).getPassword();
+                model.addRow(row);
              
              } 
              
@@ -552,6 +555,72 @@ public class Jdbc {
         return false; 
     }
       
+       
+        public boolean setUserID(int id,String userID) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET UserID = ? WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, userID);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + userID);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      
+    public boolean setPassword(int id,String password) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE staff SET Password = ? WHERE StaffID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, password);
+          pst.setInt(2, id);
+          
+          System.out.println("update to " +id + password);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+       
+       
+       
+       
         public boolean setDeletion(int id) throws Exception{
         
     Statement st = null;
@@ -584,7 +653,76 @@ public class Jdbc {
     }
       
       
+       public boolean setNewAccount(int id,String staffRole,String staffFirstName,String staffLastName, String UserID,String password) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("insert into staff (StaffID,StaffRole,StaffFirstName,StaffLastName,UserID,Password) values (?,?,?,?,?,?)");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setInt(1, id);
+          pst.setString(2, staffRole);
+          pst.setString(3, staffFirstName);
+          pst.setString(4, staffLastName);
+          pst.setString(5, UserID);
+          pst.setString(6,password);
+          System.out.println("added new account ");
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
       
+        return false; 
+    }
+      
+        public boolean setNewCustomerAccount(String forename,String surename,String firstLineAddress,String postcode, String phoneNumber,String discount,String custStatus) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("insert into customer (FirstName,Surname,1stLineAddress,Postcode,PhoneNo,Discount,CustStatus) values (?,?,?,?,?,?,?)");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setString(1, forename);
+          pst.setString(2, surename);
+          pst.setString(3, firstLineAddress);
+          pst.setString(4, postcode);
+          pst.setString(5, phoneNumber);
+          pst.setString(6,discount);
+          pst.setString(7, custStatus);
+          System.out.println("added new account ");
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
       
     
 }

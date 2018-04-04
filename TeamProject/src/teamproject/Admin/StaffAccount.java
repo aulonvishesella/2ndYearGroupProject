@@ -14,14 +14,18 @@ public class StaffAccount {
     private String staffRole;
     private String staffFirstName;
     private String staffLastName;
+    private String userID;
+    private String password;
   
     
     
-    public StaffAccount(int staffID, String staffRole, String staffFirstName,String staffLastName){
+    public StaffAccount(int staffID, String staffRole, String staffFirstName,String staffLastName,String userID, String password){
         this.staffID= staffID;
         this.staffRole=staffRole;
         this.staffFirstName= staffFirstName;
         this.staffLastName=staffLastName;
+        this.userID= userID;
+        this.password=password;
         
     }
 
@@ -41,7 +45,14 @@ public class StaffAccount {
    public String getStaffLastName(){
        return staffLastName;
    }
+   
+   public String getPassword(){
+       return password;
+   }
   
+   public String getUserID(){
+       return userID;
+   }
 }
 
 

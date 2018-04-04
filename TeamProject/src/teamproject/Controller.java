@@ -71,6 +71,7 @@ public class Controller {
         bapers.JobPanelNavigation(new JobPanelNavigation());
         bapers.PaymentPanelNavigation(new PaymentPanelNavigation());
         bapers.AdminPanelNavigation(new AdminPanelNavigation());
+       
 
         
         //adds navigation for the customerMain page
@@ -79,7 +80,7 @@ public class Controller {
         bapers.JobMain(new JobMain());
         bapers.PaymentMain(new PaymentMain());
         bapers.AdminMain(new AdminMain());
-       
+       bapers.createCustomerMain(new CreateCustomerMain());
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
         
@@ -175,8 +176,8 @@ public class Controller {
        
         });
                 
-        bapers.createCustomer(new CreateNewCustomer()); 
-        bapers.createTask(new CreateNewTask());        
+       
+          
       
     }
     
@@ -410,6 +411,9 @@ public class Controller {
            if(a.getActionCommand().contains("Admin")){
                      bapers.setPanelAdmin("card4");
                  }
+            
+           
+          
                      
           
         }
@@ -487,6 +491,8 @@ public class Controller {
                 DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
                  @Override
         public void actionPerformed(ActionEvent e) {
+            
+            
              if(e.getActionCommand().contains("Edit Role")){
                 
                 try {
@@ -501,7 +507,7 @@ public class Controller {
                
              }
              
-               if(e.getActionCommand().contains("Edit Staff ID")){
+               if(e.getActionCommand().contains("EditID")){
                 
                 try {
                     jdbc.setStaffID(selectedRow, Integer.parseInt(bapers.getStaffID().getText()));
@@ -554,6 +560,40 @@ public class Controller {
                 
             }
              
+                    if(e.getActionCommand().contains("Edit UserID")){
+                
+                try {
+                     jdbc.setUserID(selectedRow, bapers.getUserID().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+                   if(e.getActionCommand().contains("Edit Pass")){
+                
+                try {
+                     jdbc.setPassword(selectedRow, bapers.getPassword().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+               if(e.getActionCommand().contains("Add Account")){
+                
+                try {
+                     jdbc.setNewAccount( Integer.parseInt(bapers.getStaffID().getText()), bapers.getStaffRole().getText(),bapers.getStaffFirstName().getText(),bapers.getStaffLastName().getText(),bapers.getUserID().getText(),bapers.getPassword().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+                  
              
              
              if(bapers.getReceptionistRadio().isSelected()){
@@ -659,6 +699,32 @@ public class Controller {
         }
     }
     
+    
+    class CreateCustomerMain implements ActionListener{
+         @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().contains("Create Account")){
+                
+                try {
+                     jdbc. setNewCustomerAccount(bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscount().getText(),bapers.getStatus().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+              
+            
+            
+            
+            
+        }
+    }
+    
+    
+    
+    
     class CustomerMain implements ActionListener{
         JTable customerTable = bapers.getCustomerTable();
         
@@ -746,37 +812,12 @@ public class Controller {
     }    
     //navigation for men
     
-    class CreateNewCustomer implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println(bapers.getCustomerName());
-                   
-        }
-    
-    
-    
-    }
     
     
     
     
-    class CreateNewTask implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println(bapers.getTaskID());
-            System.out.println(bapers.getTaskDescription());
-            System.out.println(bapers.getTaskLocation());
-            System.out.println(bapers.getShelfSlot());
-            System.out.println(bapers.getPrice());
-            System.out.println(bapers.getDuration());
-                   
-        }
     
     
-    
-    }
     
     
    

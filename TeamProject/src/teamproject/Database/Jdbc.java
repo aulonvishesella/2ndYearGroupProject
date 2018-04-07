@@ -18,6 +18,7 @@ import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
 import teamproject.Payment.PaymentRecord;
 import teamproject.Admin.StaffAccount;
+import teamproject.Bapers;
 
 
 
@@ -27,12 +28,15 @@ import teamproject.Admin.StaffAccount;
  */
 public class Jdbc {
     
-   
+   Bapers bapers;
      Connection conn = getConnection();
     
     public Jdbc() throws Exception{
     
     getConnection();
+    
+    
+    
     
     }
     
@@ -336,6 +340,9 @@ public class Jdbc {
        
     }
     
+     
+    
+    
     public void displayJobs(JTable jobTable){
               System.out.println("Display Job");
         ArrayList <Job> list = jobList();
@@ -463,37 +470,7 @@ public class Jdbc {
         return false; 
     }
      
-      public boolean setStaffID(int id,int staffID) throws Exception{
-        
-    Statement st = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-        
-      try{
-         // Connection conn = getConnection();
-         
-          String update =("UPDATE staff SET StaffID = ? WHERE StaffID = ?");
-          
-          pst = conn.prepareStatement(update);
-          
-         
-          pst.setInt(1, staffID);
-          pst.setInt(2, id);
-          
-          System.out.println("update to " +id + staffID);
-          
-          pst.executeUpdate();
-          
-          pst.close();
-            
-      }catch(Exception E){
-          E.printStackTrace();
-          return false;
-      }
-      
-        return false; 
-    }
-     
+    
        public boolean setStaffFirstName(int id,String staffFirstName) throws Exception{
         
     Statement st = null;
@@ -652,8 +629,9 @@ public class Jdbc {
         return false; 
     }
       
-      
-       public boolean setNewAccount(int id,String staffRole,String staffFirstName,String staffLastName, String UserID,String password) throws Exception{
+        
+        
+        public boolean setDeletionCustomer(int id) throws Exception{
         
     Statement st = null;
     ResultSet rs = null;
@@ -662,18 +640,83 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("insert into staff (StaffID,StaffRole,StaffFirstName,StaffLastName,UserID,Password) values (?,?,?,?,?,?)");
+          String update =("delete from customer WHERE CustomerID = ?");
           
           pst = conn.prepareStatement(update);
           
          
           
           pst.setInt(1, id);
-          pst.setString(2, staffRole);
-          pst.setString(3, staffFirstName);
-          pst.setString(4, staffLastName);
-          pst.setString(5, UserID);
-          pst.setString(6,password);
+          
+          System.out.println("update to " +id);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+     public boolean setDeletionTask(int id) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("delete from task WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setInt(1, id);
+          
+          System.out.println("update to " +id);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    } 
+        
+        
+        
+        
+        
+      
+       public boolean setNewAccount(String staffRole,String staffFirstName,String staffLastName, String UserID,String password) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("insert into staff (StaffRole,StaffFirstName,StaffLastName,UserID,Password) values (?,?,?,?,?)");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setString(1, staffRole);
+          pst.setString(2, staffFirstName);
+          pst.setString(3, staffLastName);
+          pst.setString(4, UserID);
+          pst.setString(5,password);
           System.out.println("added new account ");
           
           pst.executeUpdate();
@@ -723,6 +766,362 @@ public class Jdbc {
       
         return false; 
     }
+        public boolean createTask(String taskDescription,String location,String shelfSlot, float price, int duration,int variableID) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("insert into task (TaskDescription,Location,ShelfSlot,Price,Duration, Variable_VariableID) values (?,?,?,?,?,?)");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          
+          pst.setString(1, taskDescription);
+          pst.setString(2, location);
+          pst.setString(3, shelfSlot);
+          pst.setFloat(4, price);
+          pst.setInt(5,duration);
+          pst.setInt(6, variableID);
+          
+          System.out.println("added new account ");
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
       
+        return false; 
+    }
+        
+      public boolean setTaskDescription(int id,String taskDescr) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE Task SET TaskDescription = ? WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, taskDescr);
+          pst.setInt(2,id);
+          
+          System.out.println("update to " +id + taskDescr);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+        
+      
+      public boolean setTaskLocation(int id,String taskLoc) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE Task SET Location = ? WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, taskLoc);
+          pst.setInt(2,id);
+          
+          System.out.println("update to " +id + taskLoc);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+        
+       public boolean setTaskShelfSlot(int id,String shelfSlot) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE Task SET ShelfSlot = ? WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, shelfSlot);
+          pst.setInt(2,id);
+          
+          System.out.println("update to " +id + shelfSlot);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      
+       
+        public boolean setTaskPrice(int id,float price) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE Task SET Price = ? WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setFloat(1, price);
+          pst.setInt(2,id);
+          
+          System.out.println("update to " +id + price);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+       
+       
+       public boolean setTaskDuration(int id,int duration) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE Task SET Duration = ? WHERE TaskID = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setInt(1, duration);
+          pst.setInt(2,id);
+          
+          System.out.println("update to " +id + duration);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+       
+       
+       
+      
+     public boolean setJobCode(int id,int jobCode) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+       
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET JobCode = ? WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setInt(1, jobCode);
+          pst.setInt(2,id);
+          
+      System.out.println("update to " +id + jobCode);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
     
+    /**
+     *
+     * @param id
+     * @param jobDescription
+     * @return
+     * @throws Exception
+     */
+    public boolean setJobDescription(int id,String jobDescription) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+       
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET JobDescription = ? WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, jobDescription);
+          pst.setInt(2,id);
+          
+      System.out.println("update to " +id + jobDescription);
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+    public boolean setJobDate(int id,String jobDate) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+       
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET JobDate = ? WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, jobDate);
+          pst.setInt(2,id);
+          
+      System.out.println("update to " +id + jobDate);
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+     public boolean setCustomerID(int id,int customerID) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+       
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET Customer_CustomerID = ? WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setInt(1, customerID);
+          pst.setInt(2,id);
+          
+      System.out.println("update to " +id + customerID);
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+    public boolean setDeletionJob(int id) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("delete from job WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setInt(1, id);
+          
+          System.out.println("update to " +id);
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    } 
+        
+        
+        
+     
+     
 }

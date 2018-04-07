@@ -1374,28 +1374,23 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="userAccountLabel" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="loggedinLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="homepageBtn" min="-2" pref="105" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="userLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="logoLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="customerBtn" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="viewJobsbtn" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="reportsBtn" min="-2" pref="105" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Component id="loggedinLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="homepageBtn" min="-2" pref="105" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="customerBtn" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="viewJobsbtn" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="reportsBtn" min="-2" pref="105" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="userLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="logoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1407,7 +1402,7 @@
                           </Group>
                           <Component id="logoutBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="adminMenuBtn" min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1437,9 +1432,7 @@
                   <Component id="taskBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="adminMenuBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="userAccountLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="mainPanel" min="-2" pref="368" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -1490,30 +1483,81 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jobMainPage" min="-2" pref="582" max="-2" attributes="0"/>
-                              <EmptySpace pref="195" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="editJobBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jobMainPage" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="editJobCodeBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="searchJobNumber" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                                      <Component id="editJobCode" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="editJobDescr" max="32767" attributes="0"/>
+                                                  <Component id="editJobDescrBtn" pref="145" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="editJobDate" max="32767" attributes="0"/>
+                                                  <Component id="editJobDateBtn" pref="159" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="editCustomerIDBtn" pref="146" max="32767" attributes="0"/>
+                                                  <Component id="editCustomerID" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editJobBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jobMainPage" min="-2" pref="133" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="169" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="searchJobNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editJobCode" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="editJobDescr" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editJobDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="editJobCodeBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editJobDescrBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editJobDateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCustomerIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1581,9 +1625,42 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="editJobBtn">
+                    <Component class="javax.swing.JButton" name="editJobCodeBtn">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Edit"/>
+                        <Property name="text" type="java.lang.String" value="Edit Job Code"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editJobCode">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="searchJobNumber">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search Job Number"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editJobDescr">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editJobDescrBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Job Description"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editJobDate">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editJobDateBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Job Date"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editCustomerIDBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Customer ID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editCustomerID">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="deleteJob">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Delete Job"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1607,12 +1684,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="831" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="782" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="435" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1665,7 +1742,7 @@
                                       <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="231" max="32767" attributes="0"/>
+                              <EmptySpace pref="182" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1678,7 +1755,7 @@
                               <Component id="paymentViewLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace pref="255" max="32767" attributes="0"/>
+                              <EmptySpace pref="188" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1778,45 +1855,90 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="taskMainPage" min="-2" pref="495" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="deleteTaskBtn" pref="144" max="32767" attributes="0"/>
-                                  <Component id="editTaskBtn" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="taskList" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="addTasksBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <Component id="searchTaskID" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                                      <Component id="editTaskDescription" min="-2" pref="89" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                                      <Component id="editTaskLocationCombo" min="-2" pref="123" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                                                      <Component id="editTaskDescriptionBtn" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="editTaskLocation" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="shelfSlotBtn" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="priceBtn" min="-2" pref="109" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="editDuration" min="-2" pref="119" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="shelfSlotText" min="-2" pref="108" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="priceText" min="-2" pref="96" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="durationTask" min="-2" pref="119" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Component id="taskMainPage" min="-2" pref="750" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
+                                      <Component id="deleteTaskBtn" min="-2" pref="145" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="157" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="130" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="taskList" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="taskMainPage" min="-2" pref="209" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="addTasksBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="editTaskBtn" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="deleteTaskBtn" min="-2" pref="43" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="taskList" min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="taskMainPage" min="-2" pref="205" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="editTaskDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchTaskID" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="editTaskLocationCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shelfSlotText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="priceText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="durationTask" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="editTaskDescriptionBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editTaskLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shelfSlotBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="priceBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="deleteTaskBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1837,8 +1959,8 @@
                                 <Column editable="true" title="Description" type="java.lang.Object"/>
                                 <Column editable="true" title="Location" type="java.lang.Object"/>
                                 <Column editable="true" title="Shelf Slot" type="java.lang.Object"/>
-                                <Column editable="true" title="Price" type="java.lang.Object"/>
-                                <Column editable="true" title="Duration" type="java.lang.Object"/>
+                                <Column editable="true" title="Price (&#xa3;)" type="java.lang.Object"/>
+                                <Column editable="true" title="Duration (Minutes)" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1890,28 +2012,70 @@
                         <Property name="text" type="java.lang.String" value="Task List"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="editTaskBtn">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Edit Task"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editTaskBtnActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="deleteTaskBtn">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tahoma" size="12" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Delete Task"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addTasksBtn">
+                    <Component class="javax.swing.JTextField" name="searchTaskID">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Add Task"/>
+                        <Property name="text" type="java.lang.String" value="Search TaskID"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editTaskDescription">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editTaskDescriptionBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Description"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="editTaskLocationCombo">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="6">
+                            <StringItem index="0" value="Copy Room"/>
+                            <StringItem index="1" value="Dark Room"/>
+                            <StringItem index="2" value="Development Area"/>
+                            <StringItem index="3" value="Printing Room"/>
+                            <StringItem index="4" value="Finishing Room"/>
+                            <StringItem index="5" value="Packing Department"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editTaskLocation">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Location"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="shelfSlotText">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shelfSlotTextActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="shelfSlotBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Shelf Slot"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="priceText">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="priceBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Price"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="durationTask">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="editDuration">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit Duration"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1933,48 +2097,49 @@
                                       <Component id="addTaskLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="taskIDLabel" min="-2" pref="129" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="shelfSlotLabel" min="-2" pref="131" max="-2" attributes="0"/>
-                                          <Component id="locationLabel" min="-2" pref="129" max="-2" attributes="0"/>
-                                          <Component id="priceLabel" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                                      <Component id="saveTaskBtn" min="-2" pref="105" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="durationLabel" min="-2" pref="126" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="taskDescriptionLabel" min="-2" pref="129" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="durationLabel" pref="131" max="32767" attributes="0"/>
+                                                  <Component id="taskVariable" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                                              <Component id="saveTaskBtn" min="-2" pref="105" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="shelfSlotLabel" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Component id="priceLabel" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="locationCombo" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="taskDescriptionLabel" alignment="0" pref="129" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="391" max="32767" attributes="0"/>
+                              <EmptySpace pref="331" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1983,40 +2148,42 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="addTaskLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="taskIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="taskDescriptionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="locationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="saveTaskBtn" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="locationCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="shelfSlotLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="durationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="saveTaskBtn" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="durationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="taskVariable" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="28" pref="141" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2032,7 +2199,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Task ID:"/>
+                        <Property name="text" type="java.lang.String" value="Variable ID:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -2060,11 +2227,9 @@
                         <Property name="text" type="java.lang.String" value="Duration:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="taskIDLabel">
+                    <Component class="javax.swing.JTextField" name="taskVariable">
                     </Component>
                     <Component class="javax.swing.JTextField" name="taskDescriptionLabel">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="locationLabel">
                     </Component>
                     <Component class="javax.swing.JTextField" name="shelfSlotLabel">
                     </Component>
@@ -2076,6 +2241,23 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Save task"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="locationCombo">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="6">
+                            <StringItem index="0" value="Copy Room"/>
+                            <StringItem index="1" value="Dark Room"/>
+                            <StringItem index="2" value="Development Area"/>
+                            <StringItem index="3" value="Printing Room"/>
+                            <StringItem index="4" value="Finishing Room"/>
+                            <StringItem index="5" value="Packing Department"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2118,13 +2300,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" min="-2" pref="547" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
@@ -2134,32 +2313,37 @@
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="editAccountIDBtn" min="-2" max="-2" attributes="0"/>
+                                      <Component id="searchStaff" min="-2" pref="79" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="editStaffRole" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="forenameBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="surenameBtn" min="-2" pref="107" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="editUserIDBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="editPasswordBtn" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="roleCombo" max="32767" attributes="0"/>
+                                          <Component id="editStaffRole" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="forenameBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="surenameBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="editUserIDBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Component id="editPasswordBtn" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              <Component id="forenameText" min="-2" pref="101" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Component id="surenameText" min="-2" pref="107" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="editUserIDText" min="-2" pref="83" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="editPasswordText" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="staffIDText" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="staffRoleText" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="forenameText" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="surenameText" min="-2" pref="107" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="editUserIDText" min="-2" pref="83" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="editPasswordText" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jScrollPane3" alignment="0" min="-2" pref="586" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -2184,40 +2368,37 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane3" min="-2" pref="87" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="forenameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="surenameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="editUserIDText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="editPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="roleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="editStaffRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="forenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="surenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="editUserIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="editPasswordBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="staffIDText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="staffRoleText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="forenameText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="surenameText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editUserIDText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="editAccountIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editStaffRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="forenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="surenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editUserIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editPasswordBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="searchStaff" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
                           </Group>
@@ -2236,7 +2417,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="addStaffAccountBtn" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="deleteAccount" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="deleteAccount" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -2331,11 +2512,6 @@
                         <Property name="text" type="java.lang.String" value="All"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="editAccountIDBtn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="EditID"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="editStaffRole">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Edit Role"/>
@@ -2345,10 +2521,6 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Edit Forename"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="staffRoleText">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="staffIDText">
                     </Component>
                     <Component class="javax.swing.JTextField" name="forenameText">
                     </Component>
@@ -2394,11 +2566,6 @@
                         <Property name="text" type="java.lang.String" value="Add Account"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel9">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="StaffID"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Staff Role"/>
@@ -2422,6 +2589,27 @@
                     <Component class="javax.swing.JLabel" name="jLabel14">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Password"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="roleCombo">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Receptionist"/>
+                            <StringItem index="1" value="Office Manager"/>
+                            <StringItem index="2" value="Shift Manager"/>
+                            <StringItem index="3" value="Technician"/>
+                            <StringItem index="4" value=" "/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="searchStaff">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search ID"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2477,7 +2665,11 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField1" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="searchToDelete" min="-2" pref="62" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="deleteCustomerBtn" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="customerMainPage" min="-2" pref="421" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
@@ -2495,7 +2687,7 @@
                                                           </Group>
                                                           <Component id="allRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="68" max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="generateInDefaultBtn" alignment="1" max="32767" attributes="0"/>
                                                           <Component id="createNewAccountBtn" alignment="1" pref="144" max="32767" attributes="0"/>
@@ -2520,7 +2712,6 @@
                               <Component id="CustomerPageTitle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="customerMainPage" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="filterRadioBoxLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -2535,7 +2726,7 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="inDefaultRadioButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="createJobBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="allRadioButton" min="-2" max="-2" attributes="0"/>
@@ -2544,11 +2735,18 @@
                                       <Component id="createNewAccountBtn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="generateInDefaultBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="searchToDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="deleteCustomerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="85" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="customerMainPage" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="146" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2616,7 +2814,7 @@
                         <Property name="text" type="java.lang.String" value="CustomerList"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="searchToDelete">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="search ID"/>
                       </Properties>
@@ -2692,6 +2890,11 @@
                         <Property name="text" type="java.lang.String" value="Downgrade"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="deleteCustomerBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Delete Customer"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="addNewCustomerAccount">
@@ -2707,40 +2910,32 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="createAccountBtn" min="-2" pref="114" max="-2" attributes="0"/>
-                                      <EmptySpace pref="599" max="32767" attributes="0"/>
-                                      <Component id="cancelBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="postcodeText" pref="93" max="32767" attributes="0"/>
+                                      <Component id="phonenumberText" max="32767" attributes="0"/>
+                                      <Component id="AddressTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="sureNameTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="forenameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="surnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="foreNameTextField" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="discountText" alignment="0" pref="93" max="32767" attributes="0"/>
-                                          <Component id="postcodeText" max="32767" attributes="0"/>
-                                          <Component id="phonenumberText" max="32767" attributes="0"/>
-                                          <Component id="AddressTextField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="sureNameTextField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="forenameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="surnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="foreNameTextField" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="statusBox" min="-2" pref="93" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="comboDiscount" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="customerStatusCombo" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cancelBtn" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="createAccountBtn" min="-2" pref="139" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="457" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2757,29 +2952,35 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="AddressTextField" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="AddressTextField" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Component id="postcodeText" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="createAccountBtn" min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="postcodeText" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="phonenumberText" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="discountText" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="statusBox" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="46" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="createAccountBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cancelBtn" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="comboDiscount" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="customerStatusCombo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2835,14 +3036,41 @@
                         <Property name="text" type="java.lang.String" value="Discount"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="discountText">
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Customer Status"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="statusBox">
+                    <Component class="javax.swing.JComboBox" name="comboDiscount">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Variable"/>
+                            <StringItem index="1" value="Flexible"/>
+                            <StringItem index="2" value="None"/>
+                            <StringItem index="3" value=" "/>
+                            <StringItem index="4" value=" "/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="customerStatusCombo">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="valued"/>
+                            <StringItem index="1" value="Normal"/>
+                            <StringItem index="2" value="in-default"/>
+                            <StringItem index="3" value=" "/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2856,12 +3084,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="831" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="782" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="435" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -2891,7 +3119,7 @@
                           <Component id="customerPanel" max="32767" attributes="0"/>
                           <Component id="paymentPanel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="116" max="32767" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jobsPanel" max="32767" attributes="0"/>
                           <Component id="taskPanel" max="32767" attributes="0"/>
@@ -2923,7 +3151,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="customerPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="93" max="32767" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
                               <Component id="paymentPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -3408,14 +3636,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Admin"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="userAccountLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="STAFF USER ACCOUNTS"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminMenuBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
@@ -81,6 +84,7 @@ public class Controller {
         bapers.PaymentMain(new PaymentMain());
         bapers.AdminMain(new AdminMain());
        bapers.createCustomerMain(new CreateCustomerMain());
+       bapers.createTaskMain(new CreateTaskMain());
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
         
@@ -90,6 +94,9 @@ public class Controller {
                 JTable target = bapers.getTaskTable();
                 int row = target.getSelectedRow();
                 int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                System.out.println(id);
+                selectedRow = id;
                
             }
 
@@ -150,6 +157,9 @@ public class Controller {
                 JTable target = bapers.getJobTable();
                 int row = target.getSelectedRow();
                 int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                System.out.println(id);
+                selectedRow = id;
                
             }
 
@@ -413,9 +423,6 @@ public class Controller {
                  }
             
            
-          
-                     
-          
         }
     
     }
@@ -428,13 +435,13 @@ public class Controller {
              
                   
               System.out.println(p.getActionCommand());
-           if(p.getActionCommand().contains("tasks")){
-            bapers.setPanelTask("taskMain");
+           if(p.getActionCommand().contains("Tasks")){
+            bapers.setPanelTask("card2");
            }
          
            
-           if(p.getActionCommand().contains("addtask")){
-               bapers.setPanelTask("addNewTask");
+           if(p.getActionCommand().contains("Add Task")){
+               bapers.setPanelTask("card3");
            }
            
           
@@ -493,10 +500,16 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             
             
+            
+            
+            if(e.getActionCommand().contains("Cancel")){
+                System.exit(0);
+            }
+            
              if(e.getActionCommand().contains("Edit Role")){
                 
                 try {
-                    jdbc.setRole(selectedRow, bapers.getStaffRole().getText());
+                    jdbc.setRole(Integer.parseInt(bapers.getSearchStaff().getText()), bapers.getStaffRole().getSelectedItem().toString()    );
                   
 
 
@@ -507,23 +520,12 @@ public class Controller {
                
              }
              
-               if(e.getActionCommand().contains("EditID")){
-                
-                try {
-                    jdbc.setStaffID(selectedRow, Integer.parseInt(bapers.getStaffID().getText()));
-                  
-
-
-                } catch (Exception ex) {
-                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            }
+               
              
                 if(e.getActionCommand().contains("Edit Forename")){
                 
                 try {
-                    jdbc.setStaffFirstName(selectedRow, bapers.getStaffFirstName().getText());
+                    jdbc.setStaffFirstName(Integer.parseInt(bapers.getSearchStaff().getText()), bapers.getStaffFirstName().getText());
                   
 
 
@@ -536,7 +538,7 @@ public class Controller {
                 if(e.getActionCommand().contains("Edit Surename")){
                 
                 try {
-                    jdbc.setStaffLastName(selectedRow, bapers.getStaffLastName().getText());
+                    jdbc.setStaffLastName(Integer.parseInt(bapers.getSearchStaff().getText()), bapers.getStaffLastName().getText());
                   
 
 
@@ -546,11 +548,14 @@ public class Controller {
                 
             }
              
+                
+                
+                
                
                   if(e.getActionCommand().contains("Delete Account")){
                 
                 try {
-                    jdbc.setDeletion(selectedRow);
+                    jdbc.setDeletion(Integer.parseInt(bapers.getSearchStaff().getText()));
                   
 
 
@@ -563,7 +568,7 @@ public class Controller {
                     if(e.getActionCommand().contains("Edit UserID")){
                 
                 try {
-                     jdbc.setUserID(selectedRow, bapers.getUserID().getText());
+                     jdbc.setUserID(Integer.parseInt(bapers.getSearchStaff().getText()), bapers.getUserID().getText());
 
 
                 } catch (Exception ex) {
@@ -574,7 +579,7 @@ public class Controller {
                    if(e.getActionCommand().contains("Edit Pass")){
                 
                 try {
-                     jdbc.setPassword(selectedRow, bapers.getPassword().getText());
+                     jdbc.setPassword(Integer.parseInt(bapers.getSearchStaff().getText()), bapers.getPassword().getText());
 
 
                 } catch (Exception ex) {
@@ -585,7 +590,7 @@ public class Controller {
                if(e.getActionCommand().contains("Add Account")){
                 
                 try {
-                     jdbc.setNewAccount( Integer.parseInt(bapers.getStaffID().getText()), bapers.getStaffRole().getText(),bapers.getStaffFirstName().getText(),bapers.getStaffLastName().getText(),bapers.getUserID().getText(),bapers.getPassword().getText());
+                     jdbc.setNewAccount( bapers.getStaffRole().getSelectedItem().toString(),bapers.getStaffFirstName().getText(),bapers.getStaffLastName().getText(),bapers.getUserID().getText(),bapers.getPassword().getText());
 
 
                 } catch (Exception ex) {
@@ -656,10 +661,71 @@ public class Controller {
                 DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
                  @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getActionCommand().contains("Edit")){
-                System.exit(0);
-            }
+          
             
+            if(e.getActionCommand().contains("Edit Job Code")){
+                
+                try {
+                     jdbc.setJobCode(Integer.parseInt(bapers.getSearchJobNumber().getText()), Integer.parseInt(bapers.setJobCode().getText()));
+                        
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+            
+                if(e.getActionCommand().contains("Edit Job Description")){
+                
+                try {
+                     jdbc.setJobDescription(Integer.parseInt(bapers.getSearchJobNumber().getText()), bapers.setJobDescr().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+                
+                
+                  if(e.getActionCommand().contains("Edit Job Date")){
+                
+                try {
+            
+                     
+                     jdbc.setJobDate(Integer.parseInt(bapers.getSearchJobNumber().getText()), bapers.setJobDate().getText());
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+               if(e.getActionCommand().contains("Edit Customer ID")){
+                
+                try {
+            
+                     
+                     jdbc.setCustomerID(Integer.parseInt(bapers.getSearchJobNumber().getText()), Integer.parseInt(bapers.setCustomerID().getText()));
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }   
+             if(e.getActionCommand().contains("Delete Job")){
+                
+                try {
+            
+                     
+                     jdbc.setDeletionJob(Integer.parseInt(bapers.getSearchJobNumber().getText()));
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }        
         }
      }
      
@@ -683,22 +749,87 @@ public class Controller {
       
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getActionCommand().contains("Edit Task")){
-                System.exit(0);
-            }
+           
             if(e.getActionCommand().contains("Delete Task")){
-                System.exit(0);
+                try {
+                     jdbc.setDeletionTask(Integer.parseInt(bapers.getSearchTaskID().getText()));
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
-            
-            if(e.getActionCommand().contains("Add Task")){
-            
-                 bapers.setPanelTask("addNewTask");
-            
-            
-            }
+           if(e.getActionCommand().contains("Edit Description")){
+               try {
+                     jdbc.setTaskDescription(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.getTaskDescriptionEdit().getText());
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+           if(e.getActionCommand().contains("Edit Location")){
+               try {
+                     jdbc.setTaskLocation(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.getLocationTask().getSelectedItem().toString());
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+            if(e.getActionCommand().contains("Edit Shelf Slot")){
+               try {
+                     jdbc.setTaskShelfSlot(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.setShelfSlot().getText());
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+           
+           if(e.getActionCommand().contains("Edit Price")){
+               try {
+                     jdbc.setTaskPrice(Integer.parseInt(bapers.getSearchTaskID().getText()),Float.parseFloat(bapers.setPrice().getText()));
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+           
+           
+           if(e.getActionCommand().contains("Edit Duration")){
+               try {
+                     jdbc.setTaskDuration(Integer.parseInt(bapers.getSearchTaskID().getText()),Integer.parseInt(bapers.setDuration().getText()));
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+                
         }
     }
     
+    class CreateTaskMain implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getActionCommand().contains("Save task")){
+                try {
+                     jdbc.createTask(bapers.getTaskDescription().getText(),bapers.getLocationTask().getSelectedItem().toString(),bapers.getShelfSlot().getText(),Float.parseFloat(bapers.getPrice().getText()),Integer.parseInt(bapers.getDuration().getText()),Integer.parseInt(bapers.getVariableID().getText()));
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
+                
+            }
+            
+            
+             
+            
+            
+            
+            
+    }
+    }
     
     class CreateCustomerMain implements ActionListener{
          @Override
@@ -706,7 +837,7 @@ public class Controller {
             if(e.getActionCommand().contains("Create Account")){
                 
                 try {
-                     jdbc. setNewCustomerAccount(bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscount().getText(),bapers.getStatus().getText());
+                     jdbc. setNewCustomerAccount(bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscountCombo().getSelectedItem().toString(),bapers.getStatusCombo().getSelectedItem().toString());
 
 
                 } catch (Exception ex) {
@@ -714,6 +845,15 @@ public class Controller {
                 }
                 
             }   
+            
+            
+            if(e.getActionCommand().contains("Cancel")){
+                bapers.GetFirstName().setText(null);
+                bapers.getSurename().setText(null);
+                bapers.getFirstAddress().setText(null);
+                bapers.getPostcode().setText(null);
+                bapers.getPhoneNumber().setText(null);
+            }
               
             
             
@@ -733,6 +873,11 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
         
+            
+            
+            
+            
+            
             if(e.getActionCommand().contains("Upgrade")){
                 
                 try {
@@ -744,6 +889,25 @@ public class Controller {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            
+            
+                  if(e.getActionCommand().contains("Delete Customer")){
+                
+                try {
+                   
+                    jdbc.setDeletionCustomer(Integer.parseInt(bapers.searchToDeleteC().getText()));
+                  
+
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+             
+            
+            
+            
             
                  if(e.getActionCommand().contains("Downgrade")){
                 
@@ -787,6 +951,8 @@ public class Controller {
              
             }
             
+            
+            
             if(bapers.getInDefaultRadioButton().isSelected()){
                  //removes existing data and displays new data
                  model.setRowCount(0);
@@ -796,6 +962,24 @@ public class Controller {
        
            
             }
+            
+             
+            if(e.getActionCommand().contains("Generate In-Default")){
+                 //removes existing data and displays new data
+                 try {
+                   model.setRowCount(0);
+                 
+               //removes existing data and displays new data
+                jdbc.displayCustomer(customerTable,"in-default");
+                    
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }  
+       
+           
+            }
+            
             
             if(bapers.getAllRadioButton().isSelected()){
                   model.setRowCount(0);

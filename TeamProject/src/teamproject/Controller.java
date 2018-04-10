@@ -518,8 +518,9 @@ public class Controller {
             
             if(e.getActionCommand().contains("Search Staff")){
                 try {
+                                    bapers.isAdminListselected();
                                     model.setRowCount(0);
-                 
+                                   
                    jdbc.displayStaff(staffTable, Integer.parseInt(bapers.getSearchStaff().getText()));
                                     
                                     

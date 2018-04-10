@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -240,54 +241,60 @@ public class Controller {
     //login actionlistener 
     class LoginAuth implements ActionListener{
 
-        
+        String role = null;
         @Override
         public void actionPerformed(ActionEvent e) {
-           
                 try {
-           
-                    if( jdbc.validate_login(login.getUsername(), login.getPassword(),login.getRole())==true){
-                    
-                       if("Receptionist".equals(login.getRole()) || "receptionist".equals(login.getRole())){
-                    login.dispose();
-                    
-                    bapers.setVisible(true);
-                   bapers.setPanelRecep(e.getActionCommand());
-                    bapers.setUser(login.getRole());
-                       }
-                       
-                       if("Technician".equals(login.getRole()) || "technician".equals(login.getRole())){
-                              login.dispose();
-                    
-                    bapers.setVisible(true);
-                   bapers.setPanelTech(e.getActionCommand());
-                    bapers.setUser(login.getRole());
-                       }
-                       if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
-                              login.dispose();
-                    
-                    bapers.setVisible(true);
-                   bapers.setPanelShift(e.getActionCommand());
-                    bapers.setUser(login.getRole());
-                       }
-                       if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
-                              login.dispose();
-                    
-                    bapers.setVisible(true);
-                   bapers.setPanelOffice(e.getActionCommand());
-                    bapers.setUser(login.getRole());
-                       } 
-                       
-                       
-                       
-                       
-                    }else{
-                     login.wrongPassword();
-                     
-                     System.out.println("Incorrect credentials");
+                    role = jdbc.retrieveRole(login.getUsername());
+                    try {
+                        
+                        if( jdbc.validate_login(login.getUsername(), login.getPassword())==true){
+                            
+                            if("Receptionist".equals(role) || "receptionist".equals(role)){
+                                login.dispose();
+                                
+                                bapers.setVisible(true);
+                                bapers.setPanelRecep(e.getActionCommand());
+                                bapers.setUser(role);
+                            }
+                            
+                            if("Technician".equals(role) || "technician".equals(role)){
+                                login.dispose();
+                                
+                                bapers.setVisible(true);
+                                bapers.setPanelTech(e.getActionCommand());
+                                bapers.setUser(role);
+                            }
+                            if("Shift Manager".equals(role) || "shift manager".equals(role)){
+                                login.dispose();
+                                
+                                bapers.setVisible(true);
+                                bapers.setPanelShift(e.getActionCommand());
+                                bapers.setUser(role);
+                            }
+                            if("Office Manager".equals(role) || "office manager".equals(role)){
+                                login.dispose();
+                                
+                                bapers.setVisible(true);
+                                bapers.setPanelOffice(e.getActionCommand());
+                                bapers.setUser(role);
+                            }
+                            
+                            
+                            
+                            
+                        }else{
+                            login.wrongPassword();
+                            
+                            System.out.println("Incorrect credentials");
+                        }
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                     }
-               
-            } catch (Exception ex) {
+                    
+                    
+                } catch (SQLException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -305,10 +312,11 @@ public class Controller {
 
     //menubar navigation ActionLisenter
     class BapersMenu implements ActionListener{
-
+        String role = null;
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            try {
+                role = jdbc.retrieveRole(login.getUsername());
                 if(e.getActionCommand().contains("Logout")){
                     
                     bapers.dispose();
@@ -319,60 +327,63 @@ public class Controller {
                 }else{
                   
                     //selects the panels depending on which button is clicked
-           
                     
-                    if("Receptionist".equals(login.getRole()) || "receptionist".equals(login.getRole())){
+                    
+                    if("Receptionist".equals(role) || "receptionist".equals(role)){
                         bapers.setPanelRecep(e.getActionCommand());
                     }
                     
-                   if("Technician".equals(login.getRole())){
+                    if("Technician".equals(role)){
                         bapers.setPanelTech(e.getActionCommand());
                     }
                     
-                   if("Shift Manager".equals(login.getRole()) || "shift manager".equals(login.getRole())){
-                              
+                    if("Shift Manager".equals(role) || "shift manager".equals(role)){
+                        
+                        
+                        
+                        bapers.setPanelShift(e.getActionCommand());
+                        
+                    }
                     
-                   
-                   bapers.setPanelShift(e.getActionCommand());
-                   
-                   }
-                   
-                     if("Office Manager".equals(login.getRole()) || "office manager".equals(login.getRole())){
-                      login.dispose();
+                    if("Office Manager".equals(role) || "office manager".equals(role)){
+                        login.dispose();
+                        
+                        bapers.setVisible(true);
+                        bapers.setPanelOffice(e.getActionCommand());
+                        bapers.setUser(role);
+                    }
                     
-                    bapers.setVisible(true);
-                   bapers.setPanelOffice(e.getActionCommand());
-                    bapers.setUser(login.getRole());
-                       } 
-                 
-                     if(e.getActionCommand().contains("Admin")){
-                     bapers.setPanelAdmin("card4");
-                 }
-                     
-                 if(e.getActionCommand().contains("customer")){
-                
-                     bapers.setPanelCustomer("customerMain");
-                 
-                 }
-                 
-                 if(e.getActionCommand().contains("tasks")){
-                     bapers.setPanelTask("taskMain");
-                 }
-                  
-                 if(e.getActionCommand().contains("payments")){
-                     bapers.setPanelPayment("paymentMain");
-                 }
-                 
-                 if(e.getActionCommand().contains("jobs")){
-                     bapers.setPanelJob("jobMain");
-                 }
-                  
-
-                
-                 
+                    if(e.getActionCommand().contains("Admin")){
+                        bapers.setPanelAdmin("card4");
+                    }
+                    
+                    if(e.getActionCommand().contains("customer")){
+                        
+                        bapers.setPanelCustomer("customerMain");
+                        
+                    }
+                    
+                    if(e.getActionCommand().contains("tasks")){
+                        bapers.setPanelTask("taskMain");
+                    }
+                    
+                    if(e.getActionCommand().contains("payments")){
+                        bapers.setPanelPayment("paymentMain");
+                    }
+                    
+                    if(e.getActionCommand().contains("jobs")){
+                        bapers.setPanelJob("jobMain");
+                    }
+                    
+                    
+                    
+                    
                     System.out.println(e.getActionCommand());
-                  // System.out.println(e.getActionCommand());
+                    // System.out.println(e.getActionCommand());
                 }  
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
                 
                     

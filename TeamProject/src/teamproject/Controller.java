@@ -500,6 +500,19 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             
             
+            if(e.getActionCommand().contains("Search Staff")){
+                try {
+                                    model.setRowCount(0);
+                 
+                   jdbc.displayStaff(staffTable, Integer.parseInt(bapers.getSearchStaff().getText()));
+                                    
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                           
+                                       }
+                
+            }
             
             
             if(e.getActionCommand().contains("Cancel")){
@@ -663,6 +676,34 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
           
             
+            
+            if(e.getActionCommand().contains("Search")){
+                                try {
+                                    model.setRowCount(0);
+                 
+                  jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                                    
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                             
+                                
+                                }
+            }
+            if(e.getActionCommand().contains("All jobs")){
+                 try {
+                                    model.setRowCount(0);
+                 
+                  jdbc.displayJobs(jobTable);
+                                    
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                             
+                                
+                                }
+            }
+            
             if(e.getActionCommand().contains("Edit Job Code")){
                 
                 try {
@@ -749,6 +790,34 @@ public class Controller {
       
         @Override
         public void actionPerformed(ActionEvent e) {
+            
+            if(e.getActionCommand().contains("All Tasks")){
+                try {
+                                    model.setRowCount(0);
+                 
+                   jdbc.displayTasks(taskTable);
+                                    
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                             
+                                
+                                }
+            }
+            
+            if(e.getActionCommand().contains("Search Task")){
+                try {
+                                    model.setRowCount(0);
+                 
+                   jdbc.displayTasks(taskTable, Integer.parseInt(bapers.getSearchTaskID().getText()));
+                                    
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                           
+                                       }
+                
+            }
            
             if(e.getActionCommand().contains("Delete Task")){
                 try {
@@ -767,15 +836,20 @@ public class Controller {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
            }
+           
+           
            if(e.getActionCommand().contains("Edit Location")){
                try {
-                     jdbc.setTaskLocation(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.getLocationTask().getSelectedItem().toString());
+                     jdbc.setTaskLocation(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.editLocation().getSelectedItem().toString());
 
                 } catch (Exception ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
            }
-            if(e.getActionCommand().contains("Edit Shelf Slot")){
+            
+           
+           
+           if(e.getActionCommand().contains("Edit Shelf Slot")){
                try {
                      jdbc.setTaskShelfSlot(Integer.parseInt(bapers.getSearchTaskID().getText()),bapers.setShelfSlot().getText());
 
@@ -873,9 +947,6 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
         
-            
-            
-            
             
             
             if(e.getActionCommand().contains("Upgrade")){

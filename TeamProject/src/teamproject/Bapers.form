@@ -1485,16 +1485,8 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
-                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -1502,13 +1494,14 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jobMainPage" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="editJobCodeBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="searchJobNumber" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                                      <Component id="editJobCode" min="-2" pref="110" max="-2" attributes="0"/>
-                                                  </Group>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="searchBtn" max="32767" attributes="0"/>
+                                                  <Component id="searchJobNumber" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="editJobCode" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <Component id="editJobCodeBtn" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1522,7 +1515,7 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="editCustomerIDBtn" pref="146" max="32767" attributes="0"/>
+                                                  <Component id="editCustomerIDBtn" pref="235" max="32767" attributes="0"/>
                                                   <Component id="editCustomerID" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -1530,6 +1523,13 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="allJobs" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1554,10 +1554,17 @@
                                   <Component id="editJobDescrBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="editJobDateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="editCustomerIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="219" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="deleteJob" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="allJobs" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1663,6 +1670,16 @@
                         <Property name="text" type="java.lang.String" value="Delete Job"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="searchBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="allJobs">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="All jobs"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -1684,12 +1701,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="782" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="871" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="483" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1742,7 +1759,7 @@
                                       <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="182" max="32767" attributes="0"/>
+                              <EmptySpace pref="271" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1755,7 +1772,7 @@
                               <Component id="paymentViewLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace pref="188" max="32767" attributes="0"/>
+                              <EmptySpace pref="303" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1861,54 +1878,52 @@
                               <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="searchTaskID" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                              <Component id="editTaskDescription" min="-2" pref="89" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="editTaskLocationCombo" min="-2" pref="123" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="searchTask" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="editTaskDescriptionBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="editTaskLocation" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                      <Component id="searchTaskID" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                                      <Component id="editTaskDescription" min="-2" pref="89" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                                      <Component id="editTaskLocationCombo" min="-2" pref="123" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                                                      <Component id="editTaskDescriptionBtn" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="editTaskLocation" min="-2" pref="130" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="shelfSlotBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="priceBtn" min="-2" pref="109" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="shelfSlotBtn" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="priceBtn" min="-2" pref="109" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="editDuration" min="-2" pref="119" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="shelfSlotText" min="-2" pref="108" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="priceText" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="durationTask" min="-2" pref="119" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="editDuration" min="-2" pref="119" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="taskMainPage" min="-2" pref="750" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="shelfSlotText" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="priceText" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="durationTask" min="-2" pref="119" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
+                                  <Component id="taskMainPage" min="-2" pref="750" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
-                                      <Component id="deleteTaskBtn" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="deleteTaskBtn" min="-2" pref="118" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="allTasks" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="157" max="32767" attributes="0"/>
+                              <EmptySpace pref="111" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1935,10 +1950,14 @@
                                   <Component id="shelfSlotBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="priceBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="editDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchTask" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="deleteTaskBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="deleteTaskBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="allTasks" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2078,6 +2097,16 @@
                         <Property name="text" type="java.lang.String" value="Edit Duration"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="searchTask">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search Task"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="allTasks">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="All Tasks"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="addNewTask">
@@ -2139,7 +2168,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="331" max="32767" attributes="0"/>
+                              <EmptySpace pref="420" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2159,9 +2188,9 @@
                                   <Component id="locationCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="shelfSlotLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shelfSlotLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -2183,7 +2212,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="28" pref="141" max="32767" attributes="0"/>
+                              <EmptySpace min="28" pref="256" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2298,66 +2327,93 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="searchStaff" min="-2" pref="79" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="roleCombo" max="32767" attributes="0"/>
-                                          <Component id="editStaffRole" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="forenameBtn" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="surenameBtn" min="-2" pref="107" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                                              <Component id="editUserIDBtn" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Component id="editPasswordBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                              <Component id="forenameText" min="-2" pref="101" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Component id="surenameText" min="-2" pref="107" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="editUserIDText" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="searchStaff" min="-2" pref="79" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="editPasswordText" min="-2" pref="75" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="roleCombo" max="32767" attributes="0"/>
+                                                  <Component id="editStaffRole" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="forenameBtn" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="surenameBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                      <Component id="editUserIDBtn" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                      <Component id="editPasswordBtn" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                      <Component id="forenameText" min="-2" pref="101" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                      <Component id="surenameText" min="-2" pref="107" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="editUserIDText" min="-2" pref="83" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="editPasswordText" min="-2" pref="75" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jScrollPane3" alignment="0" min="-2" pref="586" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="searchStaffBtn" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="addStaffAccountBtn" min="-2" pref="111" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="deleteAccount" min="-2" pref="156" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="shiftManagerRadio" min="-2" max="-2" attributes="0"/>
+                                          <Component id="accountRoleLabel" min="-2" pref="228" max="-2" attributes="0"/>
+                                          <Component id="receptionistRadio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="officeManagerRadio" min="-2" max="-2" attributes="0"/>
+                                          <Component id="technicianRadio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="allBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="jScrollPane3" alignment="0" min="-2" pref="586" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="shiftManagerRadio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="accountRoleLabel" max="32767" attributes="0"/>
-                                  <Component id="receptionistRadio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="officeManagerRadio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="technicianRadio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="allBtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="deleteAccount" pref="111" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                                      <Component id="backupBtn" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="addStaffAccountBtn" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="restoreText" alignment="0" pref="303" max="32767" attributes="0"/>
+                                          <Component id="backupText" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="browseBackupBtn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="browseRestoreBtn" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="restoreBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2365,60 +2421,80 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="87" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane3" min="-2" pref="87" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="forenameText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="surenameText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editUserIDText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="roleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="editStaffRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="forenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="surenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editUserIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editPasswordBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="forenameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="surenameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="editUserIDText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="editPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="roleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="editStaffRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="forenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="surenameBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="editUserIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="editPasswordBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              <Component id="searchStaff" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="searchStaff" min="-2" max="-2" attributes="0"/>
+                                      <Component id="accountRoleLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="shiftManagerRadio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="receptionistRadio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="officeManagerRadio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="technicianRadio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="allBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="deleteAccount" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="searchStaffBtn" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="addStaffAccountBtn" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="accountRoleLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="shiftManagerRadio" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="backupText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="browseBackupBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="receptionistRadio" min="-2" max="-2" attributes="0"/>
+                              <Component id="backupBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="restoreText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="browseRestoreBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="restoreBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="officeManagerRadio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="technicianRadio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="allBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="addStaffAccountBtn" min="-2" pref="41" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="deleteAccount" min="-2" pref="48" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2612,6 +2688,35 @@
                         <Property name="text" type="java.lang.String" value="Search ID"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="searchStaffBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search Staff"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="backupText">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="browseBackupBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Browse"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="backupBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Backup"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="restoreText">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="browseRestoreBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Browse"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="restoreBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Restore"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -2666,11 +2771,6 @@
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="searchToDelete" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="deleteCustomerBtn" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
                                               <Component id="customerMainPage" min="-2" pref="421" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="102" alignment="1" attributes="0">
@@ -2687,7 +2787,7 @@
                                                           </Group>
                                                           <Component id="allRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="157" max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="generateInDefaultBtn" alignment="1" max="32767" attributes="0"/>
                                                           <Component id="createNewAccountBtn" alignment="1" pref="144" max="32767" attributes="0"/>
@@ -2697,6 +2797,12 @@
                                                       </Group>
                                                   </Group>
                                               </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="searchToDelete" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="deleteCustomerBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2731,22 +2837,22 @@
                                           <Component id="createJobBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="allRadioButton" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="33" max="32767" attributes="0"/>
                                       <Component id="createNewAccountBtn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="generateInDefaultBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="33" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="searchToDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="deleteCustomerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="85" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="customerMainPage" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="146" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2816,7 +2922,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="searchToDelete">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="search ID"/>
+                        <Property name="text" type="java.lang.String" value="Search ID To Delete"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="valuedRadioButton">
@@ -2935,7 +3041,7 @@
                                   <Component id="cancelBtn" min="-2" pref="114" max="-2" attributes="0"/>
                                   <Component id="createAccountBtn" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="457" max="32767" attributes="0"/>
+                              <EmptySpace pref="546" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2980,7 +3086,7 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <EmptySpace pref="159" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3084,12 +3190,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="782" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="871" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="483" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -3119,7 +3225,7 @@
                           <Component id="customerPanel" max="32767" attributes="0"/>
                           <Component id="paymentPanel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace pref="156" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jobsPanel" max="32767" attributes="0"/>
                           <Component id="taskPanel" max="32767" attributes="0"/>
@@ -3151,7 +3257,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="customerPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <EmptySpace pref="141" max="32767" attributes="0"/>
                               <Component id="paymentPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>

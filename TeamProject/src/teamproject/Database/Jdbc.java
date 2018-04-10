@@ -22,6 +22,8 @@ import teamproject.Bapers;
 
 
 
+
+
 /**
  *
  * @author Ramee
@@ -310,7 +312,35 @@ public class Jdbc {
              
          }
     }
-  
+   public void displayStaff(JTable staffTable,int staffID){
+        
+        int StaffID= staffID;
+        
+        ArrayList <StaffAccount> list = staffList();
+        
+        DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
+        
+          Object[] row = new Object[6];
+        
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getStaffID() == staffID){
+                 
+             row[0]=list.get(i).getStaffID();
+             row[1]=list.get(i).getStaffRole();
+             row[2]=list.get(i).getStaffFirstName();
+             row[3]=list.get(i).getStaffLastName();
+             row[4]=list.get(i).getUserID();
+             row[5]=list.get(i).getPassword();
+             model.addRow(row);
+             
+             
+             } 
+             
+         }
+       
+    }
     
     
     //populates customer table with filter
@@ -333,6 +363,64 @@ public class Jdbc {
              row[2]=list.get(i).getCustomerStatus();
              model.addRow(row);
              
+             
+             } 
+             
+         }
+       
+    }
+        public void displayCustomer(JTable customerTable,int customerID){
+        
+        int CustomerID = customerID;
+        
+        ArrayList <Customer> list = customerList();
+        
+        DefaultTableModel model =(DefaultTableModel) customerTable.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getCustomerID() == customerID){
+                 
+             row[0]=list.get(i).getCustomerID();
+             row[1]=list.get(i).getCustomerName();
+             row[2]=list.get(i).getCustomerStatus();
+             model.addRow(row);
+             
+             
+             } 
+             
+         }
+       
+    }
+    
+    
+    
+    
+     public void displayJob(JTable jobTable,int jobNo){
+        
+       int jobNumber= jobNo;
+        
+        ArrayList <Job> list = jobList();
+        
+        DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
+        
+        Object[] row = new Object[5];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getJobNo() == jobNo){
+                 
+             
+             
+             
+             row[0]=list.get(i).getJobNo();
+             row[1]=list.get(i).getJobCode();
+             row[2]=list.get(i).getJobDescription();
+             row[3]= list.get(i).getJobDate();
+             row[4]= list.get(i).getCustomerID();
+              model.addRow(row);
              
              } 
              
@@ -387,6 +475,37 @@ public class Jdbc {
          }
        
     }    
+    
+    
+    public void displayTasks(JTable taskTable,int taskID){
+        
+        int TaskID= taskID;
+        
+        ArrayList <Task> list = taskList();
+        
+        DefaultTableModel model =(DefaultTableModel) taskTable.getModel();
+        
+          Object[] row = new Object[6];
+        
+        
+         for(int i = 0;i<list.size();i++){
+        
+             if(list.get(i).getTaskID()== taskID){
+                 
+             row[0]=list.get(i).getTaskID();
+             row[1]=list.get(i).getTaskDescription();
+             row[2]=list.get(i).getLocation();
+             row[3]= list.get(i).getShelfSlot();
+             row[4]= list.get(i).getPrice();
+             row[5] = list.get(i).getDuration();
+             model.addRow(row);
+             
+             
+             } 
+             
+         }
+       
+    }
    
     
      public void displayCustomer(JTable customerTable){
@@ -812,7 +931,7 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("UPDATE Task SET TaskDescription = ? WHERE TaskID = ?");
+          String update =("UPDATE task SET TaskDescription = ? WHERE TaskID = ?");
           
           pst = conn.prepareStatement(update);
           
@@ -844,7 +963,7 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("UPDATE Task SET Location = ? WHERE TaskID = ?");
+          String update =("UPDATE task SET Location = ? WHERE TaskID = ?");
           
           pst = conn.prepareStatement(update);
           
@@ -1120,7 +1239,42 @@ public class Jdbc {
         return false; 
     } 
         
+       public boolean searchDescription(int id) throws Exception{
         
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update = "select * from job WHERE JobNo = ?";
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          pst.setInt(1, id);
+          rs=pst.executeQuery();
+          if(rs.next()){
+              
+              String data2=rs.getString("JobDescription");
+            
+          }
+         
+          
+        
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    } 
+          
         
      
      

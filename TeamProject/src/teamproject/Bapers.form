@@ -1342,6 +1342,8 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="filterAdminList">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -2641,12 +2643,18 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
+                                      <Component id="backupLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="backupBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="restoreBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                      <Component id="restoreLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2697,7 +2705,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="accountRoleLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="shiftManagerRadio" min="-2" max="-2" attributes="0"/>
+                                      <Component id="shiftManagerRadio" min="-2" pref="25" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="receptionistRadio" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -2724,14 +2732,19 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="backupLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="backupBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="browseRestoreBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="restoreText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="restoreBtn" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="restoreBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="restoreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2800,11 +2813,17 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="officeManagerRadio">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="filterAdminList"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Office Manager"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="shiftManagerRadio">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="filterAdminList"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Shift Manager"/>
                       </Properties>
                       <Events>
@@ -2813,16 +2832,25 @@
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="receptionistRadio">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="filterAdminList"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Receptionist"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="technicianRadio">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="filterAdminList"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Technician"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="allBtn">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="filterAdminList"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="All"/>
                       </Properties>
                     </Component>
@@ -2966,6 +2994,10 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restoreBtnActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="backupLabel">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="restoreLabel">
                     </Component>
                   </SubComponents>
                 </Container>

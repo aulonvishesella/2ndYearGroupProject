@@ -167,6 +167,7 @@ public class Bapers extends javax.swing.JFrame {
         logoutBtn1 = new javax.swing.JButton();
         loggedinLabel1 = new javax.swing.JLabel();
         userLabel1 = new javax.swing.JLabel();
+        filterAdminList = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         jobs = new javax.swing.JPanel();
         jobCard1 = new javax.swing.JPanel();
@@ -283,6 +284,8 @@ public class Bapers extends javax.swing.JFrame {
         restoreText = new javax.swing.JTextField();
         browseRestoreBtn = new javax.swing.JButton();
         restoreBtn = new javax.swing.JButton();
+        backupLabel = new javax.swing.JLabel();
+        restoreLabel = new javax.swing.JLabel();
         customers = new javax.swing.JPanel();
         customerCard1 = new javax.swing.JPanel();
         customerMain = new javax.swing.JPanel();
@@ -1691,8 +1694,10 @@ public class Bapers extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(staffTable);
 
+        filterAdminList.add(officeManagerRadio);
         officeManagerRadio.setText("Office Manager");
 
+        filterAdminList.add(shiftManagerRadio);
         shiftManagerRadio.setText("Shift Manager");
         shiftManagerRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1700,10 +1705,13 @@ public class Bapers extends javax.swing.JFrame {
             }
         });
 
+        filterAdminList.add(receptionistRadio);
         receptionistRadio.setText("Receptionist");
 
+        filterAdminList.add(technicianRadio);
         technicianRadio.setText("Technician");
 
+        filterAdminList.add(allBtn);
         allBtn.setText("All");
 
         editStaffRole.setText("Edit Role");
@@ -1844,11 +1852,16 @@ public class Bapers extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
+                        .addComponent(backupLabel)
+                        .addGap(277, 277, 277))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
                         .addComponent(backupBtn)
-                        .addGap(343, 343, 343))
+                        .addGap(390, 390, 390))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
                         .addComponent(restoreBtn)
-                        .addGap(332, 332, 332))))
+                        .addGap(96, 96, 96)
+                        .addComponent(restoreLabel)
+                        .addGap(291, 291, 291))))
         );
         adminMainLayout.setVerticalGroup(
             adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1888,7 +1901,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(adminMainLayout.createSequentialGroup()
                         .addComponent(accountRoleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(shiftManagerRadio)
+                        .addComponent(shiftManagerRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(receptionistRadio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1909,13 +1922,17 @@ public class Bapers extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(browseBackupBtn)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backupLabel)
+                .addGap(4, 4, 4)
                 .addComponent(backupBtn)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(browseRestoreBtn)
                     .addComponent(restoreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(restoreBtn)
+                .addGroup(adminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(restoreBtn)
+                    .addComponent(restoreLabel))
                 .addGap(105, 105, 105))
         );
 
@@ -2706,7 +2723,7 @@ public class Bapers extends javax.swing.JFrame {
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         
         try {
-           File f = fc.getCurrentDirectory();
+           File f = fc.getSelectedFile();
            path = f.getAbsolutePath();
            path = path.replace('\\', '/');
            path = path + "_" + date +".sql";
@@ -2726,10 +2743,10 @@ public class Bapers extends javax.swing.JFrame {
         int processComplete = p.waitFor();
         if(processComplete==0){
             
-            System.out.println("back upc complete");
+           backupLabel.setText("Back Up Complete!");
                     
         } else {
-            System.out.println("Failure");
+            backupLabel.setText("Failed");
         }
         } catch (Exception e) {
         e.printStackTrace();
@@ -2743,7 +2760,7 @@ public class Bapers extends javax.swing.JFrame {
      //   String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         
         try {
-           File f = fc.getCurrentDirectory();
+           File f = fc.getSelectedFile();
            path = f.getAbsolutePath();
            path = path.replace('\\', '/');
          
@@ -2765,9 +2782,9 @@ public class Bapers extends javax.swing.JFrame {
            int procCrom = process.waitFor();
            
            if(procCrom == 0 ){
-               System.out.println("RESTORED");
+               restoreLabel.setText("Restore Completed!");
            }else{
-               System.out.println("FAILED");
+               restoreLabel.setText("Restore Failed!");
            }
         } catch (Exception e) {
         e.printStackTrace();}
@@ -2820,6 +2837,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JRadioButton allRadioButton1;
     private javax.swing.JButton allTasks;
     private javax.swing.JButton backupBtn;
+    private javax.swing.JLabel backupLabel;
     private javax.swing.JTextField backupTextField;
     private javax.swing.JButton browseBackupBtn;
     private javax.swing.JButton browseRestoreBtn;
@@ -2886,6 +2904,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> editTaskLocationCombo;
     private javax.swing.JButton editUserIDBtn;
     private javax.swing.JTextField editUserIDText;
+    private javax.swing.ButtonGroup filterAdminList;
     private javax.swing.ButtonGroup filterCustomerList;
     private javax.swing.JLabel filterRadioBoxLabel;
     private javax.swing.JLabel filterRadioBoxLabel1;
@@ -2999,6 +3018,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel reportsPanel;
     private javax.swing.JPanel reportsPanel1;
     private javax.swing.JButton restoreBtn;
+    private javax.swing.JLabel restoreLabel;
     private javax.swing.JTextField restoreText;
     private javax.swing.JComboBox<String> roleCombo;
     private javax.swing.JButton saveTaskBtn;
@@ -3546,7 +3566,12 @@ public class Bapers extends javax.swing.JFrame {
    public JTextField getPhoneNumber(){
        return phonenumberText;
    }
+    
+   public void isAdminListselected(){
+       
    
+   filterAdminList.clearSelection();
+   }
    
    
   

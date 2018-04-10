@@ -45,9 +45,9 @@ public class Jdbc {
     
      try{
              String driver = "com.mysql.jdbc.Driver";
-             String url = "jdbc:mysql://localhost:3306/bapers";
+             String url = "jdbc:mysql://localhost:3306/bapersv2";
              String username = "root";
-             String password = "aulon123";
+             String password = "1234";
              
              Class.forName(driver);
              
@@ -65,22 +65,49 @@ public class Jdbc {
     
     }
     
+    public String retrieveRole(String username) throws SQLException{
     
-    public boolean validate_login(String username,String password, String staffRole) throws Exception{
-        
+    
     Statement st = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ("SELECT StaffRole From staff where UserID = ?");   
+    
+    pst = conn.prepareStatement(sql);
+    pst.setString(1, username);
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return rs.getString(1);
+          else 
+              return errorMsg;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return errorMsg;
+      }
+    }
+     
+    
+    public boolean validate_login(String username,String password) throws Exception{
+        
+        Statement st = null;
+        ResultSet rs = null;
+        PreparedStatement pst = null;
         
       try{
          // Connection conn = getConnection();
-          String sql=("SELECT * FROM staff WHERE UserID = ? AND Password = ? AND StaffRole= ? ");
+          String sql=("SELECT * FROM staff WHERE UserID = ? AND Password = ?");
           
           pst = conn.prepareStatement(sql);
           
           pst.setString(1, username);
           pst.setString(2, password);
-          pst.setString(3,staffRole);
+         
           
           rs = pst.executeQuery();
          
@@ -143,7 +170,7 @@ public class Jdbc {
             Job job;
             
             while(rs.next()){
-                job = new Job(rs.getInt("JobNo"),rs.getInt("JobCode"),rs.getString("JobDescription"),rs.getDate("JobDate"),rs.getInt("Customer_CustomerID"));
+                job = new Job(rs.getInt("JobNo"),rs.getString("JobCode"),rs.getString("JobDescription"),rs.getDate("JobDate"),rs.getInt("Customer_CustomerID"));
                 jobList.add(job);
                 
             }

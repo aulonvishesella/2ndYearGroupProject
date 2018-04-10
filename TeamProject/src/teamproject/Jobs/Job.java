@@ -13,7 +13,7 @@ import java.sql.Date;
  */
 public class Job {
     private int jobNo;
-    private int jobCode;
+    private String jobCode;
     private String jobDescription;
     private Date jobDate;
     private int customerID;
@@ -23,7 +23,7 @@ public class Job {
     
     
       
-    public Job(int jobNo,int jobCode,String jobDescription, Date jobDate, int customerID){
+    public Job(int jobNo,String jobCode,String jobDescription, Date jobDate, int customerID){
         this.jobNo=jobNo;
         this.jobCode=jobCode;
         this.jobDescription=jobDescription;
@@ -39,7 +39,7 @@ public class Job {
         return jobNo;
     }
     
-    public int getJobCode(){
+    public String getJobCode(){
         return jobCode;
     }
     public String getJobDescription(){

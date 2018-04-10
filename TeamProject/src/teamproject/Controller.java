@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
+import javax.swing.JFileChooser;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
@@ -505,6 +506,10 @@ public class Controller {
      }
      
      class AdminMain implements ActionListener{
+         
+         String path = "null";
+         String filename;
+         
          JTable staffTable = bapers.getStaffTable();
                 DefaultTableModel model =(DefaultTableModel) staffTable.getModel();
                  @Override
@@ -544,6 +549,7 @@ public class Controller {
                
              }
              
+       
                
              
                 if(e.getActionCommand().contains("Edit Forename")){
@@ -922,7 +928,7 @@ public class Controller {
             if(e.getActionCommand().contains("Create Account")){
                 
                 try {
-                     jdbc. setNewCustomerAccount(bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscountCombo().getSelectedItem().toString(),bapers.getStatusCombo().getSelectedItem().toString());
+                     jdbc. setNewCustomerAccount(bapers.getAccountNumber(),bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscountCombo().getSelectedItem().toString(),bapers.getStatusCombo().getSelectedItem().toString());
 
 
                 } catch (Exception ex) {

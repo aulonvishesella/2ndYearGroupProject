@@ -786,7 +786,7 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("delete from customer WHERE CustomerID = ?");
+          String update =("delete from Customer WHERE CustomerID = ?");
           
           pst = conn.prepareStatement(update);
           
@@ -877,7 +877,7 @@ public class Jdbc {
         return false; 
     }
       
-        public boolean setNewCustomerAccount(String forename,String surename,String firstLineAddress,String postcode, String phoneNumber,String discount,String custStatus) throws Exception{
+        public boolean setNewCustomerAccount(String AccNumber,String forename,String surename,String firstLineAddress,String postcode, String phoneNumber,String discount,String custStatus) throws Exception{
         
     Statement st = null;
     ResultSet rs = null;
@@ -886,19 +886,19 @@ public class Jdbc {
       try{
          // Connection conn = getConnection();
          
-          String update =("insert into customer (FirstName,Surname,1stLineAddress,Postcode,PhoneNo,Discount,CustStatus) values (?,?,?,?,?,?,?)");
+          String update =("insert into customer (AccountNo,FirstName,Surname,1stLineAddress,Postcode,PhoneNo,Discount,CustStatus) values (?,?,?,?,?,?,?,?)");
           
           pst = conn.prepareStatement(update);
           
          
-          
-          pst.setString(1, forename);
-          pst.setString(2, surename);
-          pst.setString(3, firstLineAddress);
-          pst.setString(4, postcode);
-          pst.setString(5, phoneNumber);
-          pst.setString(6,discount);
-          pst.setString(7, custStatus);
+          pst.setString(1, AccNumber);
+          pst.setString(2, forename);
+          pst.setString(3, surename);
+          pst.setString(4, firstLineAddress);
+          pst.setString(5, postcode);
+          pst.setString(6, phoneNumber);
+          pst.setString(7,discount);
+          pst.setString(8, custStatus);
           System.out.println("added new account ");
           
           pst.executeUpdate();

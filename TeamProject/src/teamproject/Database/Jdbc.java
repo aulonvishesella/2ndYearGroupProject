@@ -19,6 +19,7 @@ import teamproject.Jobs.Job;
 import teamproject.Payment.PaymentRecord;
 import teamproject.Admin.StaffAccount;
 import teamproject.Bapers;
+import teamproject.Tasks.JobTasks;
 
 
 
@@ -138,7 +139,7 @@ public class Jdbc {
             String getData = "SELECT * FROM customer";
             
             Statement st = conn.createStatement();
-            
+           
             ResultSet rs = st.executeQuery(getData);
             
             Customer customer;
@@ -156,6 +157,33 @@ public class Jdbc {
         return customerList;
     } 
     
+    public ArrayList<JobTasks> jobTask(){
+        ArrayList<JobTasks> jobList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from tasks
+            String getData = "SELECT * FROM job_has_task ";
+            
+            PreparedStatement st = conn.prepareStatement(getData);
+            
+            ResultSet rs = st.executeQuery(getData);
+            
+            JobTasks jobTasks;
+            
+            while(rs.next()){
+                jobTasks = new JobTasks(rs.getInt("Task_TaskID"),rs.getString("State"),rs.getInt("Job_JobNo"));
+                jobList.add(jobTasks);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return jobList;
+    }
+    
     
     public ArrayList<Job> jobList(){
         ArrayList<Job> jobList = new ArrayList<>();
@@ -172,7 +200,7 @@ public class Jdbc {
             Job job;
             
             while(rs.next()){
-                job = new Job(rs.getInt("JobNo"),rs.getString("JobCode"),rs.getString("JobDescription"),rs.getDate("JobDate"),rs.getInt("Customer_CustomerID"));
+                job = new Job(rs.getInt("JobNo"),rs.getString("JobCode"),rs.getString("JobDescription"),rs.getDate("JobDate"),rs.getInt("Customer_CustomerID"),rs.getString("JobStatus"));
                 jobList.add(job);
                 
             }
@@ -266,8 +294,49 @@ public class Jdbc {
     }
        
        
+    public void displayJobTask(JTable jobtask,int x){
+              System.out.println("Display jobHasTask");
+        ArrayList <JobTasks> list = jobTask();
+        
+        DefaultTableModel model =(DefaultTableModel) jobtask.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        if(list.get(i).getJobNo() == x){
+             row[0]=list.get(i).getJobNo();
+             row[1]=list.get(i).getTaskID();
+             row[2]=list.get(i).getStatus();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    }  
        
-       
+    public void displayJobTask(JTable jobtask){
+              System.out.println("Display jobHasTask");
+        ArrayList <JobTasks> list = jobTask();
+        
+        DefaultTableModel model =(DefaultTableModel) jobtask.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+      
+             row[0]=list.get(i).getJobNo();
+             row[1]=list.get(i).getTaskID();
+             row[2]=list.get(i).getStatus();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
         public void displayPayment(JTable paymentTable){
               System.out.println("Display PaymentRecords");
         ArrayList <PaymentRecord> list = paymentList();
@@ -433,7 +502,7 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
         
-        Object[] row = new Object[5];
+        Object[] row = new Object[6];
         
          for(int i = 0;i<list.size();i++){
         
@@ -447,6 +516,7 @@ public class Jdbc {
              row[2]=list.get(i).getJobDescription();
              row[3]= list.get(i).getJobDate();
              row[4]= list.get(i).getCustomerID();
+             row[5]= list.get(i).getJobStatus();
               model.addRow(row);
              
              } 
@@ -464,7 +534,7 @@ public class Jdbc {
         
         DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
         
-        Object[] row = new Object[5];
+        Object[] row = new Object[6];
         
          for(int i = 0;i<list.size();i++){
         
@@ -473,6 +543,7 @@ public class Jdbc {
              row[2]=list.get(i).getJobDescription();
              row[3]= list.get(i).getJobDate();
              row[4]= list.get(i).getCustomerID();
+                 row[5]= list.get(i).getJobStatus();
            
              model.addRow(row);
              

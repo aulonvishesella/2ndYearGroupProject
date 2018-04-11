@@ -63,7 +63,8 @@ public class Controller {
     jdbc.displayJobs(bapers.getJobTable());
     jdbc.displayPayment(bapers.getPaymentTable());
     jdbc.displayStaff(bapers.getStaffTable());
-    
+    jdbc.displayJobTask(bapers.getJobTasksTable());
+   
     }
     
     public void addBapersListener(){
@@ -87,6 +88,7 @@ public class Controller {
         bapers.AdminMain(new AdminMain());
        bapers.createCustomerMain(new CreateCustomerMain());
        bapers.createTaskMain(new CreateTaskMain());
+       bapers.JobTasks(new JobTasks());
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
         
@@ -99,11 +101,33 @@ public class Controller {
                 int id = (int) target.getValueAt(row, 0);
                 System.out.println(id);
                 selectedRow = id;
+                
+               
+               
+            }
+            
+       
+       
+        });
+        
+         bapers.getJobTasksTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getJobTasksTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                System.out.println(id);
+                selectedRow = id;
                
             }
 
-       
         });
+        
+        
+        
         
          bapers.getStaffTable().addMouseListener(new MouseAdapter(){
         
@@ -162,6 +186,17 @@ public class Controller {
                 int id = (int) target.getValueAt(row, 0);
                 System.out.println(id);
                 selectedRow = id;
+                JTable jobTasksTable = bapers.getJobTasksTable();
+        
+        DefaultTableModel model =(DefaultTableModel) jobTasksTable.getModel();
+      
+                if (e.getClickCount() == 2) {
+                    bapers.setPanelJob("jobTasks");
+                    model.setRowCount(0);
+                     jdbc.displayJobTask(jobTasksTable,selectedRow );
+                    }
+                
+                
                
             }
 
@@ -693,14 +728,27 @@ public class Controller {
                  @Override
         public void actionPerformed(ActionEvent e) {
           
+            if(e.getActionCommand().contains("View Tasks")){
+                try {
+                    bapers.setPanelJob("jobTasks");
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
             
+            if(e.getActionCommand().contains("Jobs")){
+            
+            bapers.setPanelJob("card2");
+            }
             
             if(e.getActionCommand().contains("Search")){
                                 try {
                                     model.setRowCount(0);
                  
-                  jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
-                                    
+                  //jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                  jdbc.displayJob(jobTable,selectedRow);
+
                                     
                                 } catch (Exception ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -798,9 +846,18 @@ public class Controller {
         }
      }
      
-     
+     class JobTasks implements ActionListener{
+         JTable jobTasksTable = bapers.getJobTasksTable();
+        
+        DefaultTableModel model =(DefaultTableModel) jobTasksTable.getModel();
+      
+        @Override
+        public void actionPerformed(ActionEvent e) {
     
-     
+      
+        }
+      
+     }
     class TaskMain implements ActionListener{
          JTable taskTable = bapers.getTaskTable();
         
@@ -929,7 +986,7 @@ public class Controller {
             if(e.getActionCommand().contains("Create Account")){
                 
                 try {
-                     jdbc. setNewCustomerAccount(bapers.getAccountNumber(),bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscountCombo().getSelectedItem().toString(),bapers.getStatusCombo().getSelectedItem().toString());
+                     jdbc.setNewCustomerAccount(bapers.getAccountNumber(),bapers.GetFirstName().getText(), bapers.getSurename().getText(),bapers.getFirstAddress().getText(),bapers.getPostcode().getText(),bapers.getPhoneNumber().getText(),bapers.getDiscountCombo().getSelectedItem().toString(),bapers.getStatusCombo().getSelectedItem().toString());
 
 
                 } catch (Exception ex) {

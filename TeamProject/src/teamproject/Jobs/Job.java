@@ -17,18 +17,20 @@ public class Job {
     private String jobDescription;
     private Date jobDate;
     private int customerID;
+    private String JobStatus;
     
     
     
     
     
       
-    public Job(int jobNo,String jobCode,String jobDescription, Date jobDate, int customerID){
+    public Job(int jobNo,String jobCode,String jobDescription, Date jobDate, int customerID,String JobStatus){
         this.jobNo=jobNo;
         this.jobCode=jobCode;
         this.jobDescription=jobDescription;
         this.jobDate=jobDate;
         this.customerID=customerID;
+        this.JobStatus = JobStatus;
     }
 
   
@@ -52,6 +54,10 @@ public class Job {
     
     public int getCustomerID(){
         return customerID;
+    }
+    
+    public String getJobStatus(){
+    return JobStatus;
     }
     
     

@@ -72,6 +72,8 @@ public class Controller {
    
     }
     
+    
+    
     public void addBapersListener(){
         //adds navigation for menu bar
         bapers.navigationBar(new BapersMenu());
@@ -228,23 +230,32 @@ public class Controller {
                 System.out.println(id);
                 selectedRow = id;
                 JTable jobTasksTable = bapers.getJobTasksTable();
-        
+         
         DefaultTableModel model =(DefaultTableModel) jobTasksTable.getModel();
       
                 if (e.getClickCount() == 2) {
                     bapers.setPanelJob("jobTasks");
                     model.setRowCount(0);
                      jdbc.displayJobTask(jobTasksTable,selectedRow );
+                                   
+                              
+                     
+                     
+                     
+                     
                     }
-                
-                
-               
             }
 
         });
-        
+          
+       
+          
+          
+          
+                
+       
+          
       
-        
         
         
         
@@ -325,7 +336,8 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
                 try {
-                    role = jdbc.retrieveRole(login.getUsername());
+                    role = jdbc.retrieveRole(login.getUsername
+        ());
                     try {
                         
                         if( jdbc.validate_login(login.getUsername(), login.getPassword())==true){
@@ -773,6 +785,7 @@ public class Controller {
                  @Override
         public void actionPerformed(ActionEvent e) {
           
+
              if(e.getActionCommand().contains("Add Task/Remove Task")){
              bapers.getAddTaskWindow().setVisible(true);
              }
@@ -792,6 +805,18 @@ public class Controller {
                      System.out.println("removing " + selectedRow + " to Customer " + SelectedCustomer );
              }
             
+
+
+            if(e.getActionCommand().contains("All Jobs")){
+                try {
+                   model.setRowCount(0);
+                   jdbc.displayJobs(jobTable);
+                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+
             if(e.getActionCommand().contains("View Tasks")){
                 try {
                     bapers.setPanelJob("jobTasks");
@@ -804,6 +829,8 @@ public class Controller {
             if(e.getActionCommand().contains("Jobs")){
             
             bapers.setPanelJob("card2");
+            bapers.getSearchJobTaskID().setText("Write TaskID to Edit");
+           
             }
             
             if(e.getActionCommand().contains("Create Job")){
@@ -825,8 +852,12 @@ public class Controller {
                                 try {
                                     model.setRowCount(0);
                  
-                  jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
-                 // jdbc.displayJob(jobTable,selectedRow);
+
+                  //jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                  jdbc.displayJob(jobTable,selectedRow);
+
+                 jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                 // jdbc.displayJob(jobTable,Integer.parseInt(bapers.searchToDeleteC().getText()));
 
                                     
                                 } catch (Exception ex) {
@@ -932,8 +963,58 @@ public class Controller {
       
         @Override
         public void actionPerformed(ActionEvent e) {
-    
-      
+           
+            
+            
+            if(e.getActionCommand().contains("Save Edit")){
+                                try {
+                            
+                 
+                 jdbc.setTaskIDJob(Integer.parseInt(bapers.getSearchJobTaskID().getText()), bapers.getJobTaksCombo().getSelectedItem().toString(),selectedRow);
+try {
+                        if(jdbc.retrieveStatusComplete(selectedRow).contains("Complete") && !jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && !jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                            try {
+                                jdbc.setJobComplete(selectedRow);
+                            } catch (Exception ex) {
+                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                         if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress")){
+                            try {
+                                jdbc.setJobInProgress(selectedRow);
+                            } catch (Exception ex) {
+                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                            try {
+                                jdbc.setJobInProgress(selectedRow);
+                            } catch (Exception ex) {
+                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        if( !jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                            try {
+                                jdbc.setJobInProgress(selectedRow);
+                            } catch (Exception ex) {
+                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                
+                } catch (SQLException ex) {
+                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                    }  
+                                    
+                                } catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                             
+                                
+                                }
+                                
+            } 
+             
+            
         }
 
      }
@@ -1181,7 +1262,7 @@ public class Controller {
                 
               
               
-                 jdbc.displayCustomer(customerTable,"valued");
+                 jdbc.displayCustomer(customerTable,"Valued");
                  
                  
             }
@@ -1193,7 +1274,7 @@ public class Controller {
                  
                   jdbc.displayCustomer(customerTable,"Normal");
                
-                
+                  
              
             }
             

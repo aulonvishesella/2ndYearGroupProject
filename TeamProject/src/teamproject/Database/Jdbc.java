@@ -169,6 +169,82 @@ public class Jdbc {
       
     
     
+    public String retrieveStatusInProgress(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "SELECT State FROM job_has_task WHERE Job_JobNo = ? AND State!= 'Completed' AND State!='Pending'");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return rs.getString(1);
+          else 
+              return errorMsg;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return errorMsg;
+      }
+    }
+ public String retrieveStatusPending(int x) throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "SELECT State From job_has_task Where Job_JobNo = ? AND State!='In-Progress' AND State!= 'Completed'");   
+    
+    pst = conn.prepareStatement(sql);
+   pst.setInt(1, x);
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return rs.getString(1);
+          else 
+              return errorMsg;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return errorMsg;
+      }
+    }
+
+    
+    
+    
+    public String retrieveStatusComplete(int x) throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ("select State FROM job_has_task WHERE Job_JobNo= ? AND State != 'Pending' AND State!= 'In-Progress'");   
+  
+    pst = conn.prepareStatement(sql);
+    pst.setInt(1, x); 
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return rs.getString(1);
+          else 
+              return errorMsg;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return errorMsg;
+      }
+    }
     
     public String retrieveRole(String username) throws SQLException{
     
@@ -417,7 +493,28 @@ public class Jdbc {
          }
     }
     }  
-       
+         public void displayJobTask(JTable jobtask,String x, int id){
+              System.out.println("Display jobHasTask");
+        ArrayList <JobTasks> list = jobTask();
+        
+        DefaultTableModel model =(DefaultTableModel) jobtask.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        if(list.get(i).getStatus().contains(x)){
+            if(list.get(i).getJobNo() == id){
+             row[0]=list.get(i).getJobNo();
+             row[1]=list.get(i).getTaskID();
+             row[2]=list.get(i).getStatus();
+         
+             
+           
+             model.addRow(row);
+            }
+         }
+    }
+    }   
     public void displayJobTask(JTable jobtask){
               System.out.println("Display jobHasTask");
         ArrayList <JobTasks> list = jobTask();
@@ -609,10 +706,6 @@ public class Jdbc {
          for(int i = 0;i<list.size();i++){
         
              if(list.get(i).getJobNo() == jobNo){
-                 
-             
-             
-             
              row[0]=list.get(i).getJobNo();
              row[1]=list.get(i).getJobCode();
              row[2]=list.get(i).getJobDescription();
@@ -1280,8 +1373,66 @@ public class Jdbc {
         return false; 
     }
        
+       public boolean setJobComplete(int id) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET JobStatus = 'Completed' WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+      
+          pst.setInt(1,id);
+          
+      System.out.println("update to " +id );
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      public boolean setJobInProgress(int id) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job SET JobStatus = 'In-Progress' WHERE JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+      
+          pst.setInt(1,id);
+          
+      System.out.println("update to " +id );
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    } 
       
      public boolean setJobCode(int id,int jobCode) throws Exception{
         
@@ -1350,6 +1501,7 @@ public class Jdbc {
       
         return false; 
     }
+    
     public boolean setJobDate(int id,String jobDate) throws Exception{
         
     Statement st = null;
@@ -1379,6 +1531,7 @@ public class Jdbc {
       
         return false; 
     }
+    
      public boolean setCustomerID(int id,int customerID) throws Exception{
         
     Statement st = null;
@@ -1397,6 +1550,35 @@ public class Jdbc {
           pst.setInt(2,id);
           
       System.out.println("update to " +id + customerID);
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+      public boolean setTaskIDJob(int id,String State,int JobNO) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+       
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("UPDATE job_has_task SET State = ? WHERE Task_TaskID = ? AND Job_JobNo = ?");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          pst.setString(1, State);
+          pst.setInt(2,id);
+          pst.setInt(3, JobNO);
+      System.out.println("update to " +id + State);
           pst.executeUpdate();
           
           pst.close();
@@ -1438,7 +1620,8 @@ public class Jdbc {
       
         return false; 
     } 
-        
+    
+
        public boolean searchDescription(int id) throws Exception{
         
     Statement st = null;

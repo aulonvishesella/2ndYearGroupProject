@@ -2092,14 +2092,17 @@
                                               <Component id="deleteJob" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="allJobs" min="-2" pref="82" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="viewTasksForJob" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="allJobsList" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2140,6 +2143,9 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="50" max="32767" attributes="0"/>
+                              <Component id="allJobsList" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2276,9 +2282,9 @@
                         <Property name="text" type="java.lang.String" value="All jobs"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="viewTasksForJob">
+                    <Component class="javax.swing.JButton" name="allJobsList">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="View Tasks"/>
+                        <Property name="text" type="java.lang.String" value="All Jobs"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2673,6 +2679,16 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="SearchJobTaskID" pref="118" max="32767" attributes="0"/>
+                                  <Component id="saveEditBtn" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jobTasksCombo" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -2688,22 +2704,16 @@
                                       <Component id="HomePageJobBtn" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inProgressRadioB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pendingRadioB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="completedRadioB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="allRadioB" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane5" min="-2" pref="179" max="-2" attributes="0"/>
+                              <EmptySpace pref="11" max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" min="-2" pref="179" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jobTasksCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SearchJobTaskID" alignment="3" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="149" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="saveEditBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="81" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2751,51 +2761,43 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JRadioButton" name="inProgressRadioB">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="filterTaskList"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="In-Progress"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="pendingRadioB">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="filterTaskList"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Pending"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="completedRadioB">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="filterTaskList"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Completed"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="allRadioB">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="filterTaskList"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="All"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Job - Tasks"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel23">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Status:"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="HomePageJobBtn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Jobs"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="SearchJobTaskID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Write TaskID to edit"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="removetext"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchJobTaskIDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="jobTasksCombo">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="In-Progress"/>
+                            <StringItem index="1" value="Pending"/>
+                            <StringItem index="2" value="Completed"/>
+                            <StringItem index="3" value=" "/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="saveEditBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Save Edit"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3859,6 +3861,9 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="restoreText">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restoreTextActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="browseRestoreBtn">
                       <Properties>

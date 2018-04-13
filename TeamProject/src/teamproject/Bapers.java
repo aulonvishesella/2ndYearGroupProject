@@ -214,7 +214,7 @@ public class Bapers extends javax.swing.JFrame {
         deleteJob = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
         allJobs = new javax.swing.JButton();
-        viewTasksForJob = new javax.swing.JButton();
+        allJobsList = new javax.swing.JButton();
         createNewJob = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -241,13 +241,11 @@ public class Bapers extends javax.swing.JFrame {
         jobTasks = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jobTaskTable = new javax.swing.JTable();
-        inProgressRadioB = new javax.swing.JRadioButton();
-        pendingRadioB = new javax.swing.JRadioButton();
-        completedRadioB = new javax.swing.JRadioButton();
-        allRadioB = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         HomePageJobBtn = new javax.swing.JButton();
+        SearchJobTaskID = new javax.swing.JTextField();
+        jobTasksCombo = new javax.swing.JComboBox<>();
+        saveEditBtn = new javax.swing.JButton();
         reports = new javax.swing.JPanel();
         payments = new javax.swing.JPanel();
         paymentCard1 = new javax.swing.JPanel();
@@ -509,7 +507,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(reportsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 19, Short.MAX_VALUE))
         );
@@ -924,7 +922,7 @@ public class Bapers extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                                         .addGroup(customerMain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(generateInDefaultBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(createNewAccountBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, Short.MAX_VALUE)
+                                            .addComponent(createNewAccountBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                                             .addComponent(createJobBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(upgradeDowngradeBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(downgradeBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
@@ -1508,7 +1506,7 @@ public class Bapers extends javax.swing.JFrame {
 
         allJobs.setText("All jobs");
 
-        viewTasksForJob.setText("View Tasks");
+        allJobsList.setText("All Jobs");
 
         javax.swing.GroupLayout jobMainLayout = new javax.swing.GroupLayout(jobMain);
         jobMain.setLayout(jobMainLayout);
@@ -1546,11 +1544,13 @@ public class Bapers extends javax.swing.JFrame {
                             .addGroup(jobMainLayout.createSequentialGroup()
                                 .addComponent(deleteJob)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(viewTasksForJob)))
+                                .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jobMainLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(allJobsList)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jobMainLayout.setVerticalGroup(
             jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1574,16 +1574,13 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(editJobDescrBtn)
                             .addComponent(editJobDateBtn)
                             .addComponent(editCustomerIDBtn)
-                            .addComponent(searchBtn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(viewTasksForJob)
-                        .addGap(32, 32, 32))
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(deleteJob, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(searchBtn)))
+                    .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteJob, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(allJobsList)
+                .addGap(40, 40, 40))
         );
 
         addJobCard.add(jobMain, "card2");
@@ -1770,23 +1767,25 @@ public class Bapers extends javax.swing.JFrame {
             jobTaskTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        filterTaskList.add(inProgressRadioB);
-        inProgressRadioB.setText("In-Progress");
-
-        filterTaskList.add(pendingRadioB);
-        pendingRadioB.setText("Pending");
-
-        filterTaskList.add(completedRadioB);
-        completedRadioB.setText("Completed");
-
-        filterTaskList.add(allRadioB);
-        allRadioB.setText("All");
-
         jLabel22.setText("Job - Tasks");
 
-        jLabel23.setText("Status:");
-
         HomePageJobBtn.setText("Jobs");
+
+        SearchJobTaskID.setText("Write TaskID to edit");
+        SearchJobTaskID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removetext(evt);
+            }
+        });
+        SearchJobTaskID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchJobTaskIDActionPerformed(evt);
+            }
+        });
+
+        jobTasksCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "In-Progress", "Pending", "Completed", " " }));
+
+        saveEditBtn.setText("Save Edit");
 
         javax.swing.GroupLayout jobTasksLayout = new javax.swing.GroupLayout(jobTasks);
         jobTasks.setLayout(jobTasksLayout);
@@ -1799,21 +1798,18 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(HomePageJobBtn)
                         .addGap(147, 147, 147)
                         .addComponent(jLabel22)
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jobTasksLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                        .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(allRadioB)
-                            .addComponent(pendingRadioB)
-                            .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jobTasksLayout.createSequentialGroup()
-                                    .addComponent(jLabel23)
-                                    .addGap(172, 172, 172))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jobTasksLayout.createSequentialGroup()
-                                    .addComponent(inProgressRadioB)
-                                    .addGap(138, 138, 138)))
-                            .addComponent(completedRadioB)))))
+                        .addGap(125, 344, Short.MAX_VALUE))))
+            .addGroup(jobTasksLayout.createSequentialGroup()
+                .addGap(314, 314, 314)
+                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SearchJobTaskID, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(saveEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jobTasksCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jobTasksLayout.setVerticalGroup(
             jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1825,20 +1821,15 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(jobTasksLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(HomePageJobBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inProgressRadioB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pendingRadioB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(completedRadioB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(allRadioB))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jobTasksCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchJobTaskID))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(saveEditBtn)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         addJobCard.add(jobTasks, "jobTasks");
@@ -2224,6 +2215,12 @@ public class Bapers extends javax.swing.JFrame {
         backupBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backupBtnActionPerformed(evt);
+            }
+        });
+
+        restoreText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restoreTextActionPerformed(evt);
             }
         });
 
@@ -2902,7 +2899,7 @@ public class Bapers extends javax.swing.JFrame {
         Process p = null;
         try {
         Runtime runtime = Runtime.getRuntime();
-        p = runtime.exec("C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump.exe -uroot -p1234 --add-drop-database -B bapersv2 -r"+path);
+        p = runtime.exec("C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump.exe -uroot -paulon123 --add-drop-database -B bapersv2 -r"+path);
         
         int processComplete = p.waitFor();
         if(processComplete==0){
@@ -2937,7 +2934,7 @@ public class Bapers extends javax.swing.JFrame {
 
     private void restoreBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restoreBtnActionPerformed
         String user = "root";
-        String pass = "1234";
+        String pass = "aulon123";
         String[] restoreCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 5.7/bin/mysql.exe","--user="+user,"--password="+pass,"-e","source "+path};
         
         Process process;
@@ -2957,6 +2954,20 @@ public class Bapers extends javax.swing.JFrame {
     private void printLabelCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printLabelCheckboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_printLabelCheckboxActionPerformed
+
+    private void restoreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restoreTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_restoreTextActionPerformed
+
+    private void SearchJobTaskIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchJobTaskIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchJobTaskIDActionPerformed
+
+    private void removetext(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removetext
+        SearchJobTaskID.setText(null);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removetext
 
     /**
      * @param args the command line arguments
@@ -2978,6 +2989,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton PaymentBtn;
     private javax.swing.JButton PaymentBtn1;
     private javax.swing.JCheckBox Reciept;
+    private javax.swing.JTextField SearchJobTaskID;
     private javax.swing.JLabel accountIDLabel1;
     private javax.swing.JTextField accountIDTextField1;
     private javax.swing.JLabel accountRoleLabel;
@@ -3005,7 +3017,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel adminPanel;
     private javax.swing.JRadioButton allBtn;
     private javax.swing.JButton allJobs;
-    private javax.swing.JRadioButton allRadioB;
+    private javax.swing.JButton allJobsList;
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JRadioButton allRadioButton1;
     private javax.swing.JButton allTasks;
@@ -3017,7 +3029,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton cancelBtn;
     private javax.swing.JButton cancelBtn1;
     private javax.swing.JComboBox<String> comboDiscount;
-    private javax.swing.JRadioButton completedRadioB;
     private javax.swing.JButton createAccountBtn;
     private javax.swing.JButton createAccountBtn1;
     private javax.swing.JButton createJob;
@@ -3097,7 +3108,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton homepageBtn1;
     private javax.swing.JRadioButton inDefaultRadioButton;
     private javax.swing.JRadioButton inDefaultRadioButton1;
-    private javax.swing.JRadioButton inProgressRadioB;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
@@ -3126,7 +3136,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3149,6 +3158,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTable jobTable;
     private javax.swing.JTable jobTaskTable;
     private javax.swing.JPanel jobTasks;
+    private javax.swing.JComboBox<String> jobTasksCombo;
     private javax.swing.JPanel jobs;
     private javax.swing.JLabel jobsLabel;
     private javax.swing.JLabel jobsLabel1;
@@ -3176,7 +3186,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTable paymentTable;
     private javax.swing.JLabel paymentViewLabel;
     private javax.swing.JPanel payments;
-    private javax.swing.JRadioButton pendingRadioB;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JLabel phoneNumberLabel1;
     private javax.swing.JTextField phoneNumberTextfield1;
@@ -3202,6 +3211,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel restoreLabel;
     private javax.swing.JTextField restoreText;
     private javax.swing.JComboBox<String> roleCombo;
+    private javax.swing.JButton saveEditBtn;
     private javax.swing.JButton saveTaskBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchJobNumber;
@@ -3261,7 +3271,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton viewPaymentBtn;
     private javax.swing.JButton viewTaskBtn;
     private javax.swing.JButton viewTaskBtn1;
-    private javax.swing.JButton viewTasksForJob;
     // End of variables declaration//GEN-END:variables
 
     void navigationBar(Controller.BapersMenu bapersNavi) {
@@ -3633,14 +3642,21 @@ public class Bapers extends javax.swing.JFrame {
     
     void JobTasks(Controller.JobTasks jobTasks){
         
-        inProgressRadioB.addActionListener(jobTasks);
-        pendingRadioB.addActionListener(jobTasks);
-        completedRadioB.addActionListener(jobTasks);
-        allRadioB.addActionListener(jobTasks);
+      
+        SearchJobTaskID.addActionListener(jobTasks);
+      jobTasksCombo.addActionListener(jobTasks);
+      saveEditBtn.addActionListener(jobTasks);
       
     }
-    
    
+    public JComboBox<String> getJobTaksCombo(){
+        return jobTasksCombo;
+    }
+    
+    public JTextField getSearchJobTaskID(){
+        return SearchJobTaskID;
+    }
+
     
     void JobMain(Controller.JobMain jobMain){
         editJobCodeBtn.addActionListener(jobMain);
@@ -3655,7 +3671,8 @@ public class Bapers extends javax.swing.JFrame {
         deleteJob.addActionListener(jobMain);
         searchBtn.addActionListener(jobMain);
         allJobs.addActionListener(jobMain);
-        viewTasksForJob.addActionListener(jobMain);
+        allJobsList.addActionListener(jobMain);
+      
         HomePageJobBtn.addActionListener(jobMain);
         
     }

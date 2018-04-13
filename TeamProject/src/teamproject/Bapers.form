@@ -1348,6 +1348,103 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="createjobDeadline">
     </Component>
+    <Container class="javax.swing.JDialog" name="addtaskDialog">
+      <Properties>
+        <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+          <Point value="[250, 250]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 500]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jScrollPane8" min="-2" pref="375" max="-2" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="AddTaskToJob" min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="RemoveTaskFromJob" min="-2" pref="97" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="jScrollPane8" min="-2" pref="204" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="AddTaskToJob" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="RemoveTaskFromJob" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="addtaskTable">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="3" rowCount="0">
+                    <Column editable="false" title="TaskID" type="java.lang.Object"/>
+                    <Column editable="false" title="TaskDescription" type="java.lang.Object"/>
+                    <Column editable="false" title="TaskDuration" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="AddTaskToJob">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="RemoveTaskFromJob">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -1473,7 +1570,7 @@
                           <Component id="customerPanel" max="32767" attributes="0"/>
                           <Component id="paymentPanel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="176" max="32767" attributes="0"/>
+                      <EmptySpace pref="222" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jobsPanel" max="32767" attributes="0"/>
                           <Component id="taskPanel" max="32767" attributes="0"/>
@@ -2031,12 +2128,11 @@
                                           <Component id="editCustomerIDBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                                      <EmptySpace pref="49" max="32767" attributes="0"/>
                                       <Component id="viewTasksForJob" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="deleteJob" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                           <Component id="allJobs" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -2209,13 +2305,27 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane7" min="-2" pref="222" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="jobDateText" min="-2" pref="83" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jScrollPane7" min="-2" pref="222" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                                              <Component id="MatSubmittedLabel" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="jobCode" min="-2" pref="118" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="MatSubmittedLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2226,13 +2336,7 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="customerNameSearch" min="-2" pref="232" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jobDateText" min="-2" pref="83" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="customerNameSearch" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
@@ -2249,34 +2353,32 @@
                                           </Group>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="printLabelCheckbox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="Reciept" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="63" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="jScrollPane4" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
-                                              <Component id="createNewJobBTn" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="addTaskToJobBtn" min="-2" pref="109" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Component id="removeTaskFromJobBtn" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="Reciept" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                              <Component id="printLabelCheckbox" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="createNewJobBTn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane4" min="-2" pref="275" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                      <Component id="addTaskToJobBtn" min="-2" pref="171" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2287,12 +2389,22 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" min="-2" pref="166" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="addTaskToJobBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="createNewJobBTn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="customerNameSearch" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jobDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jobCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2315,28 +2427,18 @@
                                               <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" min="-2" pref="166" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="addTaskToJobBtn" min="-2" max="-2" attributes="0"/>
-                                          <Component id="removeTaskFromJobBtn" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="printLabelCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="Reciept" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="printLabelCheckbox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jobDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace pref="52" max="32767" attributes="0"/>
-                                      <Component id="createNewJobBTn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2360,6 +2462,7 @@
                           <ComponentRef name="createjobDeadline"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Urgent"/>
+                        <Property name="name" type="java.lang.String" value="Urgent" noResource="true"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="customerDeadlineRadio">
@@ -2368,6 +2471,7 @@
                           <ComponentRef name="createjobDeadline"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Custom"/>
+                        <Property name="name" type="java.lang.String" value="Custom" noResource="true"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="regularDeadlineRadio">
@@ -2376,6 +2480,7 @@
                           <ComponentRef name="createjobDeadline"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Regular"/>
+                        <Property name="name" type="java.lang.String" value="Regular" noResource="true"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="customerNameSearch">
@@ -2389,6 +2494,15 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jobDateText">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="99" red="99" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&quot;YYYY/MM/DD&quot;"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jobDateTextActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel20">
                       <Properties>
@@ -2415,7 +2529,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable1">
+                        <Component class="javax.swing.JTable" name="createJobWithTask">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="2" rowCount="0">
@@ -2446,12 +2560,7 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="addTaskToJobBtn">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Add Task"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="removeTaskFromJobBtn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Remove Task"/>
+                        <Property name="text" type="java.lang.String" value="Add Task/Remove Task"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="createNewJobBTn">
@@ -2468,9 +2577,6 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Job Description"/>
                       </Properties>
-                      <AccessibilityProperties>
-                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Job Description"/>
-                      </AccessibilityProperties>
                     </Component>
                     <Component class="java.awt.Label" name="MatSubmittedLabel">
                       <Properties>
@@ -2487,7 +2593,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="jobDescription">
+                        <Component class="javax.swing.JTextArea" name="jobDescriptioncreatingJob">
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
@@ -2510,6 +2616,21 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JTextField" name="jobCode">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="99" red="99" type="rgb"/>
+                        </Property>
+                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[118, 20]"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel24">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Jobcode"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jobTasks">
@@ -2533,7 +2654,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane5" min="-2" pref="545" max="-2" attributes="0"/>
-                                      <EmptySpace pref="94" max="32767" attributes="0"/>
+                                      <EmptySpace pref="108" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="allRadioB" min="-2" max="-2" attributes="0"/>
                                           <Component id="pendingRadioB" min="-2" max="-2" attributes="0"/>
@@ -2582,7 +2703,7 @@
                                   </Group>
                                   <Component id="jScrollPane5" min="-2" pref="179" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="144" max="32767" attributes="0"/>
+                              <EmptySpace pref="149" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2769,7 +2890,7 @@
                               <Component id="paymentViewLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace pref="186" max="32767" attributes="0"/>
+                              <EmptySpace pref="188" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3165,7 +3286,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="460" max="32767" attributes="0"/>
+                              <EmptySpace pref="478" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3209,7 +3330,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="28" pref="126" max="32767" attributes="0"/>
+                              <EmptySpace min="28" pref="141" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3482,7 +3603,7 @@
                                                   <Component id="searchStaffBtn" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                                                   <Component id="addStaffAccountBtn" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="7" max="32767" attributes="0"/>
+                                              <EmptySpace pref="6" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace max="32767" attributes="0"/>
@@ -3829,7 +3950,7 @@
                                                           </Group>
                                                           <Component id="allRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace pref="214" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="230" max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="generateInDefaultBtn" alignment="1" max="32767" attributes="0"/>
                                                           <Component id="createNewAccountBtn" alignment="1" pref="0" max="32767" attributes="0"/>
@@ -3894,7 +4015,7 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="69" max="32767" attributes="0"/>
+                              <EmptySpace pref="85" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -4087,7 +4208,7 @@
                                       <Component id="AccNumberLabel" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="593" max="32767" attributes="0"/>
+                              <EmptySpace pref="612" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -4254,7 +4375,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="376" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>

@@ -5,8 +5,11 @@
  */
 package teamproject.Database;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.*;
 import java.sql.DriverManager;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,7 +69,16 @@ public class Jdbc {
    
     return null;
     
-    } 
+    }
+    public int getJobKey(int id) throws SQLException
+    {
+     Statement st = null;
+    
+            st = conn.createStatement();
+            
+    
+    return 1;
+    }
     
     public String getName(int id)
     {
@@ -96,31 +108,53 @@ public class Jdbc {
       }
     }
     
-      public boolean createJob(int jobcode,String JobDescription,String jobdate, String jobPriority,String Jobstatus,int customerID) throws Exception{
+      public boolean createJob(String jobcode,String JobDescription,String jobdate, String jobPriority,String Jobstatus,int customerID,ArrayList<String> addtask) throws Exception{
         
     Statement st = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-        
+    int listSize = 0;
+    int id = 0;
       try{
          // Connection conn = getConnection();
          
-          String update =("insert into job (JobCode,JobDescription,JobDate,jobPriority,Customer_CustomerID, ) values (?,?,?,?,?)");
+          String create =("insert into job (JobCode,JobDescription,JobDate,jobPriority,JobStatus,Customer_CustomerID ) values (?,?,?,?,?,?)");
           
-          pst = conn.prepareStatement(update);
+         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+    
+        java.util.Date utilDate = format.parse(jobdate);
+       java.sql.Date  sqlDate = new java.sql.Date(utilDate.getTime());
+        
+  
+            
+            
+          PreparedStatement pst = conn.prepareStatement(create,Statement.RETURN_GENERATED_KEYS);
           
-         
           
+            
           
-          pst.setInt(1, jobcode);
+          pst.setString(1, jobcode);
           pst.setString(2, JobDescription);
-          pst.setString(3, jobdate);
+          pst.setDate(3,sqlDate );
           pst.setString(4, jobPriority);
-          pst.setInt(5, customerID);
+          pst.setString(5, Jobstatus);
+          pst.setInt(6, customerID);
           
           System.out.println("added new job");
           
           pst.executeUpdate();
+          
+         ResultSet rs = pst.getGeneratedKeys();
+          
+       
+          if(rs.next()){
+              id = rs.getInt(1);
+          }
+          for (int i =0;i<addtask.size();i++){
+        PreparedStatement pst1 = conn.prepareStatement(addtask.get(i));    
+         
+         pst1.setInt(1, id);
+        pst1.executeUpdate();
+            }
           
           pst.close();
             
@@ -1440,7 +1474,25 @@ public class Jdbc {
       
         return false; 
     } 
-          
+    
+       public void displayTasksAddJob(JTable taskTable){
+        System.out.println("Display Task add job");
+        ArrayList <Task> list = taskList();
+        
+        DefaultTableModel model =(DefaultTableModel) taskTable.getModel();
+        
+        Object[] row = new Object[3];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getTaskID();
+             row[1]=list.get(i).getTaskDescription();
+             row[2] = list.get(i).getDuration();
+             model.addRow(row);
+             
+         }
+       
+    } 
         
      
      

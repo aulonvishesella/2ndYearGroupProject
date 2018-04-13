@@ -15,9 +15,11 @@ import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
 import javax.swing.JFileChooser;
 import javax.swing.JRadioButton;
@@ -42,7 +44,9 @@ public class Controller {
     Logout logout;
     //jtable selected row
     int selectedRow;
-    
+    int SelectedCustomer;
+     ArrayList<String> sql = new ArrayList<String>();
+            
     public Controller(Login login,Bapers bapers,Jdbc jdbc,Logout logout){
     this.login = login;
     this.bapers = bapers;
@@ -64,6 +68,7 @@ public class Controller {
     jdbc.displayPayment(bapers.getPaymentTable());
     jdbc.displayStaff(bapers.getStaffTable());
     jdbc.displayJobTask(bapers.getJobTasksTable());
+    jdbc.displayTasksAddJob(bapers.getAddTaskTable());
    
     }
     
@@ -125,16 +130,13 @@ public class Controller {
             }
 
         });
-        
-        
-        
-        
-         bapers.getStaffTable().addMouseListener(new MouseAdapter(){
+         
+         bapers.getJobTasksTable().addMouseListener(new MouseAdapter(){
         
          public void mouseClicked(MouseEvent e) {
                 
                 
-                JTable target = bapers.getStaffTable();
+                JTable target = bapers.getJobTasksTable();
                 int row = target.getSelectedRow();
                 int column = target.getSelectedColumn();
                 int id = (int) target.getValueAt(row, 0);
@@ -147,6 +149,45 @@ public class Controller {
         
         
         
+        
+         bapers.getAddTaskToJobTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getAddTaskToJobTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                
+                System.out.println(id);
+                selectedRow = id;
+               
+                
+                
+               
+            }
+
+        });
+        
+        
+          bapers.getAddTaskTable().addMouseListener(new MouseAdapter(){
+        
+         public void mouseClicked(MouseEvent e) {
+                
+                
+                JTable target = bapers.getAddTaskTable();
+                int row = target.getSelectedRow();
+                int column = target.getSelectedColumn();
+                int id = (int) target.getValueAt(row, 0);
+                System.out.println(id);
+                selectedRow = id;
+                
+               
+               
+            }
+
+        });
         
         
         
@@ -219,6 +260,9 @@ public class Controller {
                 int id = (int) target.getValueAt(row, 0);
                 System.out.println(id);
                 selectedRow = id;
+                 SelectedCustomer = id;
+                 
+                 System.out.println("customer selected is  " + SelectedCustomer);
             }
        
         });
@@ -725,9 +769,29 @@ public class Controller {
      class JobMain implements ActionListener{
          JTable jobTable = bapers.getJobTable();
                 DefaultTableModel model =(DefaultTableModel) jobTable.getModel();
+               
                  @Override
         public void actionPerformed(ActionEvent e) {
           
+             if(e.getActionCommand().contains("Add Task/Remove Task")){
+             bapers.getAddTaskWindow().setVisible(true);
+             }
+               if(e.getActionCommand().contains("Add.")){
+                   sql.add("INSERT INTO job_has_task (job_JobNo, Task_TaskID)\n" +
+                            "VALUES (?,'" + selectedRow +"');");
+                   
+                   // System.out.println("adding " + selectedRow + " to Customer " + SelectedCustomer );
+                   
+                   for(int i=0;i<sql.size();i++){
+                       System.out.println(sql.get(i));
+                   
+                   }
+                    
+             }
+                 if(e.getActionCommand().contains("Remove.")){
+                     System.out.println("removing " + selectedRow + " to Customer " + SelectedCustomer );
+             }
+            
             if(e.getActionCommand().contains("View Tasks")){
                 try {
                     bapers.setPanelJob("jobTasks");
@@ -744,12 +808,16 @@ public class Controller {
             
             if(e.getActionCommand().contains("Create Job")){
                 
-          //      jdbc.createJob(selectedRow, JobDescription, jobdate, bapers.getFilterCustomerJobDeadline(), Jobstatus, selectedRow);
-                System.out.println(bapers.getFilterCustomerJobDeadline().getSelection());
-                
-             
-       
-                
+                 try {
+                     //   try {
+                     jdbc.createJob(bapers.getJobCode(), bapers.getJobDescriptionJob(),bapers.getDateJob(), bapers.getSelectedButtonText(bapers.getFilterCustomerButtonGroup()),"In-Progress",selectedRow,sql);
+                     //   } catch (Exception ex) {
+                     //        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                     //    }
+                 } catch (Exception ex) {
+                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+               
                 
             }
             
@@ -867,8 +935,26 @@ public class Controller {
     
       
         }
+
+     }
+     class addJobTasks implements ActionListener{
+         JTable jobTasksTable = bapers.getAddTaskTable();
+        
+        DefaultTableModel model =(DefaultTableModel) jobTasksTable.getModel();
+      
+        @Override
+        public void actionPerformed(ActionEvent e) {
+    
+            System.out.println("test");
+        }
+        
+        
       
      }
+     
+     
+     
+     
     class TaskMain implements ActionListener{
          JTable taskTable = bapers.getTaskTable();
         

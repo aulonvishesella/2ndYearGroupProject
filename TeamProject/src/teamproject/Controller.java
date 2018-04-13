@@ -742,12 +742,23 @@ public class Controller {
             bapers.setPanelJob("card2");
             }
             
+            if(e.getActionCommand().contains("Create Job")){
+                
+          //      jdbc.createJob(selectedRow, JobDescription, jobdate, bapers.getFilterCustomerJobDeadline(), Jobstatus, selectedRow);
+                System.out.println(bapers.getFilterCustomerJobDeadline().getSelection());
+                
+             
+       
+                
+                
+            }
+            
             if(e.getActionCommand().contains("Search")){
                                 try {
                                     model.setRowCount(0);
                  
-                  //jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
-                  jdbc.displayJob(jobTable,selectedRow);
+                  jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                 // jdbc.displayJob(jobTable,selectedRow);
 
                                     
                                 } catch (Exception ex) {
@@ -1022,8 +1033,11 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
         
-            
-            
+            if(e.getActionCommand().contains("Create Job")){
+            bapers.setPanelJob("createNewJob");
+            bapers.setCreateJobName(jdbc.getName(selectedRow));
+            }
+             
             if(e.getActionCommand().contains("Upgrade")){
                 
                 try {

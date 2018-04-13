@@ -66,7 +66,75 @@ public class Jdbc {
    
     return null;
     
+    } 
+    
+    public String getName(int id)
+    {
+    
+    
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ("SELECT concat(FirstName,\" \", Surname) FROM CUSTOMER WHERE CustomerID = ? ;");   
+    
+    pst = conn.prepareStatement(sql);
+    pst.setInt(1, id);
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return rs.getString(1);
+          else 
+              return errorMsg;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return errorMsg;
+      }
     }
+    
+      public boolean createJob(int jobcode,String JobDescription,String jobdate, String jobPriority,String Jobstatus,int customerID) throws Exception{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+        
+      try{
+         // Connection conn = getConnection();
+         
+          String update =("insert into job (JobCode,JobDescription,JobDate,jobPriority,Customer_CustomerID, ) values (?,?,?,?,?)");
+          
+          pst = conn.prepareStatement(update);
+          
+         
+          
+          
+          pst.setInt(1, jobcode);
+          pst.setString(2, JobDescription);
+          pst.setString(3, jobdate);
+          pst.setString(4, jobPriority);
+          pst.setInt(5, customerID);
+          
+          System.out.println("added new job");
+          
+          pst.executeUpdate();
+          
+          pst.close();
+            
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+      
+        return false; 
+    }
+    
+      
+    
+    
     
     public String retrieveRole(String username) throws SQLException{
     

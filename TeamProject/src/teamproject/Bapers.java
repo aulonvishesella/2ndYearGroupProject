@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -25,6 +26,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
@@ -183,6 +185,10 @@ public class Bapers extends javax.swing.JFrame {
         addtaskTable = new javax.swing.JTable();
         AddTaskToJob = new javax.swing.JButton();
         RemoveTaskFromJob = new javax.swing.JButton();
+        alertNewJobDialog = new javax.swing.JDialog();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        alertCustomerTable = new javax.swing.JTable();
+        RemoveAlertBtn = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         homepage = new javax.swing.JPanel();
         customerPanel = new javax.swing.JPanel();
@@ -254,6 +260,7 @@ public class Bapers extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jobCode = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
+        goBackJob = new javax.swing.JButton();
         jobTasks = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jobTaskTable = new javax.swing.JTable();
@@ -270,6 +277,11 @@ public class Bapers extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         paymentTable = new javax.swing.JTable();
+        searchCustomerPayment = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        searchCustomerIDPayment = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        SearchCustomerPayment = new javax.swing.JButton();
         tasks = new javax.swing.JPanel();
         taskCard1 = new javax.swing.JPanel();
         taskMain = new javax.swing.JPanel();
@@ -1219,6 +1231,53 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        alertNewJobDialog.setMinimumSize(new java.awt.Dimension(500, 500));
+
+        alertCustomerTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CustomerName", "Priority", "Date", "JobID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        alertCustomerTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane10.setViewportView(alertCustomerTable);
+
+        RemoveAlertBtn.setText("OK");
+
+        javax.swing.GroupLayout alertNewJobDialogLayout = new javax.swing.GroupLayout(alertNewJobDialog.getContentPane());
+        alertNewJobDialog.getContentPane().setLayout(alertNewJobDialogLayout);
+        alertNewJobDialogLayout.setHorizontalGroup(
+            alertNewJobDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alertNewJobDialogLayout.createSequentialGroup()
+                .addGroup(alertNewJobDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(alertNewJobDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(alertNewJobDialogLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(RemoveAlertBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        alertNewJobDialogLayout.setVerticalGroup(
+            alertNewJobDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alertNewJobDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(RemoveAlertBtn)
+                .addGap(26, 26, 26))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mainPanel.setBackground(new java.awt.Color(204, 204, 255));
@@ -1301,7 +1360,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addGroup(jobsPanelLayout.createSequentialGroup()
                             .addGap(30, 30, 30)
                             .addComponent(viewJobs))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jobsPanelLayout.setVerticalGroup(
             jobsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1430,7 +1489,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addGroup(taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(viewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(addTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         taskPanelLayout.setVerticalGroup(
             taskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1467,7 +1526,7 @@ public class Bapers extends javax.swing.JFrame {
             .addGroup(adminPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1476,7 +1535,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(adminLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(adminBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout homepageLayout = new javax.swing.GroupLayout(homepage);
@@ -1484,37 +1543,42 @@ public class Bapers extends javax.swing.JFrame {
         homepageLayout.setHorizontalGroup(
             homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepageLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jobsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(73, 73, 73)
-                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(reportsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(adminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(65, 65, 65))
+                    .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(99, 99, 99)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(adminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(130, 130, 130)
+                .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         homepageLayout.setVerticalGroup(
             homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepageLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homepageLayout.createSequentialGroup()
-                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addComponent(jobsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(adminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(homepageLayout.createSequentialGroup()
-                        .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(taskPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homepageLayout.createSequentialGroup()
+                        .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(homepageLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(homepageLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(reportsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(adminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(5, 5, 5)))
                 .addContainerGap())
         );
 
@@ -1527,6 +1591,7 @@ public class Bapers extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("JOBS");
+        jobMain.add(jLabel7);
 
         jobTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1547,16 +1612,25 @@ public class Bapers extends javax.swing.JFrame {
         jobTable.getTableHeader().setReorderingAllowed(false);
         jobMainPage.setViewportView(jobTable);
 
+        jobMain.add(jobMainPage);
+
         editJobCodeBtn.setText("Edit Job Code");
         editJobCodeBtn.setVisible(false);
+        jobMain.add(editJobCodeBtn);
 
         editJobCode.setVisible(false);
+        jobMain.add(editJobCode);
 
         searchJobNumber.setText("Search Job Number");
+        jobMain.add(searchJobNumber);
+        jobMain.add(editJobDescr);
 
         editJobDescrBtn.setText("Edit Job Description");
+        jobMain.add(editJobDescrBtn);
+        jobMain.add(editJobDate);
 
         editJobDateBtn.setText("Edit Job Date");
+        jobMain.add(editJobDateBtn);
 
         editCustomerIDBtn.setText("Edit Customer ID");
         editCustomerIDBtn.setVisible(false);
@@ -1565,91 +1639,22 @@ public class Bapers extends javax.swing.JFrame {
                 editCustomerIDBtnActionPerformed(evt);
             }
         });
+        jobMain.add(editCustomerIDBtn);
 
         editCustomerID.setVisible(false);
+        jobMain.add(editCustomerID);
 
         deleteJob.setText("Delete Job");
+        jobMain.add(deleteJob);
 
         searchBtn.setText("Search");
+        jobMain.add(searchBtn);
 
         allJobs.setText("All jobs");
+        jobMain.add(allJobs);
 
         allJobsList.setText("All Jobs");
-
-        javax.swing.GroupLayout jobMainLayout = new javax.swing.GroupLayout(jobMain);
-        jobMain.setLayout(jobMainLayout);
-        jobMainLayout.setHorizontalGroup(
-            jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jobMainPage)
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(searchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(searchJobNumber))
-                        .addGap(73, 73, 73)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editJobCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editJobCodeBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editJobDescr)
-                            .addComponent(editJobDescrBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editJobDate)
-                            .addComponent(editJobDateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editCustomerID)
-                            .addComponent(editCustomerIDBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jobMainLayout.createSequentialGroup()
-                                .addGap(346, 346, 346)
-                                .addComponent(jLabel7))
-                            .addGroup(jobMainLayout.createSequentialGroup()
-                                .addComponent(deleteJob)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jobMainLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(allJobsList)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jobMainLayout.setVerticalGroup(
-            jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobMainLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jobMainLayout.createSequentialGroup()
-                        .addComponent(jobMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchJobNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editJobCode, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editJobDescr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editJobDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(editJobCodeBtn)
-                            .addComponent(editJobDescrBtn)
-                            .addComponent(editJobDateBtn)
-                            .addComponent(editCustomerIDBtn)
-                            .addComponent(searchBtn)))
-                    .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteJob, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(allJobsList)
-                .addGap(40, 40, 40))
-        );
+        jobMain.add(allJobsList);
 
         addJobCard.add(jobMain, "card2");
 
@@ -1725,6 +1730,8 @@ public class Bapers extends javax.swing.JFrame {
 
         jLabel24.setText("Jobcode");
 
+        goBackJob.setText("Back to Jobs");
+
         javax.swing.GroupLayout createNewJobLayout = new javax.swing.GroupLayout(createNewJob);
         createNewJob.setLayout(createNewJobLayout);
         createNewJobLayout.setHorizontalGroup(
@@ -1733,66 +1740,67 @@ public class Bapers extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(createNewJobLayout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(specialInstructionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(goBackJob)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(createNewJobLayout.createSequentialGroup()
                         .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(createNewJobLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
+                                .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(createNewJobLayout.createSequentialGroup()
+                                        .addGap(64, 64, 64)
+                                        .addComponent(specialInstructionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(createNewJobLayout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jobDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(createNewJobLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(createNewJobLayout.createSequentialGroup()
+                                        .addGap(94, 94, 94)
                                         .addComponent(jLabel24)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jobCode, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(MatSubmittedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createNewJobLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12))))
                             .addGroup(createNewJobLayout.createSequentialGroup()
-                                .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(createNewJobLayout.createSequentialGroup()
-                                        .addGap(97, 97, 97)
-                                        .addComponent(customerDeadlineRadio))
-                                    .addGroup(createNewJobLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(urgentDeadlineRadio)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(regularDeadlineRadio))))
-                    .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(27, 27, 27)
-                        .addComponent(printLabelCheckbox)
-                        .addGap(18, 18, 18)
-                        .addComponent(Reciept)))
-                .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(createNewJobBTn)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(232, 232, 232))
-                    .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel21)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(createNewJobLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(addTaskToJobBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jLabel20)
+                                .addGap(27, 27, 27)
+                                .addComponent(printLabelCheckbox)
+                                .addGap(18, 18, 18)
+                                .addComponent(Reciept))
+                            .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(MatSubmittedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(createNewJobLayout.createSequentialGroup()
+                                    .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel19))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(customerNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(createNewJobLayout.createSequentialGroup()
+                                            .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(createNewJobLayout.createSequentialGroup()
+                                                    .addGap(97, 97, 97)
+                                                    .addComponent(customerDeadlineRadio))
+                                                .addGroup(createNewJobLayout.createSequentialGroup()
+                                                    .addGap(10, 10, 10)
+                                                    .addComponent(urgentDeadlineRadio)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(regularDeadlineRadio)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel18)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jobDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(createNewJobLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                                .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(createNewJobBTn)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addTaskToJobBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(232, 232, 232))
+                            .addGroup(createNewJobLayout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(jLabel21)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         createNewJobLayout.setVerticalGroup(
             createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1805,8 +1813,6 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addTaskToJobBtn)
-                        .addGap(39, 39, 39)
-                        .addComponent(createNewJobBTn)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(createNewJobLayout.createSequentialGroup()
                         .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1819,27 +1825,29 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(regularDeadlineRadio)
                             .addComponent(customerDeadlineRadio)
                             .addComponent(urgentDeadlineRadio)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jobDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(createNewJobLayout.createSequentialGroup()
                                 .addComponent(specialInstructionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createNewJobLayout.createSequentialGroup()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(createNewJobLayout.createSequentialGroup()
                                 .addComponent(MatSubmittedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel20)
-                                .addComponent(printLabelCheckbox)
-                                .addComponent(Reciept))
-                            .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel18)
-                                .addComponent(jobDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(128, 128, 128))))
+                        .addGap(17, 17, 17)
+                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(printLabelCheckbox)
+                            .addComponent(Reciept))
+                        .addGap(51, 51, 51)
+                        .addGroup(createNewJobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(goBackJob)
+                            .addComponent(createNewJobBTn))
+                        .addGap(54, 54, 54))))
         );
 
         MatSubmittedLabel.getAccessibleContext().setAccessibleName("");
@@ -1860,9 +1868,13 @@ public class Bapers extends javax.swing.JFrame {
             jobTaskTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        jobTasks.add(jScrollPane5);
+
         jLabel22.setText("Job - Tasks");
+        jobTasks.add(jLabel22);
 
         HomePageJobBtn.setText("Jobs");
+        jobTasks.add(HomePageJobBtn);
 
         SearchJobTaskID.setText("Write TaskID to edit");
         SearchJobTaskID.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1875,55 +1887,13 @@ public class Bapers extends javax.swing.JFrame {
                 SearchJobTaskIDActionPerformed(evt);
             }
         });
+        jobTasks.add(SearchJobTaskID);
 
         jobTasksCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "In-Progress", "Pending", "Completed", " " }));
+        jobTasks.add(jobTasksCombo);
 
         saveEditBtn.setText("Save Edit");
-
-        javax.swing.GroupLayout jobTasksLayout = new javax.swing.GroupLayout(jobTasks);
-        jobTasks.setLayout(jobTasksLayout);
-        jobTasksLayout.setHorizontalGroup(
-            jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobTasksLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addComponent(HomePageJobBtn)
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel22)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 344, Short.MAX_VALUE))))
-            .addGroup(jobTasksLayout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SearchJobTaskID, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(saveEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jobTasksCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jobTasksLayout.setVerticalGroup(
-            jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jobTasksLayout.createSequentialGroup()
-                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel22))
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(HomePageJobBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jobTasksCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchJobTaskID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(saveEditBtn)
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
+        jobTasks.add(saveEditBtn);
 
         addJobCard.add(jobTasks, "jobTasks");
 
@@ -1963,33 +1933,62 @@ public class Bapers extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(paymentTable);
 
+        jLabel23.setText("Customer");
+
+        searchCustomerIDPayment.setMinimumSize(new java.awt.Dimension(51, 20));
+
+        jLabel25.setText("ID:");
+
+        SearchCustomerPayment.setText("Search");
+
         javax.swing.GroupLayout paymentMainLayout = new javax.swing.GroupLayout(paymentMain);
         paymentMain.setLayout(paymentMainLayout);
         paymentMainLayout.setHorizontalGroup(
             paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentMainLayout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(paymentViewLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paymentMainLayout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(paymentViewLabel))
-                    .addGroup(paymentMainLayout.createSequentialGroup()
-                        .addGap(335, 335, 335)
-                        .addComponent(jLabel8))
-                    .addGroup(paymentMainLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(329, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentMainLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel8)
+                        .addGap(211, 211, 211)))
+                .addGap(45, 45, 45))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentMainLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchCustomerPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchCustomerIDPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SearchCustomerPayment)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paymentMainLayout.setVerticalGroup(
             paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentMainLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel8)
-                .addGap(35, 35, 35)
-                .addComponent(paymentViewLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchCustomerPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23)
+                    .addComponent(searchCustomerIDPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(SearchCustomerPayment))
+                .addGroup(paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paymentMainLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(paymentViewLabel))
+                    .addGroup(paymentMainLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         paymentCard1.add(paymentMain, "card2");
@@ -2853,7 +2852,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(userLabel))
                     .addComponent(logoutBtn)
                     .addComponent(logoLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homepageBtn)
                     .addComponent(customerBtn)
@@ -3087,7 +3086,9 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton PaymentBtn;
     private javax.swing.JButton PaymentBtn1;
     private javax.swing.JCheckBox Reciept;
+    private javax.swing.JButton RemoveAlertBtn;
     private javax.swing.JButton RemoveTaskFromJob;
+    private javax.swing.JButton SearchCustomerPayment;
     private javax.swing.JTextField SearchJobTaskID;
     private javax.swing.JLabel accountIDLabel1;
     private javax.swing.JTextField accountIDTextField1;
@@ -3116,6 +3117,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel adminMain;
     private javax.swing.JButton adminMenuBtn;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JTable alertCustomerTable;
+    private javax.swing.JDialog alertNewJobDialog;
     private javax.swing.JRadioButton allBtn;
     private javax.swing.JButton allJobs;
     private javax.swing.JButton allJobsList;
@@ -3205,6 +3208,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTextField forenameText;
     private javax.swing.JButton generateInDefaultBtn;
     private javax.swing.JButton generateInDefaultBtn1;
+    private javax.swing.JButton goBackJob;
     private javax.swing.JPanel homepage;
     private javax.swing.JPanel homepage1;
     private javax.swing.JButton homepageBtn;
@@ -3241,6 +3245,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3250,6 +3255,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3322,6 +3328,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton saveEditBtn;
     private javax.swing.JButton saveTaskBtn;
     private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchCustomerIDPayment;
+    private javax.swing.JTextField searchCustomerPayment;
     private javax.swing.JTextField searchJobNumber;
     private javax.swing.JTextField searchStaff;
     private javax.swing.JButton searchStaffBtn;
@@ -3758,6 +3766,8 @@ public class Bapers extends javax.swing.JFrame {
       jobTasksCombo.addActionListener(jobTasks);
       saveEditBtn.addActionListener(jobTasks);
       
+      
+      
     }
    
     public JComboBox<String> getJobTaksCombo(){
@@ -3789,6 +3799,8 @@ public class Bapers extends javax.swing.JFrame {
         addTaskToJobBtn.addActionListener(jobMain);
         AddTaskToJob.addActionListener(jobMain);
         RemoveTaskFromJob.addActionListener(jobMain);
+        RemoveAlertBtn.addActionListener(jobMain);
+        goBackJob.addActionListener(jobMain);
     }
     
     
@@ -3988,7 +4000,44 @@ public class Bapers extends javax.swing.JFrame {
     return jobCode.getText();
     }
     
-      
+    public JDialog getalertNewJobDialog(){
+    
+    
+    return alertNewJobDialog;
+    }
+    
+    public JTable getAlertTable(){
+    
+    
+    return alertCustomerTable;
+    }
+    
+    public JButton removeAlertsButton(){
+    
+    return RemoveAlertBtn;
+    }
+    
+    public JButton gobackToJob(){
+    
+    return goBackJob;
+    }
+    
+    public JTextField getCustomerSearchPayment(){
+    
+    
+    return customerNameSearch;
+    }
+    
+    public JTextField getCustomerIDSearchPayment(){
+    
+    return searchCustomerIDPayment;
+    }
+    
+    public JButton searchCustomerPaymentButton(){
+    
+    
+    return SearchCustomerPayment;
+    }
    
    
    

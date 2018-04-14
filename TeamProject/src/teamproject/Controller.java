@@ -6,9 +6,12 @@
 package teamproject;
 
 import java.awt.CardLayout;
+import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
@@ -21,16 +24,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import teamproject.Accounts.AccountController;
+import teamproject.Accounts.Customer;
 import teamproject.Database.Jdbc;
 import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
+
+
 
 /**
  *
@@ -45,7 +53,10 @@ public class Controller {
     //jtable selected row
     int selectedRow;
     int SelectedCustomer;
-     ArrayList<String> sql = new ArrayList<String>();
+   
+    ArrayList<String> sql = new ArrayList<String>();
+   
+    boolean Alert;
             
     public Controller(Login login,Bapers bapers,Jdbc jdbc,Logout logout){
     this.login = login;
@@ -331,7 +342,8 @@ public class Controller {
     
     //login actionlistener 
     class LoginAuth implements ActionListener{
-
+        
+        
         String role = null;
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -348,6 +360,7 @@ public class Controller {
                                 bapers.setVisible(true);
                                 bapers.setPanelRecep(e.getActionCommand());
                                 bapers.setUser(role);
+                                bapers.setpanel("homepage");
                             }
                             
                             if("Technician".equals(role) || "technician".equals(role)){
@@ -356,6 +369,7 @@ public class Controller {
                                 bapers.setVisible(true);
                                 bapers.setPanelTech(e.getActionCommand());
                                 bapers.setUser(role);
+                                bapers.setpanel("homepage");
                             }
                             if("Shift Manager".equals(role) || "shift manager".equals(role)){
                                 login.dispose();
@@ -363,13 +377,28 @@ public class Controller {
                                 bapers.setVisible(true);
                                 bapers.setPanelShift(e.getActionCommand());
                                 bapers.setUser(role);
+                                bapers.setpanel("homepage");
+                                
+                               if(Alert == true){
+                                   
+                                 bapers.getalertNewJobDialog().setVisible(true);
+                               
+                               }
                             }
                             if("Office Manager".equals(role) || "office manager".equals(role)){
                                 login.dispose();
                                 
                                 bapers.setVisible(true);
                                 bapers.setPanelOffice(e.getActionCommand());
+                                bapers.setpanel("homepage");
                                 bapers.setUser(role);
+                                
+                                   if(Alert == true){
+                                   
+                                 bapers.getalertNewJobDialog().setVisible(true);
+                               
+                               }
+                                
                             }
                             
                             
@@ -784,12 +813,16 @@ public class Controller {
                
                  @Override
         public void actionPerformed(ActionEvent e) {
-          
+            
+            
 
              if(e.getActionCommand().contains("Add Task/Remove Task")){
              bapers.getAddTaskWindow().setVisible(true);
              }
                if(e.getActionCommand().contains("Add.")){
+                   
+            
+                   jdbc.displayJob(bapers.getAddTaskToJobTable(), selectedRow);
                    sql.add("INSERT INTO job_has_task (job_JobNo, Task_TaskID)\n" +
                             "VALUES (?,'" + selectedRow +"');");
                    
@@ -833,20 +866,43 @@ public class Controller {
            
             }
             
-            if(e.getActionCommand().contains("Create Job")){
-                
+            
+            
+            if(e.getActionCommand().contains("Create Job" )){
+                int i = 0;
                  try {
                      //   try {
                      jdbc.createJob(bapers.getJobCode(), bapers.getJobDescriptionJob(),bapers.getDateJob(), bapers.getSelectedButtonText(bapers.getFilterCustomerButtonGroup()),"In-Progress",selectedRow,sql);
                      //   } catch (Exception ex) {
                      //        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                      //    }
+                    Object[] row = { jdbc.getName(SelectedCustomer), bapers.getSelectedButtonText(bapers.getFilterCustomerButtonGroup()), bapers.getDateJob(),bapers.getJobCode()};
+
+                    DefaultTableModel model = (DefaultTableModel) bapers.getAlertTable().getModel();
+
+                    model.addRow(row);
+                     Alert = true;
+                     JOptionPane.showMessageDialog(bapers,
+                         "Job Created.");
+                   
+                     
                  } catch (Exception ex) {
                      Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                  }
-               
-                
+            
+             
+            
             }
+            
+              if(e.getActionCommand().contains("OK" )){
+                   System.out.println("OK");
+               DefaultTableModel model = (DefaultTableModel) bapers.getAlertTable().getModel();
+               for(int x = 0 ;x<bapers.getAlertTable().getRowCount();x++){
+                         model.setRowCount(0);}
+               Alert = false;
+               bapers.getalertNewJobDialog().dispose();
+               }
+            
             
             if(e.getActionCommand().contains("Search")){
                                 try {
@@ -942,7 +998,13 @@ public class Controller {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            }        
+            }
+             
+             if(e.getActionCommand().contains("Back to Jobs")){
+          
+             bapers.setPanelCustomer("customers");
+             
+             }
         }
      }
      
@@ -965,6 +1027,7 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
            
             
+                    
             
             if(e.getActionCommand().contains("Save Edit")){
                                 try {
@@ -1318,6 +1381,28 @@ try {
             
             
             
+        }
+        
+        class SearchPaymentCustomer implements  KeyListener{
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //SELECT CONCAT(FirstName,SurName) FROM Customer WHERE  FirstName  like '%' OR Surname  like '%';
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+          
+        
+        
         }
     
     }    

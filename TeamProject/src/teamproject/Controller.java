@@ -20,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
@@ -29,7 +31,8 @@ import teamproject.Accounts.AccountController;
 import teamproject.Database.Jdbc;
 import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
-
+import teamproject.Reports.IndividualPerformanceReport;
+import teamproject.Reports.IndividualJobReport;
 /**
  *
  * @author Ramee
@@ -68,6 +71,8 @@ public class Controller {
     jdbc.displayPayment(bapers.getPaymentTable());
     jdbc.displayStaff(bapers.getStaffTable());
     jdbc.displayJobTask(bapers.getJobTasksTable());
+    jdbc.displayIndividualPerformanceReport(bapers.getIndividualPerformanceReportTable());
+    jdbc.displayIndividualJobReport(bapers.getJobReportTable());
    
     }
     
@@ -83,6 +88,7 @@ public class Controller {
         bapers.JobPanelNavigation(new JobPanelNavigation());
         bapers.PaymentPanelNavigation(new PaymentPanelNavigation());
         bapers.AdminPanelNavigation(new AdminPanelNavigation());
+        bapers.ReportPanelNavigation(new ReportPanelNavigation());
        
 
         
@@ -95,6 +101,9 @@ public class Controller {
        bapers.createCustomerMain(new CreateCustomerMain());
        bapers.createTaskMain(new CreateTaskMain());
        bapers.JobTasks(new JobTasks());
+       bapers.reportMain(new ReportMain());
+       bapers.IndividualPerformanceReport(new IndividualPerformanceReport());
+       bapers.JobReportMain(new JobReportMain());
         
         bapers.getTaskTable().addMouseListener(new MouseAdapter(){
         
@@ -269,12 +278,19 @@ public class Controller {
     jdbc.displayPayment(bapers.getPaymentTable());
     }
     
+    public void displayIndividualPerformanceReportTable(){
+        jdbc.displayIndividualPerformanceReport(bapers.getIndividualPerformanceReportTable());
+    }
     
     
     public void displayJobTable(){
         jdbc.displayJobs(bapers.getJobTable());
     }
     
+    
+    public void displayJobReportTable(){
+        jdbc.displayIndividualJobReport(bapers.getJobReportTable());
+    }
     public void displayStaffTable(){
         jdbc.displayStaff(bapers.getStaffTable());
     }
@@ -409,6 +425,10 @@ public class Controller {
                         bapers.setPanelAdmin("card4");
                     }
                     
+                    if(e.getActionCommand().contains("reports")){
+                        bapers.setPanelReport("card2");
+                    }
+                    
                     if(e.getActionCommand().contains("customer")){
                         
                         bapers.setPanelCustomer("customerMain");
@@ -440,6 +460,28 @@ public class Controller {
                 
                     
     }
+    
+    
+     class ReportPanelNavigation implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+     
+              System.out.println(e.getActionCommand());
+           if(e.getActionCommand().contains("Individual Performance")){
+               bapers.setPanelReport("card3");
+           }
+            if(e.getActionCommand().contains("Individual Report")){
+               bapers.setPanelReport("card4");
+           }
+            
+        }
+    
+    }
+    
+    
+    
+    
     
      class CustomerPanelNavigation implements ActionListener{
 
@@ -555,6 +597,9 @@ public class Controller {
         }
     
      }
+          
+          
+     
      
      class AdminMain implements ActionListener{
          
@@ -569,20 +614,30 @@ public class Controller {
             
             if(e.getActionCommand().contains("Search Staff")){
                 try {
-                                    bapers.isAdminListselected();
-                                    model.setRowCount(0);
-                                   
-                   jdbc.displayStaff(staffTable, Integer.parseInt(bapers.getSearchStaff().getText()));
-                                    
-                                    
-                                } catch (Exception ex) {
+                    if(jdbc.retrieveAdmin(Integer.parseInt(bapers.getSearchStaff().getText()))){
+                        
+                        
+                        try {
+                            bapers.isAdminListselected();
+                            model.setRowCount(0);
+                            
+                            jdbc.displayStaff(staffTable, Integer.parseInt(bapers.getSearchStaff().getText()));
+                            
+                            
+                        } catch (Exception ex) {
+                            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            
+                        }
+                        
+                    }  else{
+                        final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "Staff does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                    }} catch (SQLException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                           
-                                       }
-                
+                }
+            
             }
-            
-            
             if(e.getActionCommand().contains("Cancel")){
                 System.exit(0);
             }
@@ -734,8 +789,98 @@ public class Controller {
             
         }
      }
+     class IndividualPerformanceReport implements ActionListener{
+         JTable IndividualPerformanceReportTable = bapers.getIndividualPerformanceReportTable();
+          DefaultTableModel model =(DefaultTableModel) IndividualPerformanceReportTable.getModel();
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              
+              if(e.getActionCommand().contains("Search")){
+                  try{
+                      if(jdbc.retrieveStaff(bapers.getStaffNameReport().getText())==true){
+                          model.setRowCount(0);
+                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable,bapers.getStaffNameReport().getText());
+                      }else{
+                          final JPanel panel = new JPanel();
 
+    JOptionPane.showMessageDialog(panel, "Staff does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                      }
+                     
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+               if(e.getActionCommand().contains("All Staff Report")){
+                  try{
+                     model.setRowCount(0);
+                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable);
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+              
+          }
+     }
+class JobReportMain implements ActionListener{
+         JTable JobReportTable = bapers.getJobReportTable();
+          DefaultTableModel model =(DefaultTableModel) JobReportTable.getModel();
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              
+              if(e.getActionCommand().contains("Search")){
+                  try{
+                      if(jdbc.retrieveAccount(bapers.getAccountNumberJob().getText())==true){
+                          model.setRowCount(0);
+                      jdbc.displayIndividualJobReport(JobReportTable,bapers.getAccountNumberJob().getText());
+                      }else{
+                          final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "Account number does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                      }
+                     
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+               if(e.getActionCommand().contains("All Customers")){
+                  try{
+                     model.setRowCount(0);
+                      jdbc.displayIndividualJobReport(JobReportTable);
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+              
+          }
+     }
      
+     
+
+     class ReportMain implements ActionListener{
+         JTable IndividualPerformanceReportTable = bapers.getIndividualPerformanceReportTable();
+         JTable IndividualJobReportTable = bapers.getJobReportTable();
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              
+              if(e.getActionCommand().contains("Generate Individual Performance")){
+                  try{
+                      bapers.setPanelReport("card3");
+                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable);
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+                 if(e.getActionCommand().contains("Generate Individual Job Report")){
+                  try{
+                      bapers.setPanelReport("card4");
+                      jdbc.displayIndividualJobReport(IndividualJobReportTable);
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+              
+          }
+     }
      
      
      class JobMain implements ActionListener{
@@ -771,9 +916,16 @@ public class Controller {
             
             if(e.getActionCommand().contains("Search")){
                                 try {
-                                    model.setRowCount(0);
+                                  if(jdbc.retrieveJobIDFromJob(Integer.parseInt(bapers.getSearchJobNumber().getText()))==true){
+                                       model.setRowCount(0);
                  
                  jdbc.displayJob(jobTable,Integer.parseInt(bapers.getSearchJobNumber().getText()));
+                                  }else{
+                                      final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "Job number does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                                  }
+                                    
                  // jdbc.displayJob(jobTable,Integer.parseInt(bapers.searchToDeleteC().getText()));
 
                                     
@@ -884,56 +1036,67 @@ public class Controller {
             
             
             if(e.getActionCommand().contains("Save Edit")){
-                                try {
+                  
+                try {
+                    if(jdbc.retrieveTaskIDFromJobHasTask(Integer.parseInt(bapers.getSearchJobTaskID().getText()))==true){
+                        try {
                             
-                 
-                 jdbc.setTaskIDJob(Integer.parseInt(bapers.getSearchJobTaskID().getText()), bapers.getJobTaksCombo().getSelectedItem().toString(),selectedRow);
-try {
-                        if(jdbc.retrieveStatusComplete(selectedRow).contains("Complete") && !jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && !jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                            
+                            
+                            jdbc.setTaskIDJob(Integer.parseInt(bapers.getSearchJobTaskID().getText()), bapers.getJobTaksCombo().getSelectedItem().toString(),selectedRow);
                             try {
-                                jdbc.setJobComplete(selectedRow);
-                            } catch (Exception ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                         if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress")){
-                            try {
-                                jdbc.setJobInProgress(selectedRow);
-                            } catch (Exception ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                        if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
-                            try {
-                                jdbc.setJobInProgress(selectedRow);
-                            } catch (Exception ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                        if( !jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
-                            try {
-                                jdbc.setJobInProgress(selectedRow);
-                            } catch (Exception ex) {
-                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-
-                
-                } catch (SQLException ex) {
-                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                    }  
-                                    
-                                } catch (Exception ex) {
-                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                             
-                                
+                                if(jdbc.retrieveStatusComplete(selectedRow).contains("Complete") && !jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && !jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                                    try {
+                                        jdbc.setJobComplete(selectedRow);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress")){
+                                    try {
+                                        jdbc.setJobInProgress(selectedRow);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                                    try {
+                                        jdbc.setJobInProgress(selectedRow);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                if( jdbc.retrieveStatusInProgress(selectedRow).contains("In-Progress") && jdbc.retrieveStatusPending(selectedRow).contains("Pending")){
+                                    try {
+                                        jdbc.setJobInProgress(selectedRow);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
                                 }
                                 
-            } 
+                                
+                            } catch (SQLException ex) {
+                                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                        } catch (Exception ex) {
+                            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            
+                            
+                        }
+                        
+                    } else{
+                        final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "Could not open file", "Error", JOptionPane.ERROR_MESSAGE);
+                    }} catch (SQLException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                } 
              
             
         }
       
+     }
      }
     class TaskMain implements ActionListener{
          JTable taskTable = bapers.getTaskTable();
@@ -959,23 +1122,37 @@ try {
             
             if(e.getActionCommand().contains("Search Task")){
                 try {
-                                    model.setRowCount(0);
-                 
-                   jdbc.displayTasks(taskTable, Integer.parseInt(bapers.getSearchTaskID().getText()));
-                                    
-                                    
-                                } catch (Exception ex) {
+                    if(jdbc.retrieveTaskIDFromTask(Integer.parseInt(bapers.getSearchTaskID().getText()))==true){
+                        
+                        
+                        try {
+                            
+                            
+                            model.setRowCount(0);
+                            
+                            jdbc.displayTasks(taskTable, Integer.parseInt(bapers.getSearchTaskID().getText()));
+                            
+                            
+                        } catch (Exception ex) {
+                            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                            
+                        }
+                        
+                    }  
+                    else{
+                        final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "This task does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                    }} catch (SQLException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                           
-                                       }
-                
+                }
             }
-           
             if(e.getActionCommand().contains("Delete Task")){
                 try {
                      jdbc.setDeletionTask(Integer.parseInt(bapers.getSearchTaskID().getText()));
 
-                } catch (Exception ex) {
+                }
+                catch (Exception ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
@@ -1117,9 +1294,17 @@ try {
                   if(e.getActionCommand().contains("Delete Customer")){
                 
                 try {
+                    if(jdbc.retrieveCustomerIDToDelete(Integer.parseInt(bapers.searchToDeleteC().getText()))==true){
+                        
+                    
                    
                     jdbc.setDeletionCustomer(Integer.parseInt(bapers.searchToDeleteC().getText()));
-                  
+                    }
+                    else{
+                        final JPanel panel = new JPanel();
+
+    JOptionPane.showMessageDialog(panel, "CustomerID does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
 
 
                 } catch (Exception ex) {
@@ -1228,5 +1413,5 @@ try {
     
     
    
-   
+       
 }

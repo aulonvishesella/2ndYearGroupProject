@@ -39,6 +39,7 @@ public class Bapers extends javax.swing.JFrame {
     private CardLayout jobCard;
     private CardLayout paymentCard;
     private CardLayout adminCard;
+    private CardLayout reportCard;
      private String path="null";
     private String fileName;
     
@@ -67,6 +68,9 @@ public class Bapers extends javax.swing.JFrame {
          
          CardLayout card5 = (CardLayout)adminCard1.getLayout();
          this.adminCard=card5;
+          
+          CardLayout card6 = (CardLayout)reportCard1.getLayout();
+         this.reportCard=card6;
          
          
     }
@@ -182,9 +186,9 @@ public class Bapers extends javax.swing.JFrame {
         createJob = new javax.swing.JButton();
         reportsPanel = new javax.swing.JPanel();
         reportsLabel = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        individualReportBtn = new javax.swing.JButton();
+        individualPerformanceBtn = new javax.swing.JButton();
+        summaryPerformanceBtn = new javax.swing.JButton();
         paymentPanel = new javax.swing.JPanel();
         paymentLabel = new javax.swing.JLabel();
         viewPaymentBtn = new javax.swing.JButton();
@@ -247,6 +251,38 @@ public class Bapers extends javax.swing.JFrame {
         jobTasksCombo = new javax.swing.JComboBox<>();
         saveEditBtn = new javax.swing.JButton();
         reports = new javax.swing.JPanel();
+        reportCard1 = new javax.swing.JPanel();
+        reportMain = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        generateIndividualJobReport = new javax.swing.JButton();
+        generateIndividualPerformance = new javax.swing.JButton();
+        generateSummaryPerformance = new javax.swing.JButton();
+        individualPerformanceReport = new javax.swing.JPanel();
+        searchCustomerText = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        individualPerformanceReportTable = new javax.swing.JTable();
+        searchNameReport = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        allStaffIndividualPerformanceReport = new javax.swing.JButton();
+        individualJobReport = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        searchAccountJobReportText = new javax.swing.JTextField();
+        searchAccountJobReportBtn = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jobReportTable = new javax.swing.JTable();
+        allJobReportBtn = new javax.swing.JButton();
         payments = new javax.swing.JPanel();
         paymentCard1 = new javax.swing.JPanel();
         paymentMain = new javax.swing.JPanel();
@@ -1252,11 +1288,11 @@ public class Bapers extends javax.swing.JFrame {
         reportsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         reportsLabel.setText("Reports");
 
-        jButton7.setText("Individual Report");
+        individualReportBtn.setText("Individual Report");
 
-        jButton8.setText("Individual Performance");
+        individualPerformanceBtn.setText("Individual Performance");
 
-        jButton9.setText("Summary Performance");
+        summaryPerformanceBtn.setText("Summary Performance");
 
         javax.swing.GroupLayout reportsPanelLayout = new javax.swing.GroupLayout(reportsPanel);
         reportsPanel.setLayout(reportsPanelLayout);
@@ -1269,9 +1305,9 @@ public class Bapers extends javax.swing.JFrame {
             .addGroup(reportsPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(reportsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(summaryPerformanceBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(individualPerformanceBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(individualReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 19, Short.MAX_VALUE))
         );
         reportsPanelLayout.setVerticalGroup(
@@ -1280,11 +1316,11 @@ public class Bapers extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(reportsLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addComponent(individualReportBtn)
                 .addGap(12, 12, 12)
-                .addComponent(jButton8)
+                .addComponent(individualPerformanceBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9)
+                .addComponent(summaryPerformanceBtn)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -1420,7 +1456,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addGroup(homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jobsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(taskPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1578,7 +1614,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(jobMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deleteJob, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(allJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(allJobsList)
                 .addGap(40, 40, 40))
         );
@@ -1801,7 +1837,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jobTasksLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 344, Short.MAX_VALUE))))
+                        .addGap(125, 387, Short.MAX_VALUE))))
             .addGroup(jobTasksLayout.createSequentialGroup()
                 .addGap(314, 314, 314)
                 .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1821,7 +1857,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(jobTasksLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(HomePageJobBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1829,7 +1865,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addComponent(SearchJobTaskID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveEditBtn)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         addJobCard.add(jobTasks, "jobTasks");
@@ -1838,18 +1874,240 @@ public class Bapers extends javax.swing.JFrame {
 
         mainPanel.add(jobs, "viewJob");
 
-        reports.setBackground(new java.awt.Color(255, 51, 51));
+        reports.setBackground(new java.awt.Color(204, 204, 204));
+        reports.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout reportsLayout = new javax.swing.GroupLayout(reports);
-        reports.setLayout(reportsLayout);
-        reportsLayout.setHorizontalGroup(
-            reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+        reportCard1.setLayout(new java.awt.CardLayout());
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel23.setText("TYPE OF REPORTS");
+
+        jLabel24.setText("Individual Job  Report");
+
+        jLabel25.setText("Individual Performance");
+
+        jLabel26.setText("Summary Performance");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Individual report for the jobs\nbrought in by a particular \ncustomer for an arbitrary \nperiod of time as specified \nat the time of generating \nthe report (e.g. per month)");
+        jScrollPane6.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Individual performance report on \nthe work undertaken by a member \nof BIPL staff\n");
+        jScrollPane7.setViewportView(jTextArea2);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Summary performance report \nfor work undertaken by \nBIPL during day and night \nshifts");
+        jScrollPane8.setViewportView(jTextArea3);
+
+        generateIndividualJobReport.setText("Generate Individual Job Report");
+
+        generateIndividualPerformance.setText("Generate Individual Performance");
+
+        generateSummaryPerformance.setText("Generate Summary Performance");
+
+        javax.swing.GroupLayout reportMainLayout = new javax.swing.GroupLayout(reportMain);
+        reportMain.setLayout(reportMainLayout);
+        reportMainLayout.setHorizontalGroup(
+            reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportMainLayout.createSequentialGroup()
+                .addGroup(reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(reportMainLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reportMainLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel24)
+                        .addGap(210, 210, 210)
+                        .addGroup(reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(reportMainLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel26)
+                                .addGap(78, 78, 78))
+                            .addComponent(jLabel23)))
+                    .addGroup(reportMainLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(generateIndividualJobReport)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(generateIndividualPerformance)
+                        .addGap(83, 83, 83)
+                        .addComponent(generateSummaryPerformance)
+                        .addGap(22, 22, 22)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        reportsLayout.setVerticalGroup(
-            reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+        reportMainLayout.setVerticalGroup(
+            reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addGap(65, 65, 65)
+                .addGroup(reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26))
+                .addGap(18, 18, 18)
+                .addGroup(reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6)
+                    .addComponent(jScrollPane7))
+                .addGap(34, 34, 34)
+                .addGroup(reportMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generateIndividualJobReport)
+                    .addComponent(generateIndividualPerformance)
+                    .addComponent(generateSummaryPerformance))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
+
+        reportCard1.add(reportMain, "card2");
+
+        searchCustomerText.setText("Search name...");
+        searchCustomerText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hideName(evt);
+            }
+        });
+
+        individualPerformanceReportTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Code", "Task IDs", "Department", "Date", "Start Time", "Time Taken (mins)", "Total"
+            }
+        ));
+        jScrollPane9.setViewportView(individualPerformanceReportTable);
+
+        searchNameReport.setText("Search");
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel27.setText("Individual Performance Report");
+
+        jLabel28.setText("Date:");
+
+        jLabel29.setText("2017-12-23 and 2018-01-10");
+
+        allStaffIndividualPerformanceReport.setText("All Staff Report");
+
+        javax.swing.GroupLayout individualPerformanceReportLayout = new javax.swing.GroupLayout(individualPerformanceReport);
+        individualPerformanceReport.setLayout(individualPerformanceReportLayout);
+        individualPerformanceReportLayout.setHorizontalGroup(
+            individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                .addGroup(individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(jLabel27))
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel29))
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(searchNameReport))
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(allStaffIndividualPerformanceReport)))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+        individualPerformanceReportLayout.setVerticalGroup(
+            individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individualPerformanceReportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27)
+                .addGap(18, 18, 18)
+                .addGroup(individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29))
+                .addGap(50, 50, 50)
+                .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchNameReport)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(allStaffIndividualPerformanceReport)
+                .addContainerGap())
+        );
+
+        reportCard1.add(individualPerformanceReport, "card3");
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel30.setText("JOB REPORT");
+
+        jLabel31.setText("Search Account Number:");
+
+        searchAccountJobReportBtn.setText("Search");
+
+        jobReportTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Account", "Job Code", "Job Description", "Price(£)", "Task ID"
+            }
+        ));
+        jScrollPane10.setViewportView(jobReportTable);
+
+        allJobReportBtn.setText("All Customers");
+
+        javax.swing.GroupLayout individualJobReportLayout = new javax.swing.GroupLayout(individualJobReport);
+        individualJobReport.setLayout(individualJobReportLayout);
+        individualJobReportLayout.setHorizontalGroup(
+            individualJobReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individualJobReportLayout.createSequentialGroup()
+                .addGroup(individualJobReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(individualJobReportLayout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(jLabel30))
+                    .addGroup(individualJobReportLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(individualJobReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(searchAccountJobReportText)
+                            .addComponent(searchAccountJobReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(individualJobReportLayout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(allJobReportBtn))
+                    .addGroup(individualJobReportLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        individualJobReportLayout.setVerticalGroup(
+            individualJobReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(individualJobReportLayout.createSequentialGroup()
+                .addComponent(jLabel30)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchAccountJobReportText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchAccountJobReportBtn)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(allJobReportBtn)
+                .addGap(0, 152, Short.MAX_VALUE))
+        );
+
+        reportCard1.add(individualJobReport, "card4");
+
+        reports.add(reportCard1, "card2");
 
         mainPanel.add(reports, "reports");
 
@@ -1885,7 +2143,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(paymentMainLayout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
         paymentMainLayout.setVerticalGroup(
             paymentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1896,7 +2154,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(paymentViewLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         paymentCard1.add(paymentMain, "card2");
@@ -2087,7 +2345,7 @@ public class Bapers extends javax.swing.JFrame {
                             .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(locationCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(taskDescriptionLabel, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         addNewTaskLayout.setVerticalGroup(
             addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2121,7 +2379,7 @@ public class Bapers extends javax.swing.JFrame {
                         .addGroup(addNewTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(taskVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(28, 126, Short.MAX_VALUE))
+                .addGap(28, 256, Short.MAX_VALUE))
         );
 
         taskCard1.add(addNewTask, "card3");
@@ -2374,7 +2632,7 @@ public class Bapers extends javax.swing.JFrame {
                                     .addComponent(deleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(searchStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(addStaffAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminMainLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(browseBackupBtn)))))
@@ -2496,7 +2754,7 @@ public class Bapers extends javax.swing.JFrame {
                                                 .addComponent(normalRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(inDefaultRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(allRadioButton))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                                         .addGroup(customerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(generateInDefaultBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(createNewAccountBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -2544,7 +2802,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(customerMainLayout.createSequentialGroup()
                         .addComponent(customerMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         customerCard1.add(customerMain, "customerMain");
@@ -2604,7 +2862,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(addNewCustomerAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(AccNumberTextbox, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(AccNumberLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addContainerGap(672, Short.MAX_VALUE))
         );
         addNewCustomerAccountLayout.setVerticalGroup(
             addNewCustomerAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2657,11 +2915,11 @@ public class Bapers extends javax.swing.JFrame {
         viewCustomer.setLayout(viewCustomerLayout);
         viewCustomerLayout.setHorizontalGroup(
             viewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGap(0, 989, Short.MAX_VALUE)
         );
         viewCustomerLayout.setVerticalGroup(
             viewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGap(0, 483, Short.MAX_VALUE)
         );
 
         customerCard1.add(viewCustomer, "customerinfo");
@@ -2773,6 +3031,8 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        reportsBtn.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2969,6 +3229,10 @@ public class Bapers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_removetext
 
+    private void hideName(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideName
+     searchCustomerText.setText(null);   // TODO add your handling code here:
+    }//GEN-LAST:event_hideName
+
     /**
      * @param args the command line arguments
      */
@@ -3016,10 +3280,12 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton adminMenuBtn;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JRadioButton allBtn;
+    private javax.swing.JButton allJobReportBtn;
     private javax.swing.JButton allJobs;
     private javax.swing.JButton allJobsList;
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JRadioButton allRadioButton1;
+    private javax.swing.JButton allStaffIndividualPerformanceReport;
     private javax.swing.JButton allTasks;
     private javax.swing.JButton backupBtn;
     private javax.swing.JLabel backupLabel;
@@ -3102,12 +3368,20 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTextField forenameText;
     private javax.swing.JButton generateInDefaultBtn;
     private javax.swing.JButton generateInDefaultBtn1;
+    private javax.swing.JButton generateIndividualJobReport;
+    private javax.swing.JButton generateIndividualPerformance;
+    private javax.swing.JButton generateSummaryPerformance;
     private javax.swing.JPanel homepage;
     private javax.swing.JPanel homepage1;
     private javax.swing.JButton homepageBtn;
     private javax.swing.JButton homepageBtn1;
     private javax.swing.JRadioButton inDefaultRadioButton;
     private javax.swing.JRadioButton inDefaultRadioButton1;
+    private javax.swing.JPanel individualJobReport;
+    private javax.swing.JButton individualPerformanceBtn;
+    private javax.swing.JPanel individualPerformanceReport;
+    private javax.swing.JTable individualPerformanceReportTable;
+    private javax.swing.JButton individualReportBtn;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
@@ -3117,9 +3391,6 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3136,7 +3407,16 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3145,16 +3425,25 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jobDateText;
     private javax.swing.JPanel jobMain;
     private javax.swing.JScrollPane jobMainPage;
+    private javax.swing.JTable jobReportTable;
     private javax.swing.JTable jobTable;
     private javax.swing.JTable jobTaskTable;
     private javax.swing.JPanel jobTasks;
@@ -3199,6 +3488,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JRadioButton receptionistRadio;
     private javax.swing.JRadioButton regularDeadlineRadio;
     private javax.swing.JButton removeTaskFromJobBtn;
+    private javax.swing.JPanel reportCard1;
+    private javax.swing.JPanel reportMain;
     private javax.swing.JPanel reports;
     private javax.swing.JPanel reports1;
     private javax.swing.JButton reportsBtn;
@@ -3213,8 +3504,12 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> roleCombo;
     private javax.swing.JButton saveEditBtn;
     private javax.swing.JButton saveTaskBtn;
+    private javax.swing.JButton searchAccountJobReportBtn;
+    private javax.swing.JTextField searchAccountJobReportText;
     private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchCustomerText;
     private javax.swing.JTextField searchJobNumber;
+    private javax.swing.JButton searchNameReport;
     private javax.swing.JTextField searchStaff;
     private javax.swing.JButton searchStaffBtn;
     private javax.swing.JButton searchTask;
@@ -3226,6 +3521,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JRadioButton shiftManagerRadio;
     private java.awt.Label specialInstructionsLabel;
     private javax.swing.JTable staffTable;
+    private javax.swing.JButton summaryPerformanceBtn;
     private javax.swing.JTextField surNameTextField1;
     private javax.swing.JTextField sureNameTextField;
     private javax.swing.JButton surenameBtn;
@@ -3395,6 +3691,11 @@ public class Bapers extends javax.swing.JFrame {
           adminCard.show(adminCard1, x);
         
       }
+      
+      public void setPanelReport(String x){
+          card.show(mainPanel,"reports");
+          reportCard.show(reportCard1,x);
+      }
     
     
      public void setPanelTest(){
@@ -3462,11 +3763,24 @@ public class Bapers extends javax.swing.JFrame {
         return staffTable;
     }
     
+    public JTable getIndividualPerformanceReportTable(){
+        return individualPerformanceReportTable;
+    }
     
+    public JTable getJobReportTable(){
+        return jobReportTable;
+    }
     void CustomerPanelNavigation(Controller.CustomerPanelNavigation CustomerNavigation) {
     Customersbtn.addActionListener(CustomerNavigation);
     addCustomerBtn.addActionListener(CustomerNavigation);
     customerInfoBtn.addActionListener(CustomerNavigation);
+    }
+    
+    void ReportPanelNavigation(Controller.ReportPanelNavigation reportPanelNavigation){
+        individualReportBtn.addActionListener(reportPanelNavigation);
+        individualPerformanceBtn.addActionListener(reportPanelNavigation);
+        summaryPerformanceBtn.addActionListener(reportPanelNavigation);
+                
     }
     
     void TaskPanelNavigation(Controller.TaskPanelNavigation TaskNavigation){
@@ -3566,7 +3880,22 @@ public class Bapers extends javax.swing.JFrame {
         
     }
     
+    void JobReportMain(Controller.JobReportMain jobReportMain ){
+        searchAccountJobReportBtn.addActionListener(jobReportMain);
+        allJobReportBtn.addActionListener(jobReportMain);
+    }
     
+    public JTextField getAccountNumberJob(){
+        return searchAccountJobReportText;
+    }
+    
+    
+    void reportMain(Controller.ReportMain reportMain){
+        generateIndividualJobReport.addActionListener(reportMain);
+        generateIndividualPerformance.addActionListener(reportMain);
+        generateSummaryPerformance.addActionListener(reportMain);
+        
+    }
     void createTaskMain(Controller.CreateTaskMain createTaskMain){
         taskVariable.addActionListener(createTaskMain);
         taskDescriptionLabel.addActionListener(createTaskMain);
@@ -3639,6 +3968,15 @@ public class Bapers extends javax.swing.JFrame {
         return editTaskDescription;
     }
     
+    
+    void IndividualPerformanceReport(Controller.IndividualPerformanceReport ipr){
+        searchNameReport.addActionListener(ipr);
+        allStaffIndividualPerformanceReport.addActionListener(ipr);
+    }
+    
+    public JTextField getStaffNameReport(){
+        return searchCustomerText;
+    }
     
     void JobTasks(Controller.JobTasks jobTasks){
         

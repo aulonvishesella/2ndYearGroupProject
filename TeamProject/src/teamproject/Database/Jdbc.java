@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +21,9 @@ import teamproject.Jobs.Job;
 import teamproject.Payment.PaymentRecord;
 import teamproject.Admin.StaffAccount;
 import teamproject.Bapers;
+import teamproject.Reports.IndividualJobReport;
 import teamproject.Tasks.JobTasks;
+import teamproject.Reports.IndividualPerformanceReport;
 
 
 
@@ -91,6 +95,130 @@ public class Jdbc {
           return errorMsg;
       }
     }
+    
+    public boolean retrieveCustomerIDToDelete(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "select CustomerID FROM Customer WHERE CustomerID = ?");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+    public boolean retrieveJobIDFromJob(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "select JobNo FROM Job WHERE JobNo = ?");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+     public boolean retrieveTaskIDFromJobHasTask(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "select Task_TaskID from job_has_task where Task_TaskID = ?");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+     
+       public boolean retrieveTaskIDFromTask(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "select TaskID from task where TaskID = ?");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+    
+       public boolean retrieveAdmin(int x)throws SQLException{
+        Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = ( "select StaffID from staff where StaffID = ?");   
+    
+    pst = conn.prepareStatement(sql);
+   
+    pst.setInt(1, x);
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+    
  public String retrieveStatusPending(int x) throws SQLException{
         Statement st = null;
     ResultSet rs = null;
@@ -144,6 +272,70 @@ public class Jdbc {
       }
     }
     
+    public boolean retrieveStaff(String staffname) throws SQLException{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = "select jt.CompletedBy as 'Staff', j.JobCode as 'Job Code', t.TaskID, t.Location as 'Department', DATE(j.JobDate) as 'Date', jt.StartTime as 'Start Time', jt.TimeTaken as 'Time Taken', sum(jt.TimeTaken)\n" +
+"from staff s\n "  +
+"inner join staff_has_task st on s.StaffID = st.Staff_StaffID\n" +
+"inner join task t on st.Task_TaskId = t.TaskID\n" +
+"inner join job_has_task jt on t.TaskID = jt.Task_TaskID\n" +
+"inner join job j on jt.Job_JobNo = j.JobNo\n" +
+"where j.JobDate between '2017-12-23' and '2018-01-10' and jt.CompletedBy = ?\n" +
+"group by jt.CompletedBy, JobCode, t.TaskID ";
+            
+    
+    pst = conn.prepareStatement(sql);
+    pst.setString(1, staffname);
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
+      public boolean retrieveAccount(String accountNumber) throws SQLException{
+        
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    String errorMsg = "N/A";
+    try{
+    String sql = "select c.AccountNo as 'Account', j.JobCode as 'Job Code', j.JobDescription as 'Job Description', t.Price, jt.Task_TaskID\n" +
+"from job j\n" +
+"inner join customer c on j.Customer_CustomerID = c.CustomerID\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID\n" +
+"where j.JobDate between '2017-12-20' and '2018-01-10' and c.AccountNo=?";
+            
+    
+    pst = conn.prepareStatement(sql);
+    pst.setString(1, accountNumber);
+    
+    rs = pst.executeQuery();
+        if(rs.next())
+              return true;
+          else 
+              return false;
+          
+         
+          
+      }catch(Exception E){
+          E.printStackTrace();
+          return false;
+      }
+    }
     public String retrieveRole(String username) throws SQLException{
     
     
@@ -205,6 +397,75 @@ public class Jdbc {
         
     }
     //retrive customer data
+    
+    
+    public ArrayList<IndividualPerformanceReport> individualPerformanceList(){
+        
+    ArrayList<IndividualPerformanceReport> individualPerformanceList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select jt.CompletedBy as 'Staff', j.JobCode as 'Job Code', t.TaskID, t.Location as 'Department', DATE(j.JobDate) as 'Date', jt.StartTime as 'Start Time', jt.TimeTaken as 'Time Taken', sum(jt.TimeTaken)\n" +
+"from staff s\n" +
+"inner join staff_has_task st on s.StaffID = st.Staff_StaffID\n" +
+"inner join task t on st.Task_TaskId = t.TaskID\n" +
+"inner join job_has_task jt on t.TaskID = jt.Task_TaskID\n" +
+"inner join job j on jt.Job_JobNo = j.JobNo\n" +
+"where j.JobDate between '2017-12-23' and '2018-01-10'\n" +
+"group by jt.CompletedBy, JobCode, t.TaskID";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            IndividualPerformanceReport ipr;
+            
+            while(rs.next()){
+                ipr = new IndividualPerformanceReport(rs.getString("Staff"),rs.getString("Job Code"),rs.getInt("t.TaskID"),rs.getString("Department"),rs.getDate("Date"),rs.getString("Start Time"),rs.getInt("Time Taken"),rs.getInt("sum(jt.TimeTaken)"));
+                individualPerformanceList  .add(ipr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return individualPerformanceList;
+    } 
+    
+    public ArrayList<IndividualJobReport> individualJobList(){
+        
+    ArrayList<IndividualJobReport> individualJobList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select c.AccountNo as 'Account', j.JobCode as 'Job Code', j.JobDescription as 'Job Description', t.Price, jt.Task_TaskID\n" +
+"from job j\n" +
+"inner join customer c on j.Customer_CustomerID = c.CustomerID\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID\n" +
+"where j.JobDate between '2017-12-20' and '2018-01-10'";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            IndividualJobReport ijr;
+            
+            while(rs.next()){
+                ijr = new IndividualJobReport(rs.getString("Account"),rs.getString("Job Code"),rs.getString("Job Description"),rs.getFloat("t.Price"),rs.getInt("jt.Task_TaskID"));
+                individualJobList .add(ijr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return individualJobList;
+    } 
     public ArrayList<Customer> customerList(){
         
     ArrayList<Customer> customerList = new ArrayList<>();
@@ -369,6 +630,110 @@ public class Jdbc {
         return staffList;
     }
        
+    
+    public void displayIndividualPerformanceReport(JTable individualPerformanceReportTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <IndividualPerformanceReport> list = individualPerformanceList();
+        
+        DefaultTableModel model =(DefaultTableModel) individualPerformanceReportTable.getModel();
+        
+        Object[] row = new Object[8];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getName();
+             row[1]=list.get(i).getCode();
+             row[2]=list.get(i).getTaskID();
+             row[3]=list.get(i).getDepartment();
+             row[4]=list.get(i).getDate();
+             row[5]=list.get(i).getStartTime();
+             row[6]=list.get(i).getTimeTaken();
+             row[7]=list.get(i).getSum();
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    public void displayIndividualJobReport(JTable jobReportTable){
+              System.out.println("Display jobreport");
+        ArrayList <IndividualJobReport> list = individualJobList();
+        
+        DefaultTableModel model =(DefaultTableModel) jobReportTable.getModel();
+        
+        Object[] row = new Object[8];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getAccountNo();
+             row[1]=list.get(i).getJobCode();
+             row[2]=list.get(i).getJobDescr();
+             row[3]=list.get(i).getPrice();
+             row[4]=list.get(i).getTaskID();
+             
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    public void displayIndividualJobReport(JTable jobReportTable,String accountNo){
+              System.out.println("Display jobreport");
+        ArrayList <IndividualJobReport> list = individualJobList();
+        
+        DefaultTableModel model =(DefaultTableModel) jobReportTable.getModel();
+        
+        Object[] row = new Object[8];
+        
+         for(int i = 0;i<list.size();i++){
+             if(list.get(i).getAccountNo().contains(accountNo)){
+                 
+             
+        
+             row[0]=list.get(i).getAccountNo();
+             row[1]=list.get(i).getJobCode();
+             row[2]=list.get(i).getJobDescr();
+             row[3]=list.get(i).getPrice();
+             row[4]=list.get(i).getTaskID();
+             
+             
+           
+             model.addRow(row);
+             }
+         }
+    }
+    
+    public void displayIndividualPerformanceReport(JTable individualPerformanceReportTable,String staffName){
+              System.out.println("Display jobHasTask");
+        ArrayList <IndividualPerformanceReport> list = individualPerformanceList();
+        
+        DefaultTableModel model =(DefaultTableModel) individualPerformanceReportTable.getModel();
+        
+        Object[] row = new Object[8];
+        
+         for(int i = 0;i<list.size();i++){
+        if(list.get(i).getName().contains(staffName)){
+             row[0]=list.get(i).getName();
+             row[1]=list.get(i).getCode();
+             row[2]=list.get(i).getTaskID();
+             row[3]=list.get(i).getDepartment();
+             row[4]=list.get(i).getDate();
+             row[5]=list.get(i).getStartTime();
+             row[6]=list.get(i).getTimeTaken();
+             row[7]=list.get(i).getSum();
+             
+           
+             model.addRow(row);
+             
+         }
+        
+        
+    }
+    
+    }
+    
        
     public void displayJobTask(JTable jobtask,int x){
               System.out.println("Display jobHasTask");

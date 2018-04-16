@@ -80,6 +80,7 @@ public class Controller {
     jdbc.displayAfternoonSummary(bapers.getAfternoonShiftTable());
      jdbc.displayTotalEveningSummary(bapers.getTotalEveningShiftTable());
     jdbc.displayEveningSummary(bapers.getEveningShiftTable());
+    jdbc.displayTotalSummary(bapers.getTotalSummaryTable());
     }
     
     
@@ -280,6 +281,8 @@ public class Controller {
         jdbc.displayAfternoonSummary(bapers.getAfternoonShiftTable());
     }
     
+    
+    
     public void displayEveningSummary(){
         jdbc.displayEveningSummary(bapers.getEveningShiftTable());
     }
@@ -294,6 +297,9 @@ public class Controller {
     }
     public void displayTotalAfternoonSummary(){
         jdbc.displayTotalAfternoonSummary(bapers.getTotalAfternoonShiftTable());
+    }
+    public void displayTotalSummary(){
+        jdbc.displayTotalSummary(bapers.getTotalSummaryTable());
     }
     
     public void displayTotalEveningSummary(){

@@ -303,6 +303,9 @@ public class Bapers extends javax.swing.JFrame {
         totalEveningTable = new javax.swing.JTable();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        totalTimeSummaryTable = new javax.swing.JTable();
+        jLabel39 = new javax.swing.JLabel();
         payments = new javax.swing.JPanel();
         paymentCard1 = new javax.swing.JPanel();
         paymentMain = new javax.swing.JPanel();
@@ -2010,7 +2013,7 @@ public class Bapers extends javax.swing.JFrame {
 
         jLabel28.setText("Date:");
 
-        jLabel29.setText("2017-12-23 and 2018-01-10");
+        jLabel29.setText("'2017-01-01' - '2018-05-01'");
 
         allStaffIndividualPerformanceReport.setText("All Staff Report");
 
@@ -2133,7 +2136,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Location", "Total", "Start Time"
+                "Date", "Location", "Total(mins)", "Start Time"
             }
         ));
         jScrollPane11.setViewportView(morningShiftTable);
@@ -2146,7 +2149,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Location", "Total Time"
+                "Location", "Total Time(mins)"
             }
         ));
         jScrollPane12.setViewportView(totalMorningTable);
@@ -2162,7 +2165,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Location", "Total", "Start Time"
+                "Date", "Location", "Total(mins)", "Start Time"
             }
         ));
         jScrollPane13.setViewportView(afternoonSummaryTable);
@@ -2175,7 +2178,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Location", "Total Time"
+                "Location", "Total Time(mins)"
             }
         ));
         jScrollPane14.setViewportView(totalAfternoonTable);
@@ -2185,7 +2188,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Location", "Total", "Start Time"
+                "Date", "Location", "Total(mins)", "Start Time"
             }
         ));
         jScrollPane15.setViewportView(eveningSummaryTable);
@@ -2195,7 +2198,7 @@ public class Bapers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Location", "Total Time"
+                "Location", "Total Time(mins)"
             }
         ));
         jScrollPane16.setViewportView(totalEveningTable);
@@ -2206,6 +2209,19 @@ public class Bapers extends javax.swing.JFrame {
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel38.setText("Total time in each department for evening shift");
 
+        totalTimeSummaryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Location", "Total Time(mins)"
+            }
+        ));
+        jScrollPane17.setViewportView(totalTimeSummaryTable);
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel39.setText("Total time from all shift spent in each department");
+
         javax.swing.GroupLayout summaryReportLayout = new javax.swing.GroupLayout(summaryReport);
         summaryReport.setLayout(summaryReportLayout);
         summaryReportLayout.setHorizontalGroup(
@@ -2215,61 +2231,72 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(summaryReportLayout.createSequentialGroup()
                         .addGap(340, 340, 340)
                         .addComponent(jLabel32))
-                    .addComponent(jLabel35)
                     .addGroup(summaryReportLayout.createSequentialGroup()
                         .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel33)
                             .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel37))
-                        .addGap(81, 81, 81)
+                            .addComponent(jLabel35)
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(summaryReportLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel37)))
+                        .addGap(25, 25, 25)
                         .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel38)
-                            .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                .addContainerGap(234, Short.MAX_VALUE))
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel38)
+                                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel39))
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(449, Short.MAX_VALUE))
         );
         summaryReportLayout.setVerticalGroup(
             summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(summaryReportLayout.createSequentialGroup()
                 .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel33))
+                    .addGroup(summaryReportLayout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel34)))
+                .addGap(1, 1, 1)
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel34))
-                    .addGroup(summaryReportLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel33)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel37)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryReportLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         reportCard1.add(summaryReport, "card5");
@@ -3593,6 +3620,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3608,6 +3636,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3738,6 +3767,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTable totalAfternoonTable;
     private javax.swing.JTable totalEveningTable;
     private javax.swing.JTable totalMorningTable;
+    private javax.swing.JTable totalTimeSummaryTable;
     private javax.swing.JButton upgradeDowngradeBtn;
     private javax.swing.JButton upgradeDowngradeBtn1;
     private javax.swing.JRadioButton urgentDeadlineRadio;
@@ -3952,6 +3982,10 @@ public class Bapers extends javax.swing.JFrame {
     
     public JTable getTotalMorningShiftTable(){
         return totalMorningTable;
+    }
+    
+    public JTable getTotalSummaryTable(){
+        return totalTimeSummaryTable;
     }
     
     public JTable getTotalAfternoonShiftTable(){

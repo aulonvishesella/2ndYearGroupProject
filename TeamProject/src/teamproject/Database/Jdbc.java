@@ -291,7 +291,7 @@ public class Jdbc {
 "inner join task t on st.Task_TaskId = t.TaskID\n" +
 "inner join job_has_task jt on t.TaskID = jt.Task_TaskID\n" +
 "inner join job j on jt.Job_JobNo = j.JobNo\n" +
-"where j.JobDate between '2017-12-23' and '2018-01-10' and jt.CompletedBy = ?\n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' and jt.CompletedBy = ?\n" +
 "group by jt.CompletedBy, JobCode, t.TaskID ";
             
     
@@ -323,7 +323,7 @@ public class Jdbc {
 "inner join customer c on j.Customer_CustomerID = c.CustomerID\n" +
 "inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
 "inner join task t on t.TaskID = jt.Task_TaskID\n" +
-"where j.JobDate between '2017-12-20' and '2018-01-10' and c.AccountNo=?";
+"where j.JobDate between '2017-01-01' and '2018-05-01' and c.AccountNo=?";
             
     
     pst = conn.prepareStatement(sql);
@@ -402,6 +402,7 @@ public class Jdbc {
       
         
     }
+    
     //retrive customer data
     public ArrayList<SummaryReport> summaryAfternoonList(){
         
@@ -510,6 +511,45 @@ public class Jdbc {
         }
         return summaryMorningList;
     } 
+    
+    public ArrayList<TotalSummary> summaryTotalList(){
+        
+          
+    ArrayList<TotalSummary> summaryTotalList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select t.location, sum(jt.TimeTaken)\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between'2017-01-01' and '2018-05-01'and jt.StartTime   #choose time period\n" +
+"group by t.Location \n" +
+"WITH ROLLUP;\n";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            TotalSummary sr;
+            
+            while(rs.next()){
+                sr = new TotalSummary(rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"));
+                  summaryTotalList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryTotalList;
+    } 
+    
+    
+    
+    
     
       public ArrayList<TotalSummary> summaryTotalAfternoonList(){
         
@@ -638,7 +678,7 @@ public class Jdbc {
 "inner join task t on st.Task_TaskId = t.TaskID\n" +
 "inner join job_has_task jt on t.TaskID = jt.Task_TaskID\n" +
 "inner join job j on jt.Job_JobNo = j.JobNo\n" +
-"where j.JobDate between '2017-12-23' and '2018-01-10'\n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01'\n" +
 "group by jt.CompletedBy, JobCode, t.TaskID";
             
             Statement st = conn.createStatement();
@@ -672,7 +712,7 @@ public class Jdbc {
 "inner join customer c on j.Customer_CustomerID = c.CustomerID\n" +
 "inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
 "inner join task t on t.TaskID = jt.Task_TaskID\n" +
-"where j.JobDate between '2017-12-20' and '2018-01-10'";
+"where j.JobDate between '2017-01-01' and '2018-05-01'";
             
             Statement st = conn.createStatement();
            
@@ -920,7 +960,25 @@ public class Jdbc {
              
          }
       }
-      
+      public void displayTotalSummary(JTable totalSummaryTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <TotalSummary> list = summaryTotalList();
+        
+        DefaultTableModel model =(DefaultTableModel) totalSummaryTable.getModel();
+        
+        Object[] row = new Object[2];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getLocation();
+             row[1]=list.get(i).getTimeTaken();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+      }
      
     public void displayEveningSummary(JTable eveningShiftTable){
               System.out.println("Display jobHasTask");

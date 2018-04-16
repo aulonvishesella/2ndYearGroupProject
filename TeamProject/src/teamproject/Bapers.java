@@ -6,10 +6,18 @@
 package teamproject;
 
 import java.awt.CardLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.TextField;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.ComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
@@ -275,6 +283,7 @@ public class Bapers extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         allStaffIndividualPerformanceReport = new javax.swing.JButton();
+        printReport = new javax.swing.JButton();
         individualJobReport = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -283,6 +292,7 @@ public class Bapers extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         jobReportTable = new javax.swing.JTable();
         allJobReportBtn = new javax.swing.JButton();
+        PrintJobReport = new javax.swing.JButton();
         summaryReport = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -306,6 +316,7 @@ public class Bapers extends javax.swing.JFrame {
         jScrollPane17 = new javax.swing.JScrollPane();
         totalTimeSummaryTable = new javax.swing.JTable();
         jLabel39 = new javax.swing.JLabel();
+        printsummaryreport = new javax.swing.JButton();
         payments = new javax.swing.JPanel();
         paymentCard1 = new javax.swing.JPanel();
         paymentMain = new javax.swing.JPanel();
@@ -2017,6 +2028,13 @@ public class Bapers extends javax.swing.JFrame {
 
         allStaffIndividualPerformanceReport.setText("All Staff Report");
 
+        printReport.setText("Print Report");
+        printReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout individualPerformanceReportLayout = new javax.swing.GroupLayout(individualPerformanceReport);
         individualPerformanceReport.setLayout(individualPerformanceReportLayout);
         individualPerformanceReportLayout.setHorizontalGroup(
@@ -2042,7 +2060,9 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(individualPerformanceReportLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(allStaffIndividualPerformanceReport)))
+                        .addComponent(allStaffIndividualPerformanceReport)
+                        .addGap(177, 177, 177)
+                        .addComponent(printReport)))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         individualPerformanceReportLayout.setVerticalGroup(
@@ -2060,9 +2080,11 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(searchNameReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
-                .addComponent(allStaffIndividualPerformanceReport)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allStaffIndividualPerformanceReport)
+                    .addComponent(printReport, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         reportCard1.add(individualPerformanceReport, "card3");
@@ -2086,6 +2108,13 @@ public class Bapers extends javax.swing.JFrame {
 
         allJobReportBtn.setText("All Customers");
 
+        PrintJobReport.setText("Print Job Report");
+        PrintJobReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintJobReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout individualJobReportLayout = new javax.swing.GroupLayout(individualJobReport);
         individualJobReport.setLayout(individualJobReportLayout);
         individualJobReportLayout.setHorizontalGroup(
@@ -2102,11 +2131,13 @@ public class Bapers extends javax.swing.JFrame {
                             .addComponent(searchAccountJobReportText)
                             .addComponent(searchAccountJobReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(individualJobReportLayout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(allJobReportBtn))
-                    .addGroup(individualJobReportLayout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(individualJobReportLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(allJobReportBtn)
+                        .addGap(54, 54, 54)
+                        .addComponent(PrintJobReport)))
                 .addContainerGap(259, Short.MAX_VALUE))
         );
         individualJobReportLayout.setVerticalGroup(
@@ -2121,9 +2152,11 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(searchAccountJobReportBtn)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(allJobReportBtn)
-                .addGap(0, 197, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(individualJobReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allJobReportBtn)
+                    .addComponent(PrintJobReport))
+                .addGap(0, 206, Short.MAX_VALUE))
         );
 
         reportCard1.add(individualJobReport, "card4");
@@ -2222,6 +2255,13 @@ public class Bapers extends javax.swing.JFrame {
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel39.setText("Total time from all shift spent in each department");
 
+        printsummaryreport.setText("Print Summary Report");
+        printsummaryreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printsummaryreportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout summaryReportLayout = new javax.swing.GroupLayout(summaryReport);
         summaryReport.setLayout(summaryReportLayout);
         summaryReportLayout.setHorizontalGroup(
@@ -2251,11 +2291,13 @@ public class Bapers extends javax.swing.JFrame {
                                 .addComponent(jLabel38)
                                 .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(summaryReportLayout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel39))
+                        .addContainerGap()
+                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(printsummaryreport))
                     .addGroup(summaryReportLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel39)))
                 .addContainerGap(449, Short.MAX_VALUE))
         );
         summaryReportLayout.setVerticalGroup(
@@ -2282,8 +2324,9 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))
                     .addGroup(summaryReportLayout.createSequentialGroup()
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2292,11 +2335,17 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(jLabel38)
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel39)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryReportLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addComponent(printsummaryreport, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151))))
         );
 
         reportCard1.add(summaryReport, "card5");
@@ -3427,6 +3476,103 @@ public class Bapers extends javax.swing.JFrame {
      searchCustomerText.setText(null);   // TODO add your handling code here:
     }//GEN-LAST:event_hideName
 
+    private void printReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportActionPerformed
+PrinterJob job = PrinterJob.getPrinterJob();
+job.setJobName("Print Report");
+
+
+job.setPrintable(new Printable(){
+public int print(Graphics pg,PageFormat pf,int pageNum){
+    if(pageNum>0){
+        return Printable.NO_SUCH_PAGE;
+    }
+    
+    Graphics2D g2 = (Graphics2D)pg;
+    g2.translate(pf.getImageableX(), pf.getImageableY());
+    g2.scale(0.24, 0.24);
+    
+    
+    individualPerformanceReport.paint(g2);
+    return Printable.PAGE_EXISTS;
+    
+}
+});
+
+boolean ok=job.printDialog();
+if(ok){
+    try {
+        job.print();
+    } catch (PrinterException ex) {
+        Logger.getLogger(Bapers.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+        
+    }//GEN-LAST:event_printReportActionPerformed
+
+    private void PrintJobReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintJobReportActionPerformed
+       PrinterJob job = PrinterJob.getPrinterJob();
+job.setJobName("Print Report");
+
+
+job.setPrintable(new Printable(){
+public int print(Graphics pg,PageFormat pf,int pageNum){
+    if(pageNum>0){
+        return Printable.NO_SUCH_PAGE;
+    }
+    
+    Graphics2D g2 = (Graphics2D)pg;
+    g2.translate(pf.getImageableX(), pf.getImageableY());
+    g2.scale(0.24, 0.24);
+    
+    
+    individualJobReport.paint(g2);
+    return Printable.PAGE_EXISTS;
+    
+}
+});
+
+boolean ok=job.printDialog();
+if(ok){
+    try {
+        job.print();
+    } catch (PrinterException ex) {
+        Logger.getLogger(Bapers.class.getName()).log(Level.SEVERE, null, ex);
+    }
+} // TODO add your handling code here:
+    }//GEN-LAST:event_PrintJobReportActionPerformed
+
+    private void printsummaryreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printsummaryreportActionPerformed
+         PrinterJob job = PrinterJob.getPrinterJob();
+job.setJobName("Print Report");
+
+
+job.setPrintable(new Printable(){
+public int print(Graphics pg,PageFormat pf,int pageNum){
+    if(pageNum>0){
+        return Printable.NO_SUCH_PAGE;
+    }
+    
+    Graphics2D g2 = (Graphics2D)pg;
+    g2.translate(pf.getImageableX(), pf.getImageableY());
+    g2.scale(0.24, 0.24);
+    
+    
+    summaryReport.paint(g2);
+    return Printable.PAGE_EXISTS;
+    
+}
+});
+
+boolean ok=job.printDialog();
+if(ok){
+    try {
+        job.print();
+    } catch (PrinterException ex) {
+        Logger.getLogger(Bapers.class.getName()).log(Level.SEVERE, null, ex);
+    }
+} // TODO add your handling // TODO add your handling code here:
+    }//GEN-LAST:event_printsummaryreportActionPerformed
+        
     /**
      * @param args the command line arguments
      */
@@ -3446,6 +3592,7 @@ public class Bapers extends javax.swing.JFrame {
     private java.awt.Label MatSubmittedLabel;
     private javax.swing.JButton PaymentBtn;
     private javax.swing.JButton PaymentBtn1;
+    private javax.swing.JButton PrintJobReport;
     private javax.swing.JCheckBox Reciept;
     private javax.swing.JTextField SearchJobTaskID;
     private javax.swing.JLabel accountIDLabel1;
@@ -3696,6 +3843,8 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JTextField priceLabel;
     private javax.swing.JTextField priceText;
     private javax.swing.JCheckBox printLabelCheckbox;
+    private javax.swing.JButton printReport;
+    private javax.swing.JButton printsummaryreport;
     private javax.swing.JCheckBox receiptCheckBox;
     private javax.swing.JRadioButton receptionistRadio;
     private javax.swing.JRadioButton regularDeadlineRadio;

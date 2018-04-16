@@ -283,6 +283,26 @@ public class Bapers extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         jobReportTable = new javax.swing.JTable();
         allJobReportBtn = new javax.swing.JButton();
+        summaryReport = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        morningShiftTable = new javax.swing.JTable();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        totalMorningTable = new javax.swing.JTable();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        afternoonSummaryTable = new javax.swing.JTable();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        totalAfternoonTable = new javax.swing.JTable();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        eveningSummaryTable = new javax.swing.JTable();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        totalEveningTable = new javax.swing.JTable();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         payments = new javax.swing.JPanel();
         paymentCard1 = new javax.swing.JPanel();
         paymentMain = new javax.swing.JPanel();
@@ -1833,11 +1853,9 @@ public class Bapers extends javax.swing.JFrame {
                     .addGroup(jobTasksLayout.createSequentialGroup()
                         .addComponent(HomePageJobBtn)
                         .addGap(147, 147, 147)
-                        .addComponent(jLabel22)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jobTasksLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 387, Short.MAX_VALUE))))
+                        .addComponent(jLabel22))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jobTasksLayout.createSequentialGroup()
                 .addGap(314, 314, 314)
                 .addGroup(jobTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1963,7 +1981,7 @@ public class Bapers extends javax.swing.JFrame {
                     .addComponent(generateIndividualJobReport)
                     .addComponent(generateIndividualPerformance)
                     .addComponent(generateSummaryPerformance))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         reportCard1.add(reportMain, "card2");
@@ -2039,7 +2057,7 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(searchNameReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addComponent(allStaffIndividualPerformanceReport)
                 .addContainerGap())
         );
@@ -2102,10 +2120,159 @@ public class Bapers extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(allJobReportBtn)
-                .addGap(0, 152, Short.MAX_VALUE))
+                .addGap(0, 197, Short.MAX_VALUE))
         );
 
         reportCard1.add(individualJobReport, "card4");
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("SUMMARY REPORT");
+
+        morningShiftTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Location", "Total", "Start Time"
+            }
+        ));
+        jScrollPane11.setViewportView(morningShiftTable);
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel33.setText("Morning shift :  05:00am - 13:00pm");
+
+        totalMorningTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Location", "Total Time"
+            }
+        ));
+        jScrollPane12.setViewportView(totalMorningTable);
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel34.setText("Total time in each department for morning shift");
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel35.setText("Afternoon shift: 13:00pm - 17:00pm");
+
+        afternoonSummaryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Location", "Total", "Start Time"
+            }
+        ));
+        jScrollPane13.setViewportView(afternoonSummaryTable);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel36.setText("Total time in each department for afternoon shift");
+
+        totalAfternoonTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Location", "Total Time"
+            }
+        ));
+        jScrollPane14.setViewportView(totalAfternoonTable);
+
+        eveningSummaryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Location", "Total", "Start Time"
+            }
+        ));
+        jScrollPane15.setViewportView(eveningSummaryTable);
+
+        totalEveningTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Location", "Total Time"
+            }
+        ));
+        jScrollPane16.setViewportView(totalEveningTable);
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel37.setText("Evening shift: 17:00pm - 22:00pm");
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel38.setText("Total time in each department for evening shift");
+
+        javax.swing.GroupLayout summaryReportLayout = new javax.swing.GroupLayout(summaryReport);
+        summaryReport.setLayout(summaryReportLayout);
+        summaryReportLayout.setHorizontalGroup(
+            summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(summaryReportLayout.createSequentialGroup()
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(jLabel32))
+                    .addComponent(jLabel35)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel37))
+                        .addGap(81, 81, 81)
+                        .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38)
+                            .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                .addContainerGap(234, Short.MAX_VALUE))
+        );
+        summaryReportLayout.setVerticalGroup(
+            summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(summaryReportLayout.createSequentialGroup()
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34))
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel33)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryReportLayout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryReportLayout.createSequentialGroup()
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(summaryReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+
+        reportCard1.add(summaryReport, "card5");
 
         reports.add(reportCard1, "card2");
 
@@ -3279,6 +3446,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel adminMain;
     private javax.swing.JButton adminMenuBtn;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JTable afternoonSummaryTable;
     private javax.swing.JRadioButton allBtn;
     private javax.swing.JButton allJobReportBtn;
     private javax.swing.JButton allJobs;
@@ -3355,6 +3523,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> editTaskLocationCombo;
     private javax.swing.JButton editUserIDBtn;
     private javax.swing.JTextField editUserIDText;
+    private javax.swing.JTable eveningSummaryTable;
     private javax.swing.ButtonGroup filterAdminList;
     private javax.swing.ButtonGroup filterCustomerList;
     private javax.swing.JLabel filterRadioBoxLabel;
@@ -3417,6 +3586,13 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3426,6 +3602,12 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3462,6 +3644,7 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JButton logoutBtn1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel mainPanel1;
+    private javax.swing.JTable morningShiftTable;
     private javax.swing.JRadioButton normalRadioButton;
     private javax.swing.JRadioButton normalRadioButton1;
     private javax.swing.JRadioButton officeManagerRadio;
@@ -3522,6 +3705,7 @@ public class Bapers extends javax.swing.JFrame {
     private java.awt.Label specialInstructionsLabel;
     private javax.swing.JTable staffTable;
     private javax.swing.JButton summaryPerformanceBtn;
+    private javax.swing.JPanel summaryReport;
     private javax.swing.JTextField surNameTextField1;
     private javax.swing.JTextField sureNameTextField;
     private javax.swing.JButton surenameBtn;
@@ -3551,6 +3735,9 @@ public class Bapers extends javax.swing.JFrame {
     private javax.swing.JRadioButton technicianRadio;
     private java.awt.TextArea textArea1;
     private java.awt.TextArea textArea2;
+    private javax.swing.JTable totalAfternoonTable;
+    private javax.swing.JTable totalEveningTable;
+    private javax.swing.JTable totalMorningTable;
     private javax.swing.JButton upgradeDowngradeBtn;
     private javax.swing.JButton upgradeDowngradeBtn1;
     private javax.swing.JRadioButton urgentDeadlineRadio;
@@ -3757,6 +3944,30 @@ public class Bapers extends javax.swing.JFrame {
     
     public JTable getPaymentTable(){
         return paymentTable;
+    }
+    
+    public JTable getMorningShiftTable(){
+        return morningShiftTable;
+    }
+    
+    public JTable getTotalMorningShiftTable(){
+        return totalMorningTable;
+    }
+    
+    public JTable getTotalAfternoonShiftTable(){
+        return totalAfternoonTable;
+    }
+    
+    public JTable getAfternoonShiftTable(){
+        return afternoonSummaryTable;
+    }
+    
+    public JTable getTotalEveningShiftTable(){
+        return totalEveningTable;
+    }
+    
+    public JTable getEveningShiftTable(){
+        return eveningSummaryTable;
     }
     
     public JTable getStaffTable(){

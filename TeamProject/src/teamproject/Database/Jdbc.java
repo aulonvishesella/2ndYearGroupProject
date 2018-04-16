@@ -24,6 +24,8 @@ import teamproject.Bapers;
 import teamproject.Reports.IndividualJobReport;
 import teamproject.Tasks.JobTasks;
 import teamproject.Reports.IndividualPerformanceReport;
+import teamproject.Reports.SummaryReport;
+import teamproject.Reports.TotalSummary;
 
 
 
@@ -272,6 +274,10 @@ public class Jdbc {
       }
     }
     
+    
+    
+    
+    
     public boolean retrieveStaff(String staffname) throws SQLException{
         
     Statement st = null;
@@ -397,6 +403,226 @@ public class Jdbc {
         
     }
     //retrive customer data
+    public ArrayList<SummaryReport> summaryAfternoonList(){
+        
+    ArrayList<SummaryReport> summaryAfternoonList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select DATE(j.JobDate), t.Location, sum(jt.TimeTaken), jt.StartTime\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '13:00' and '17:00' #choose time period\n" +
+"group by t.Location, j.JobDate\n" +
+"order by j.JobDate, t.Location;";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            SummaryReport sr;
+            
+            while(rs.next()){
+                sr = new SummaryReport(rs.getDate("DATE(j.JobDate)"),rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"),rs.getString("jt.Starttime"));
+                  summaryAfternoonList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryAfternoonList;
+    } 
+     public ArrayList<SummaryReport> summaryEveningList(){
+        
+    ArrayList<SummaryReport> summaryEveningList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select DATE(j.JobDate), t.Location, sum(jt.TimeTaken), jt.StartTime\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '17:00' and '22:00' #choose time period\n" +
+"group by t.Location, j.JobDate\n" +
+"order by j.JobDate, t.Location;";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            SummaryReport sr;
+            
+            while(rs.next()){
+                sr = new SummaryReport(rs.getDate("DATE(j.JobDate)"),rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"),rs.getString("jt.Starttime"));
+                  summaryEveningList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryEveningList;
+    } 
+    
+    
+    
+    
+    
+    public ArrayList<SummaryReport> summaryMorningList(){
+        
+    ArrayList<SummaryReport> summaryMorningList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select DATE(j.JobDate), t.Location, sum(jt.TimeTaken), jt.StartTime\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '05:00' and '13:00' #choose time period\n" +
+"group by t.Location, j.JobDate\n" +
+"order by j.JobDate, t.Location;";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            SummaryReport sr;
+            
+            while(rs.next()){
+                sr = new SummaryReport(rs.getDate("DATE(j.JobDate)"),rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"),rs.getString("jt.Starttime"));
+                  summaryMorningList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryMorningList;
+    } 
+    
+      public ArrayList<TotalSummary> summaryTotalAfternoonList(){
+        
+          
+    ArrayList<TotalSummary> summaryTotalAfternoonList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select t.Location, sum(jt.TimeTaken)\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '13:00' and '17:00' #choose time period\n" +
+"group by t.Location \n" +
+"order by t.Location";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            TotalSummary sr;
+            
+            while(rs.next()){
+                sr = new TotalSummary(rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"));
+                  summaryTotalAfternoonList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryTotalAfternoonList;
+    } 
+    
+    
+    
+      public ArrayList<TotalSummary> summaryTotalEveningList(){
+        
+          
+    ArrayList<TotalSummary> summaryTotalEveningList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select t.Location, sum(jt.TimeTaken)\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '17:00' and '22:00' #choose time period\n" +
+"group by t.Location \n" +
+"order by t.Location";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            TotalSummary sr;
+            
+            while(rs.next()){
+                sr = new TotalSummary(rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"));
+                  summaryTotalEveningList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryTotalEveningList;
+    } 
+    
+    
+    
+    
+      public ArrayList<TotalSummary> summaryTotalMorningList(){
+        
+          
+    ArrayList<TotalSummary> summaryTotalMorningList = new ArrayList<>();
+    
+        try {
+           // Connection conn = getConnection();
+            //retrieves data from customers
+            String getData = "select t.Location, sum(jt.TimeTaken)\n" +
+"from job j\n" +
+"inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
+"inner join task t on t.TaskID = jt.Task_TaskID \n" +
+"where j.JobDate between '2017-01-01' and '2018-05-01' #choose date period\n" +
+"and jt.StartTime between '05:00' and '13:00' #choose time period\n" +
+"group by t.Location \n" +
+"order by t.Location";
+            
+            Statement st = conn.createStatement();
+           
+            ResultSet rs = st.executeQuery(getData);
+            
+            TotalSummary sr;
+            
+            while(rs.next()){
+                sr = new TotalSummary(rs.getString("t.Location"),rs.getInt("sum(jt.TimeTaken)"));
+                  summaryTotalMorningList.add(sr);
+                
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return summaryTotalMorningList;
+    } 
     
     
     public ArrayList<IndividualPerformanceReport> individualPerformanceList(){
@@ -629,7 +855,154 @@ public class Jdbc {
         }
         return staffList;
     }
+    
+    public void displayTotalEveningSummary(JTable totalEveningTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <TotalSummary> list = summaryTotalEveningList();
+        
+        DefaultTableModel model =(DefaultTableModel) totalEveningTable.getModel();
+        
+        Object[] row = new Object[2];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getLocation();
+             row[1]=list.get(i).getTimeTaken();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    
+    
+    
+    
+    
+    
+     public void displayTotalMorningSummary(JTable totalMorningTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <TotalSummary> list = summaryTotalMorningList();
+        
+        DefaultTableModel model =(DefaultTableModel) totalMorningTable.getModel();
+        
+        Object[] row = new Object[2];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getLocation();
+             row[1]=list.get(i).getTimeTaken();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+      public void displayTotalAfternoonSummary(JTable totalAfternoonTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <TotalSummary> list = summaryTotalAfternoonList();
+        
+        DefaultTableModel model =(DefaultTableModel) totalAfternoonTable.getModel();
+        
+        Object[] row = new Object[2];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getLocation();
+             row[1]=list.get(i).getTimeTaken();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+      }
+      
+     
+    public void displayEveningSummary(JTable eveningShiftTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <SummaryReport> list = summaryEveningList();
+        
+        DefaultTableModel model =(DefaultTableModel) eveningShiftTable.getModel();
+        
+        Object[] row = new Object[4];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getDate();
+             row[1]=list.get(i).getLocation();
+             row[2]=list.get(i).getTimeTaken();
+             row[3]=list.get(i).getStartTime();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+      
+      
+      
+      
+      
+      
+      
+     
+     
+    public void displayAfternoonSummary(JTable afternoonShiftTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <SummaryReport> list = summaryAfternoonList();
+        
+        DefaultTableModel model =(DefaultTableModel) afternoonShiftTable.getModel();
+        
+        Object[] row = new Object[4];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getDate();
+             row[1]=list.get(i).getLocation();
+             row[2]=list.get(i).getTimeTaken();
+             row[3]=list.get(i).getStartTime();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    
+    
+    
+    
        
+    public void displayMorningSummary(JTable morningShiftTable){
+              System.out.println("Display jobHasTask");
+        ArrayList <SummaryReport> list = summaryMorningList();
+        
+        DefaultTableModel model =(DefaultTableModel) morningShiftTable.getModel();
+        
+        Object[] row = new Object[4];
+        
+         for(int i = 0;i<list.size();i++){
+        
+             row[0]=list.get(i).getDate();
+             row[1]=list.get(i).getLocation();
+             row[2]=list.get(i).getTimeTaken();
+             row[3]=list.get(i).getStartTime();
+         
+             
+           
+             model.addRow(row);
+             
+         }
+    }
+    
+    
+    
     
     public void displayIndividualPerformanceReport(JTable individualPerformanceReportTable){
               System.out.println("Display jobHasTask");

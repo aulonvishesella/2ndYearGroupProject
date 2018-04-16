@@ -33,6 +33,7 @@ import teamproject.Tasks.Task;
 import teamproject.Jobs.Job;
 import teamproject.Reports.IndividualPerformanceReport;
 import teamproject.Reports.IndividualJobReport;
+import teamproject.Reports.SummaryReport;
 /**
  *
  * @author Ramee
@@ -73,7 +74,12 @@ public class Controller {
     jdbc.displayJobTask(bapers.getJobTasksTable());
     jdbc.displayIndividualPerformanceReport(bapers.getIndividualPerformanceReportTable());
     jdbc.displayIndividualJobReport(bapers.getJobReportTable());
-   
+    jdbc.displayMorningSummary(bapers.getMorningShiftTable());
+    jdbc.displayTotalMorningSummary(bapers.getTotalMorningShiftTable());
+    jdbc.displayTotalAfternoonSummary(bapers.getTotalAfternoonShiftTable());
+    jdbc.displayAfternoonSummary(bapers.getAfternoonShiftTable());
+     jdbc.displayTotalEveningSummary(bapers.getTotalEveningShiftTable());
+    jdbc.displayEveningSummary(bapers.getEveningShiftTable());
     }
     
     
@@ -266,10 +272,32 @@ public class Controller {
         jdbc.displayTasks(bapers.getTaskTable());
     }
     
+    public void displayMorningSummary(){
+        jdbc.displayMorningSummary(bapers.getMorningShiftTable());
+    }
+    
+    public void displayAfternoonSummary(){
+        jdbc.displayAfternoonSummary(bapers.getAfternoonShiftTable());
+    }
+    
+    public void displayEveningSummary(){
+        jdbc.displayEveningSummary(bapers.getEveningShiftTable());
+    }
     
     public void displayCustomerTable(){
     
     jdbc.displayCustomer(bapers.getCustomerTable());
+    }
+    
+    public void displayTotalMorningSummary(){
+        jdbc.displayTotalMorningSummary(bapers.getTotalMorningShiftTable());
+    }
+    public void displayTotalAfternoonSummary(){
+        jdbc.displayTotalAfternoonSummary(bapers.getTotalAfternoonShiftTable());
+    }
+    
+    public void displayTotalEveningSummary(){
+        jdbc.displayTotalEveningSummary(bapers.getTotalEveningShiftTable());
     }
     
     
@@ -474,6 +502,9 @@ public class Controller {
             if(e.getActionCommand().contains("Individual Report")){
                bapers.setPanelReport("card4");
            }
+            if(e.getActionCommand().contains("Summary Performance")){
+                bapers.setPanelReport("card5");
+            }
             
         }
     
@@ -857,15 +888,14 @@ class JobReportMain implements ActionListener{
      
 
      class ReportMain implements ActionListener{
-         JTable IndividualPerformanceReportTable = bapers.getIndividualPerformanceReportTable();
-         JTable IndividualJobReportTable = bapers.getJobReportTable();
+      
           @Override
           public void actionPerformed(ActionEvent e) {
               
               if(e.getActionCommand().contains("Generate Individual Performance")){
                   try{
                       bapers.setPanelReport("card3");
-                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable);
+
                   }catch (Exception ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -873,7 +903,15 @@ class JobReportMain implements ActionListener{
                  if(e.getActionCommand().contains("Generate Individual Job Report")){
                   try{
                       bapers.setPanelReport("card4");
-                      jdbc.displayIndividualJobReport(IndividualJobReportTable);
+                    
+                  }catch (Exception ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              }
+              if(e.getActionCommand().contains("Generate Summary Performance")){
+                  try{
+                      bapers.setPanelReport("card5");
+                    
                   }catch (Exception ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }

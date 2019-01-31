@@ -278,7 +278,7 @@ public class Jdbc {
     
     
     
-    public boolean retrieveStaff(String staffname) throws SQLException{
+    public boolean retrieveStaff(String dateTo,String dateEnd,String staffname) throws SQLException{
         
     Statement st = null;
     ResultSet rs = null;
@@ -291,12 +291,14 @@ public class Jdbc {
 "inner join task t on st.Task_TaskId = t.TaskID\n" +
 "inner join job_has_task jt on t.TaskID = jt.Task_TaskID\n" +
 "inner join job j on jt.Job_JobNo = j.JobNo\n" +
-"where j.JobDate between '2017-01-01' and '2018-05-01' and jt.CompletedBy = ?\n" +
+"where j.JobDate between ? and ? and jt.CompletedBy = ?\n" +
 "group by jt.CompletedBy, JobCode, t.TaskID ";
             
     
     pst = conn.prepareStatement(sql);
-    pst.setString(1, staffname);
+    pst.setString(1, dateTo);
+    pst.setString(2,dateEnd);
+    pst.setString(3, staffname);
     
     rs = pst.executeQuery();
         if(rs.next())
@@ -323,11 +325,12 @@ public class Jdbc {
 "inner join customer c on j.Customer_CustomerID = c.CustomerID\n" +
 "inner join job_has_task jt on j.JobNo = jt.Job_JobNo\n" +
 "inner join task t on t.TaskID = jt.Task_TaskID\n" +
-"where j.JobDate between '2017-01-01' and '2018-05-01' and c.AccountNo=?";
+"where j.JobDate between  '2017-01-01' and '2018-05-01' and c.AccountNo=?";
             
     
     pst = conn.prepareStatement(sql);
     pst.setString(1, accountNumber);
+   
     
     rs = pst.executeQuery();
         if(rs.next())
@@ -688,7 +691,7 @@ public class Jdbc {
             IndividualPerformanceReport ipr;
             
             while(rs.next()){
-                ipr = new IndividualPerformanceReport(rs.getString("Staff"),rs.getString("Job Code"),rs.getInt("t.TaskID"),rs.getString("Department"),rs.getDate("Date"),rs.getString("Start Time"),rs.getInt("Time Taken"),rs.getInt("sum(jt.TimeTaken)"));
+                ipr = new IndividualPerformanceReport(rs.getString("Staff"),rs.getString("Job Code"),rs.getInt("t.TaskID"),rs.getString("Department"),rs.getString("Date"),rs.getString("Start Time"),rs.getInt("Time Taken"),rs.getInt("sum(jt.TimeTaken)"));
                 individualPerformanceList  .add(ipr);
                 
             }
@@ -700,6 +703,7 @@ public class Jdbc {
         return individualPerformanceList;
     } 
     
+        
     public ArrayList<IndividualJobReport> individualJobList(){
         
     ArrayList<IndividualJobReport> individualJobList = new ArrayList<>();
@@ -780,7 +784,7 @@ public class Jdbc {
                 
             }
             
-            
+                
         } catch (Exception ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1136,7 +1140,7 @@ public class Jdbc {
          }
     }
     
-    public void displayIndividualPerformanceReport(JTable individualPerformanceReportTable,String staffName){
+    public void displayIndividualPerformanceReport(JTable individualPerformanceReportTable,String staffName,String dateFrom,String dateEnd){
               System.out.println("Display jobHasTask");
         ArrayList <IndividualPerformanceReport> list = individualPerformanceList();
         
@@ -1146,6 +1150,9 @@ public class Jdbc {
         
          for(int i = 0;i<list.size();i++){
         if(list.get(i).getName().contains(staffName)){
+            if(list.get(i).getDate().contains(dateFrom)){
+            if(list.get(i).getDate().contains(dateEnd)) {   
+            
              row[0]=list.get(i).getName();
              row[1]=list.get(i).getCode();
              row[2]=list.get(i).getTaskID();
@@ -1159,8 +1166,8 @@ public class Jdbc {
              model.addRow(row);
              
          }
-        
-        
+            }
+        }
     }
     
     }

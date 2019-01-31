@@ -216,11 +216,7 @@ public class Controller {
                     bapers.setPanelJob("jobTasks");
                     model.setRowCount(0);
                      jdbc.displayJobTask(jobTasksTable,selectedRow );
-                                   
-                              
-                     
-                     
-                     
+                       
                      
                     }
             }
@@ -834,9 +830,9 @@ public class Controller {
               
               if(e.getActionCommand().contains("Search")){
                   try{
-                      if(jdbc.retrieveStaff(bapers.getStaffNameReport().getText())==true){
+                      if(jdbc.retrieveStaff(bapers.getStaffNameReport().getText(),bapers.getDateSearchTo().getText(),bapers.getDateSearchEnd().getText())==true){
                           model.setRowCount(0);
-                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable,bapers.getStaffNameReport().getText());
+                      jdbc.displayIndividualPerformanceReport(IndividualPerformanceReportTable,bapers.getStaffNameReport().getText(),bapers.getDateSearchTo().getText(),bapers.getDateSearchEnd().getText());
                       }else{
                           final JPanel panel = new JPanel();
 

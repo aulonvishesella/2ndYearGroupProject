@@ -17,13 +17,13 @@ public class IndividualPerformanceReport {
     private String code;
     private int taskID;
     private String department;
-    private Date date;
+    private String date;
     private String startTime;
     private int timeTaken;
     private int sum;
     
     
-    public IndividualPerformanceReport(String name,String code,int taskID, String department,Date date, String startTime,int timeTaken,int sum){
+    public IndividualPerformanceReport(String name,String code,int taskID, String department,String date, String startTime,int timeTaken,int sum){
         this.name=name;
         this.code=code;
         this.taskID=taskID;
@@ -50,7 +50,7 @@ public class IndividualPerformanceReport {
         return department;
     }
     
-    public Date getDate(){
+    public String getDate(){
         return date;
     }
     

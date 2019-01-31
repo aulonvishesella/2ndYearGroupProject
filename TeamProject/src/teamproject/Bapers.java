@@ -48,7 +48,7 @@ public class Bapers extends javax.swing.JFrame {
     private CardLayout paymentCard;
     private CardLayout adminCard;
     private CardLayout reportCard;
-     private String path="null";
+    private String path="null";
     private String fileName;
     
     
@@ -56,7 +56,7 @@ public class Bapers extends javax.swing.JFrame {
     public Bapers() {
         initComponents();
         this.setTitle("Bapers System");
-        
+            
          CardLayout card = (CardLayout)mainPanel.getLayout();
          this.card = card;
          
@@ -284,6 +284,8 @@ public class Bapers extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         allStaffIndividualPerformanceReport = new javax.swing.JButton();
         printReport = new javax.swing.JButton();
+        dateSearchTo = new javax.swing.JTextField();
+        dateSearchFrom = new javax.swing.JTextField();
         individualJobReport = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -2006,6 +2008,11 @@ public class Bapers extends javax.swing.JFrame {
                 hideName(evt);
             }
         });
+        searchCustomerText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerTextActionPerformed(evt);
+            }
+        });
 
         individualPerformanceReportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2035,6 +2042,10 @@ public class Bapers extends javax.swing.JFrame {
             }
         });
 
+        dateSearchTo.setText("YYYY-MM-DD");
+
+        dateSearchFrom.setText("YYYY-MM-DD");
+
         javax.swing.GroupLayout individualPerformanceReportLayout = new javax.swing.GroupLayout(individualPerformanceReport);
         individualPerformanceReport.setLayout(individualPerformanceReportLayout);
         individualPerformanceReportLayout.setHorizontalGroup(
@@ -2057,7 +2068,11 @@ public class Bapers extends javax.swing.JFrame {
                         .addComponent(searchNameReport))
                     .addGroup(individualPerformanceReportLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(dateSearchTo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(dateSearchFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(individualPerformanceReportLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(allStaffIndividualPerformanceReport)
@@ -2075,7 +2090,10 @@ public class Bapers extends javax.swing.JFrame {
                     .addComponent(jLabel28)
                     .addComponent(jLabel29))
                 .addGap(50, 50, 50)
-                .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(individualPerformanceReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchCustomerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateSearchTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateSearchFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchNameReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3572,6 +3590,10 @@ if(ok){
     }
 } // TODO add your handling // TODO add your handling code here:
     }//GEN-LAST:event_printsummaryreportActionPerformed
+
+    private void searchCustomerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCustomerTextActionPerformed
         
     /**
      * @param args the command line arguments
@@ -3669,6 +3691,8 @@ if(ok){
     private javax.swing.JPanel customers1;
     private javax.swing.JLabel dateLabel1;
     private javax.swing.JTextField dateOfBirthTextField1;
+    private javax.swing.JTextField dateSearchFrom;
+    private javax.swing.JTextField dateSearchTo;
     private javax.swing.JButton deleteAccount;
     private javax.swing.JButton deleteCustomerBtn;
     private javax.swing.JButton deleteJob;
@@ -4366,6 +4390,16 @@ if(ok){
     void IndividualPerformanceReport(Controller.IndividualPerformanceReport ipr){
         searchNameReport.addActionListener(ipr);
         allStaffIndividualPerformanceReport.addActionListener(ipr);
+        dateSearchTo.addActionListener(ipr);
+        dateSearchFrom.addActionListener(ipr);
+    }
+    
+    public JTextField getDateSearchTo(){
+        return dateSearchTo;
+    }
+    
+    public JTextField getDateSearchEnd(){
+        return dateSearchFrom;
     }
     
     public JTextField getStaffNameReport(){

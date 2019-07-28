@@ -3,6 +3,9 @@ Development of a system that will monitor customer photography prints. Both cust
 
 # What I learnt
 -> Fetch data from database (MySQL) for operations such as login verifications, tasks updates and many more
+
 -> Applying access controls for staff depending on position of the role
+ 
 -> Discount application for loyal customers
+ 
 -> Completing a project using agile framework Scrum

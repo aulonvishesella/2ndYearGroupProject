@@ -1,12 +1,10 @@
 # Project Description
-Development of a system that will monitor requests of customer photography prints, tracking each status per customer print. Each employee had a specific log-in with their own respective access control – depending on heirachy of position. New employees and customers were able to be added onto the database. Customers were able to log in and track the status of their order.
+Development of a task managment system
 
 # What I learnt
--> Fetch data from database (MySQL) for operations such as adding new customers onto the database, login verification, task status and so on
+-> Experimenting with JDBC to establish a connection between MySQL database and NetBeans IDE; to send queries and update statements to the database, and retrieve results for queries made to the database
 
--> Applying access control
- 
--> Discount application 
+-> Applying the role based access control technique
  
 -> Completing a project using agile framework Scrum
 

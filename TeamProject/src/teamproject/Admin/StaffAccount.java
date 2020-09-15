@@ -7,7 +7,7 @@ package teamproject.Admin;
 
 /**
  *
- * @author Ardit
+ * @author Aulon
  */
 public class StaffAccount {
     private int staffID;

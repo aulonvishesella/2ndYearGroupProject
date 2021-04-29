@@ -7,7 +7,7 @@ package teamproject.Tasks;
 
 /**
  *
- * @author Ardit
+ * @author Aulon
  */
 public class Task {
     private int taskID;

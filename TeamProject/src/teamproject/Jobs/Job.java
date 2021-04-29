@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Ardit
+ * @author Aulon
  */
 public class Job {
     private int jobNo;

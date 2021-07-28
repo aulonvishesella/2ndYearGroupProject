@@ -5,7 +5,7 @@ A team based project during the second year of my undergraduate studies. The con
 
 # What I learnt
 * Completing a project using agile framework
-* using the JDBC API with our MySQL to access and update any relevant data
+* Using the JDBC API with our MySQL to access and update any relevant data
 
 
 
